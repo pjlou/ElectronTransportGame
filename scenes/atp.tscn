@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://bj8ylj3vkk2qb"]
+
+[ext_resource type="Script" path="res://scripts/atp.gd" id="1_o6i52"]
+[ext_resource type="Script" path="res://scripts/unguidedDragScript.gd" id="2_e5ehx"]
+[ext_resource type="Texture2D" uid="uid://d0ae3p848lnqt" path="res://assets/art/atp-copy-Sheet.png" id="3_1p54l"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x06px"]
+radius = 96.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1pj18"]
+atlas = ExtResource("3_1p54l")
+region = Rect2(0, 0, 250, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_icvdn"]
+atlas = ExtResource("3_1p54l")
+region = Rect2(250, 0, 250, 250)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ralse"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1pj18")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_icvdn")
+}],
+"loop": true,
+"name": &"atp_idle",
+"speed": 5.0
+}]
+
+[node name="Atp" type="Node2D"]
+position = Vector2(1496, 656)
+script = ExtResource("1_o6i52")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_e5ehx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_x06px")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+sprite_frames = SubResource("SpriteFrames_ralse")
+animation = &"atp_idle"
+autoplay = "atp_idle"
+frame_progress = 0.187957

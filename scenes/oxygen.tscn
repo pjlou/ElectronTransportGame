@@ -1,0 +1,59 @@
+[gd_scene load_steps=10 format=3 uid="uid://djwraco4dxbp1"]
+
+[ext_resource type="Script" path="res://scripts/oxygen.gd" id="1_k4dgb"]
+[ext_resource type="Script" path="res://scripts/unguidedDragScript.gd" id="2_k5jmp"]
+[ext_resource type="Texture2D" uid="uid://cda1ctqrl0q7f" path="res://assets/art/oxygen-copy-Sheet.png" id="3_elduy"]
+[ext_resource type="Script" path="res://scripts/oxygen_tracking.gd" id="4_j1gqi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eemw4"]
+radius = 24.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nnncm"]
+atlas = ExtResource("3_elduy")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2c6tl"]
+atlas = ExtResource("3_elduy")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_73cpl"]
+atlas = ExtResource("3_elduy")
+region = Rect2(100, 0, 50, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bppk8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nnncm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2c6tl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_73cpl")
+}],
+"loop": true,
+"name": &"oxygen_idle",
+"speed": 5.0
+}]
+
+[node name="Oxygen" type="Node2D"]
+script = ExtResource("1_k4dgb")
+
+[node name="DraggingArea2D" type="Area2D" parent="."]
+script = ExtResource("2_k5jmp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DraggingArea2D"]
+shape = SubResource("CircleShape2D_eemw4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DraggingArea2D"]
+sprite_frames = SubResource("SpriteFrames_bppk8")
+animation = &"oxygen_idle"
+autoplay = "oxygen_idle"
+frame_progress = 0.335744
+
+[node name="TrackingArea2D" type="Area2D" parent="DraggingArea2D"]
+script = ExtResource("4_j1gqi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DraggingArea2D/TrackingArea2D"]
+shape = SubResource("CircleShape2D_eemw4")

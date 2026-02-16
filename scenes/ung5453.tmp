@@ -1,0 +1,222 @@
+[gd_scene load_steps=26 format=3 uid="uid://bocxsb0hq60gu"]
+
+[ext_resource type="Texture2D" uid="uid://3a2dl5nkqccg" path="res://assets/art/bkgrnd1.png" id="1_4cvqq"]
+[ext_resource type="Script" path="res://scripts/unguidedMode.gd" id="1_jltc1"]
+[ext_resource type="Texture2D" uid="uid://bislb0op82f72" path="res://assets/art/bkgrnd-Sheet.png" id="2_0wk7v"]
+[ext_resource type="Script" path="res://scripts/flashcard_manager.gd" id="4_akusj"]
+[ext_resource type="Texture2D" uid="uid://drehngs86y2bp" path="res://assets/art/inmembranewallround.png" id="5_q87lr"]
+[ext_resource type="Texture2D" uid="uid://g753vo5ugcje" path="res://assets/art/miti.png" id="7_anx1e"]
+[ext_resource type="Script" path="res://scripts/protein_complex_i.gd" id="8_5eevf"]
+[ext_resource type="Texture2D" uid="uid://11n6iyl5jpru" path="res://assets/art/complex1-copy.png" id="9_c6qwy"]
+[ext_resource type="Script" path="res://scripts/protein_complex_ii.gd" id="9_cx4hv"]
+[ext_resource type="Texture2D" uid="uid://b7ff5st7n1b0w" path="res://assets/art/complex2.png" id="9_ul52o"]
+[ext_resource type="Script" path="res://scripts/protein_complex_iii.gd" id="11_hx2s7"]
+[ext_resource type="Texture2D" uid="uid://blpaf2iqwfcgm" path="res://assets/art/complex3.png" id="11_of3fh"]
+[ext_resource type="Texture2D" uid="uid://idanu5gblvhn" path="res://assets/art/pfadp.png" id="12_5gvyk"]
+[ext_resource type="Texture2D" uid="uid://parc1vr01wgk" path="res://assets/art/atpSyn.png" id="13_2voeu"]
+[ext_resource type="Script" path="res://scripts/intermembrane_space.gd" id="15_cllvv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7svfw"]
+atlas = ExtResource("2_0wk7v")
+region = Rect2(0, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqcjb"]
+atlas = ExtResource("2_0wk7v")
+region = Rect2(0, 1080, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmsta"]
+atlas = ExtResource("2_0wk7v")
+region = Rect2(0, 2160, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qypjg"]
+atlas = ExtResource("2_0wk7v")
+region = Rect2(0, 3240, 1920, 1080)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uy2s8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7svfw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqcjb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lmsta")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qypjg")
+}],
+"loop": true,
+"name": &"backgournd_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_126kl"]
+radius = 86.0
+height = 186.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qinth"]
+radius = 78.0
+height = 186.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ah78x"]
+radius = 66.0275
+height = 150.051
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xe050"]
+radius = 78.0
+height = 232.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_snbww"]
+size = Vector2(1920, 297)
+
+[node name="UnguidedMode" type="Node2D"]
+script = ExtResource("1_jltc1")
+
+[node name="Bkgrnd1" type="Sprite2D" parent="."]
+position = Vector2(961, 543)
+texture = ExtResource("1_4cvqq")
+
+[node name="BackgroundAnimation" type="AnimatedSprite2D" parent="Bkgrnd1"]
+sprite_frames = SubResource("SpriteFrames_uy2s8")
+animation = &"backgournd_animation"
+autoplay = "backgournd_animation"
+frame = 3
+frame_progress = 0.629593
+
+[node name="nadh_timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="fadh2_timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(1435.32, 153.741)
+
+[node name="Control" type="Control" parent="Node2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -154.0
+offset_top = -76.0
+offset_right = 254.0
+offset_bottom = 182.0
+script = ExtResource("4_akusj")
+
+[node name="QuestionLabel" type="Label" parent="Node2D/Control"]
+layout_mode = 0
+offset_left = -4.0
+offset_top = 10.0
+offset_right = 600.0
+offset_bottom = 249.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Node2D/Control"]
+layout_mode = 0
+offset_left = 154.0
+offset_top = 74.0
+offset_right = 578.0
+offset_bottom = 120.0
+
+[node name="AnswerA" type="Button" parent="Node2D/Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="AnswerB" type="Button" parent="Node2D/Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="AnswerC" type="Button" parent="Node2D/Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="AnswerD" type="Button" parent="Node2D/Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="RefreshFlash" type="Button" parent="Node2D/Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="ScoreLabel" type="Label" parent="Node2D/Control"]
+layout_mode = 0
+offset_left = -1070.0
+offset_top = 34.0
+offset_right = -564.0
+offset_bottom = 127.0
+
+[node name="IntermembraneSprite" type="Sprite2D" parent="."]
+position = Vector2(957, 433)
+scale = Vector2(6.0625, 1.71875)
+texture = ExtResource("5_q87lr")
+
+[node name="MitochondrialMatrix" type="Sprite2D" parent="."]
+position = Vector2(963.127, 905.656)
+rotation = -3.14599
+scale = Vector2(6.09202, 1.31214)
+texture = ExtResource("7_anx1e")
+
+[node name="ProteinComplexI" type="Area2D" parent="."]
+script = ExtResource("8_5eevf")
+
+[node name="CollisionShape2DPCI" type="CollisionShape2D" parent="ProteinComplexI"]
+position = Vector2(314, 707)
+shape = SubResource("CapsuleShape2D_126kl")
+
+[node name="Sprite2D" type="Sprite2D" parent="ProteinComplexI"]
+position = Vector2(327, 707)
+scale = Vector2(0.523437, 0.514063)
+texture = ExtResource("9_c6qwy")
+
+[node name="ProteinComplexII" type="Area2D" parent="."]
+script = ExtResource("9_cx4hv")
+
+[node name="CollisionShape2DPCII" type="CollisionShape2D" parent="ProteinComplexII"]
+position = Vector2(630, 715)
+shape = SubResource("CapsuleShape2D_126kl")
+
+[node name="Sprite2D" type="Sprite2D" parent="ProteinComplexII"]
+position = Vector2(633, 710)
+scale = Vector2(0.560156, 0.53125)
+texture = ExtResource("9_ul52o")
+
+[node name="ProteinComplexIII" type="Area2D" parent="."]
+script = ExtResource("11_hx2s7")
+
+[node name="CollisionShape2DPCIII" type="CollisionShape2D" parent="ProteinComplexIII"]
+position = Vector2(956, 701)
+shape = SubResource("CapsuleShape2D_qinth")
+
+[node name="Sprite2D" type="Sprite2D" parent="ProteinComplexIII"]
+position = Vector2(950, 695)
+scale = Vector2(0.551563, 0.484375)
+texture = ExtResource("11_of3fh")
+
+[node name="CytochromeC" type="Area2D" parent="."]
+
+[node name="CollisionShape2DCC" type="CollisionShape2D" parent="CytochromeC"]
+position = Vector2(1230, 653)
+rotation = 1.59177
+shape = SubResource("CapsuleShape2D_ah78x")
+
+[node name="Sprite2D" type="Sprite2D" parent="CytochromeC"]
+position = Vector2(1229, 654)
+scale = Vector2(0.48125, 0.64375)
+texture = ExtResource("12_5gvyk")
+
+[node name="ATPSyn" type="Area2D" parent="."]
+
+[node name="CollisionShape2DATPSyn" type="CollisionShape2D" parent="ATPSyn"]
+position = Vector2(1578, 704)
+shape = SubResource("CapsuleShape2D_xe050")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ATPSyn"]
+position = Vector2(1576, 707)
+scale = Vector2(0.70625, 0.7)
+texture = ExtResource("13_2voeu")
+
+[node name="IntermembraneSpaceArea2D" type="Area2D" parent="."]
+script = ExtResource("15_cllvv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IntermembraneSpaceArea2D"]
+position = Vector2(960, 548.5)
+shape = SubResource("RectangleShape2D_snbww")
+
+[connection signal="timeout" from="nadh_timer" to="." method="_on_nadh_timer_timeout"]
+[connection signal="timeout" from="fadh2_timer" to="." method="_on_fadh2_timer_timeout"]

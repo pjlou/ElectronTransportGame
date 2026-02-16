@@ -1,0 +1,4 @@
+Our final step takes us to the ATP Synthase. The high concentration of Protons the process has made sitting in the innermembrane space
+now wants to go down the concentration gradiant. The channel open to them is through ATP Synthase.
+As the Hydrogen ions move down through ATP Synthase, it will physically begin to spin the protons.
+This process of spinning catalyzes the phosphorylation of Phosphate and ADP to create the one and only: ATP!

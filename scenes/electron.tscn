@@ -1,0 +1,59 @@
+[gd_scene load_steps=10 format=3 uid="uid://c3d44kdlmrxo8"]
+
+[ext_resource type="Script" path="res://scripts/unguidedDragScript.gd" id="1_id4bk"]
+[ext_resource type="Script" path="res://scripts/electron.gd" id="1_wscw1"]
+[ext_resource type="Texture2D" uid="uid://vcvdtslehvm5" path="res://assets/art/electron-copy-Sheet.png" id="2_f3v02"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_88bcv"]
+radius = 28.6575
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bgf8f"]
+atlas = ExtResource("2_f3v02")
+region = Rect2(0, 66, 83, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55oyu"]
+atlas = ExtResource("2_f3v02")
+region = Rect2(83, 0, 83, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d1gu0"]
+atlas = ExtResource("2_f3v02")
+region = Rect2(166, 66, 83, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87725"]
+atlas = ExtResource("2_f3v02")
+region = Rect2(83, 132, 83, 66)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hapd8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bgf8f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_55oyu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d1gu0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87725")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Electron" type="Node2D"]
+script = ExtResource("1_wscw1")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("1_id4bk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1.5, 0)
+shape = SubResource("CircleShape2D_88bcv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+sprite_frames = SubResource("SpriteFrames_hapd8")
+autoplay = "default"
+frame_progress = 0.936079

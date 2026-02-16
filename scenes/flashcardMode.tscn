@@ -1,0 +1,230 @@
+[gd_scene load_steps=16 format=3 uid="uid://bgtq2uwrldo54"]
+
+[ext_resource type="Texture2D" uid="uid://3a2dl5nkqccg" path="res://assets/art/bkgrnd1.png" id="1_qwjeo"]
+[ext_resource type="Texture2D" uid="uid://ekcq4006xf42" path="res://assets/art/bkgrnd2.png" id="2_70d0w"]
+[ext_resource type="Texture2D" uid="uid://bc8mckniiv2fx" path="res://assets/art/bkgrnd3.png" id="3_xhx0m"]
+[ext_resource type="Texture2D" uid="uid://cta1bxeumk7cf" path="res://assets/art/bkgrnd4.png" id="4_7frys"]
+[ext_resource type="FontFile" uid="uid://be215ewpt8022" path="res://assets/fonts/PressStart2P-vaV7.ttf" id="5_yfwk6"]
+[ext_resource type="StyleBox" uid="uid://dyqk1y387jthj" path="res://assets/art/hoverButton.tres" id="6_bjvma"]
+[ext_resource type="StyleBox" uid="uid://ctcomgtmjcv4r" path="res://assets/art/pressedButton.tres" id="7_stv62"]
+[ext_resource type="StyleBox" uid="uid://c1itffj143mgb" path="res://assets/art/Button.tres" id="8_761wl"]
+[ext_resource type="StyleBox" uid="uid://cstq4423423bp" path="res://assets/art/stylizedBox.tres" id="10_n4u7n"]
+[ext_resource type="Texture2D" uid="uid://cfdf743crk4c" path="res://assets/art/mascotReg.png" id="11_ho8pb"]
+[ext_resource type="Script" path="res://scripts/flashcard_manager.gd" id="13_flashcard_manager"]
+[ext_resource type="Texture2D" uid="uid://0bptqtncg5dh" path="res://assets/art/mascotGood.png" id="14_mascot_good"]
+[ext_resource type="Texture2D" uid="uid://uvumc6sgqkd" path="res://assets/art/mascotBad.png" id="15_mascot_bad"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7vrav"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_qwjeo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_70d0w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xhx0m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7frys")
+}],
+"loop": true,
+"name": &"bkgrnd",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5awwq"]
+
+[node name="FlashcardMode" type="Node2D"]
+script = ExtResource("13_flashcard_manager")
+
+[node name="animatedBackground" type="AnimatedSprite2D" parent="."]
+position = Vector2(958, 540)
+scale = Vector2(0.997396, 1)
+sprite_frames = SubResource("SpriteFrames_7vrav")
+animation = &"bkgrnd"
+
+[node name="menuButton" type="Button" parent="animatedBackground"]
+anchors_preset = -1
+anchor_left = 0.46986
+anchor_top = 0.5
+anchor_right = 0.46986
+anchor_bottom = 0.5
+offset_left = -371.23
+offset_top = -102.0
+offset_right = 57.7695
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0.290196, 0.678431, 1)
+theme_override_fonts/font = ExtResource("5_yfwk6")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = ExtResource("6_bjvma")
+theme_override_styles/pressed = ExtResource("7_stv62")
+theme_override_styles/normal = ExtResource("8_761wl")
+text = "<- Menu"
+metadata/_edit_use_anchors_ = true
+
+[node name="answer1" type="Button" parent="animatedBackground"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.505
+anchor_bottom = 0.5
+offset_left = -1755.07
+offset_top = -526.0
+offset_right = -1066.67
+offset_bottom = -326.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0.290196, 0.678431, 1)
+theme_override_fonts/font = ExtResource("5_yfwk6")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = ExtResource("6_bjvma")
+theme_override_styles/pressed = ExtResource("7_stv62")
+theme_override_styles/normal = ExtResource("10_n4u7n")
+text = "answer1"
+autowrap_mode = 3
+
+[node name="answer2" type="Button" parent="animatedBackground"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.505
+anchor_bottom = 0.5
+offset_left = -1037.2
+offset_top = -524.0
+offset_right = -348.801
+offset_bottom = -324.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0.290196, 0.678431, 1)
+theme_override_fonts/font = ExtResource("5_yfwk6")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = ExtResource("6_bjvma")
+theme_override_styles/pressed = ExtResource("7_stv62")
+theme_override_styles/normal = ExtResource("10_n4u7n")
+text = "answer2"
+autowrap_mode = 3
+
+[node name="answer3" type="Button" parent="animatedBackground"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.505
+anchor_bottom = 0.5
+offset_left = -1756.07
+offset_top = -312.0
+offset_right = -1067.68
+offset_bottom = -112.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0.290196, 0.678431, 1)
+theme_override_fonts/font = ExtResource("5_yfwk6")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = ExtResource("6_bjvma")
+theme_override_styles/pressed = ExtResource("7_stv62")
+theme_override_styles/normal = ExtResource("10_n4u7n")
+text = "answer3"
+autowrap_mode = 3
+
+[node name="answer4" type="Button" parent="animatedBackground"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.505
+anchor_bottom = 0.5
+offset_left = -1036.2
+offset_top = -311.0
+offset_right = -347.798
+offset_bottom = -111.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0.290196, 0.678431, 1)
+theme_override_fonts/font = ExtResource("5_yfwk6")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = ExtResource("6_bjvma")
+theme_override_styles/pressed = ExtResource("7_stv62")
+theme_override_styles/normal = ExtResource("10_n4u7n")
+text = "answer4"
+autowrap_mode = 3
+
+[node name="questionPanel" type="Panel" parent="animatedBackground"]
+anchors_preset = -1
+anchor_right = 0.994
+anchor_bottom = 1.0
+offset_left = -800.083
+offset_top = -499.0
+offset_right = -1280.56
+offset_bottom = -1075.0
+theme_override_styles/panel = ExtResource("10_n4u7n")
+
+[node name="questionLabel" type="Label" parent="animatedBackground/questionPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.015
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 38.0996
+offset_top = 32.44
+offset_right = -33.9004
+offset_bottom = -192.0
+theme_override_colors/font_color = Color(0, 0.290196, 0.678431, 1)
+theme_override_fonts/font = ExtResource("5_yfwk6")
+theme_override_font_sizes/font_size = 50
+text = "question:"
+autowrap_mode = 3
+
+[node name="RefreshFlash" type="Button" parent="animatedBackground/questionPanel"]
+layout_mode = 0
+offset_left = -145.379
+offset_top = 939.0
+offset_right = 198.621
+offset_bottom = 1037.0
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0.290196, 0.678431, 1)
+theme_override_fonts/font = ExtResource("5_yfwk6")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/hover = ExtResource("6_bjvma")
+theme_override_styles/pressed = ExtResource("7_stv62")
+theme_override_styles/normal = ExtResource("8_761wl")
+text = "Refresh Flashcards"
+
+[node name="ScoreLabel" type="Label" parent="animatedBackground/questionPanel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="leaderboardMascotHolder" type="PanelContainer" parent="animatedBackground"]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.007
+offset_left = -703.833
+offset_top = -220.0
+offset_right = -2398.83
+offset_bottom = -1099.56
+theme_override_styles/panel = SubResource("StyleBoxEmpty_5awwq")
+
+[node name="MascotReg" type="Sprite2D" parent="animatedBackground/leaderboardMascotHolder"]
+position = Vector2(-178.464, -36)
+scale = Vector2(0.451012, 0.551562)
+texture = ExtResource("11_ho8pb")
+
+[node name="mascotGood" type="Sprite2D" parent="animatedBackground/leaderboardMascotHolder"]
+position = Vector2(-184.48, 469)
+scale = Vector2(0.451632, 0.580469)
+texture = ExtResource("14_mascot_good")
+
+[node name="mascotBad" type="Sprite2D" parent="animatedBackground/leaderboardMascotHolder"]
+position = Vector2(-178.464, 208)
+scale = Vector2(0.441123, 0.579687)
+texture = ExtResource("15_mascot_bad")
+
+[connection signal="pressed" from="animatedBackground/menuButton" to="." method="_on_menu_button_pressed"]

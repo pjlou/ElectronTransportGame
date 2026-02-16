@@ -1,0 +1,63 @@
+[gd_scene load_steps=10 format=3 uid="uid://bfjr2kag7cocp"]
+
+[ext_resource type="Script" path="res://scripts/unguidedDragScript.gd" id="1_70vt5"]
+[ext_resource type="Texture2D" uid="uid://8a7y05slacgt" path="res://assets/art/P_Power-Sheet.png" id="1_nvibo"]
+[ext_resource type="Script" path="res://scripts/phosphate_tracking.gd" id="3_iqf7x"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6xbn6"]
+radius = 24.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0uqo"]
+atlas = ExtResource("1_nvibo")
+region = Rect2(0, 0, 57, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2lyor"]
+atlas = ExtResource("1_nvibo")
+region = Rect2(57, 0, 57, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t37qx"]
+atlas = ExtResource("1_nvibo")
+region = Rect2(114, 0, 57, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05wy3"]
+atlas = ExtResource("1_nvibo")
+region = Rect2(171, 0, 57, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8rgb7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p0uqo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2lyor")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t37qx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_05wy3")
+}],
+"loop": true,
+"name": &"phosphate_idle",
+"speed": 5.0
+}]
+
+[node name="Phosphate" type="Node2D"]
+
+[node name="DraggingArea2D" type="Area2D" parent="."]
+script = ExtResource("1_70vt5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DraggingArea2D"]
+shape = SubResource("CircleShape2D_6xbn6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DraggingArea2D"]
+sprite_frames = SubResource("SpriteFrames_8rgb7")
+animation = &"phosphate_idle"
+frame_progress = 0.339038
+
+[node name="TrackingArea2D" type="Area2D" parent="DraggingArea2D"]
+script = ExtResource("3_iqf7x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DraggingArea2D/TrackingArea2D"]
+shape = SubResource("CircleShape2D_6xbn6")

@@ -1,0 +1,130 @@
+[gd_scene load_steps=13 format=3 uid="uid://dqb6nkgdjedn1"]
+
+[ext_resource type="Script" path="res://scripts/startScreen.gd" id="1_1jmj7"]
+[ext_resource type="Texture2D" uid="uid://3a2dl5nkqccg" path="res://assets/art/bkgrnd1.png" id="1_hscec"]
+[ext_resource type="FontFile" uid="uid://be215ewpt8022" path="res://assets/fonts/PressStart2P-vaV7.ttf" id="2_e5ycx"]
+[ext_resource type="Texture2D" uid="uid://dvg8q0u05hqp6" path="res://assets/art/whatp.png" id="3_pppee"]
+[ext_resource type="StyleBox" uid="uid://dyqk1y387jthj" path="res://assets/art/hoverButton.tres" id="4_ybfi8"]
+[ext_resource type="Texture2D" uid="uid://wrhj7mp8n5ge" path="res://assets/art/atp.png" id="4_ysvwi"]
+[ext_resource type="StyleBox" uid="uid://ctcomgtmjcv4r" path="res://assets/art/pressedButton.tres" id="5_0sqa5"]
+[ext_resource type="Texture2D" uid="uid://cmov61eyddq58" path="res://assets/art/circle.png" id="5_580sa"]
+[ext_resource type="StyleBox" uid="uid://c1itffj143mgb" path="res://assets/art/Button.tres" id="6_aqrtf"]
+[ext_resource type="Texture2D" uid="uid://ck0re3q1oq06n" path="res://assets/art/HIons.png" id="6_ho7x0"]
+[ext_resource type="Texture2D" uid="uid://4j0wv7ilgm5s" path="res://assets/art/arrow.png" id="7_aalga"]
+[ext_resource type="Script" path="res://pause.gd" id="9_bx3jd"]
+
+[node name="StartScreen" type="Node2D"]
+script = ExtResource("1_1jmj7")
+
+[node name="Bkgrnd1" type="Sprite2D" parent="."]
+position = Vector2(961, 543)
+texture = ExtResource("1_hscec")
+
+[node name="titleText" type="Label" parent="Bkgrnd1"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -1860.0
+offset_top = -402.0
+offset_right = -60.0
+offset_bottom = -199.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.290196, 0.678431, 1)
+theme_override_colors/font_outline_color = Color(0, 0.290196, 0.678431, 1)
+theme_override_constants/line_spacing = 25
+theme_override_constants/outline_size = 40
+theme_override_fonts/font = ExtResource("2_e5ycx")
+theme_override_font_sizes/font_size = 100
+text = "Electron Transport 
+Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="startButton" type="Button" parent="Bkgrnd1"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1177.0
+offset_top = -595.0
+offset_right = -748.0
+offset_bottom = -494.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0.290196, 0.678431, 1)
+theme_override_fonts/font = ExtResource("2_e5ycx")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = ExtResource("4_ybfi8")
+theme_override_styles/pressed = ExtResource("5_0sqa5")
+theme_override_styles/normal = ExtResource("6_aqrtf")
+text = "Start"
+
+[node name="quitButton" type="Button" parent="Bkgrnd1"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1177.0
+offset_top = -395.0
+offset_right = -748.0
+offset_bottom = -294.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0.290196, 0.678431, 1)
+theme_override_fonts/font = ExtResource("2_e5ycx")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = ExtResource("4_ybfi8")
+theme_override_styles/pressed = ExtResource("5_0sqa5")
+theme_override_styles/normal = ExtResource("6_aqrtf")
+text = "Quit"
+
+[node name="Whatp" type="Sprite2D" parent="Bkgrnd1"]
+position = Vector2(620, 30)
+scale = Vector2(3.01822, 2.96835)
+texture = ExtResource("3_pppee")
+
+[node name="Atp" type="Sprite2D" parent="Bkgrnd1/Whatp"]
+position = Vector2(-1.65661, -0.336886)
+scale = Vector2(0.55082, 0.549547)
+texture = ExtResource("4_ysvwi")
+
+[node name="Circle" type="Sprite2D" parent="Bkgrnd1/Whatp"]
+position = Vector2(-393.609, 7.41151)
+texture = ExtResource("5_580sa")
+
+[node name="HIons" type="Sprite2D" parent="Bkgrnd1/Whatp"]
+position = Vector2(-393.94, 8.42217)
+scale = Vector2(0.414129, 0.416881)
+texture = ExtResource("6_ho7x0")
+
+[node name="Arrow" type="Sprite2D" parent="Bkgrnd1/Whatp"]
+position = Vector2(-218.672, 84.8955)
+rotation = -0.010472
+scale = Vector2(0.944269, 0.388959)
+texture = ExtResource("7_aalga")
+
+[node name="Pause" type="Control" parent="."]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("9_bx3jd")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Pause"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="Pause/VBoxContainer"]
+layout_mode = 2
+text = "Unpause"
+
+[connection signal="pressed" from="Bkgrnd1/startButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Bkgrnd1/quitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Pause/VBoxContainer/Button" to="Pause" method="_on_button_pressed"]

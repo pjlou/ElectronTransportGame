@@ -1,0 +1,3 @@
+Cytochrome c, located in the innermembrane space, transports the electrons to Complex IV.
+It is here in Complex IV where the donation of electrons once again excites the channel to
+pump more protons into the innermembrane space.

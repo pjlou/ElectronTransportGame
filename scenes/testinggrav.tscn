@@ -1,0 +1,66 @@
+[gd_scene load_steps=10 format=3 uid="uid://dn2wljjkhossf"]
+
+[ext_resource type="Texture2D" uid="uid://3a2dl5nkqccg" path="res://assets/art/bkgrnd1.png" id="1_p3k2l"]
+[ext_resource type="Texture2D" uid="uid://bislb0op82f72" path="res://assets/art/bkgrnd-Sheet.png" id="2_5o4sp"]
+[ext_resource type="Texture2D" uid="uid://b7ff5st7n1b0w" path="res://assets/art/complex2.png" id="3_x0rii"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7svfw"]
+atlas = ExtResource("2_5o4sp")
+region = Rect2(0, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqcjb"]
+atlas = ExtResource("2_5o4sp")
+region = Rect2(0, 1080, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmsta"]
+atlas = ExtResource("2_5o4sp")
+region = Rect2(0, 2160, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qypjg"]
+atlas = ExtResource("2_5o4sp")
+region = Rect2(0, 3240, 1920, 1080)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h87rl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7svfw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqcjb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lmsta")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qypjg")
+}],
+"loop": true,
+"name": &"backgournd_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ip5q"]
+size = Vector2(287, 318)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Bkgrnd1" type="Sprite2D" parent="."]
+position = Vector2(961, 543)
+texture = ExtResource("1_p3k2l")
+
+[node name="BackgroundAnimation" type="AnimatedSprite2D" parent="Bkgrnd1"]
+position = Vector2(0, -3)
+sprite_frames = SubResource("SpriteFrames_h87rl")
+animation = &"backgournd_animation"
+autoplay = "backgournd_animation"
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(697, 337)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(13.5, 1)
+shape = SubResource("RectangleShape2D_2ip5q")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+texture = ExtResource("3_x0rii")

@@ -1,0 +1,514 @@
+[gd_scene load_steps=24 format=3 uid="uid://blovx0h384u0d"]
+
+[ext_resource type="Texture2D" uid="uid://3a2dl5nkqccg" path="res://assets/art/bkgrnd1.png" id="1_doqwy"]
+[ext_resource type="Texture2D" uid="uid://bislb0op82f72" path="res://assets/art/bkgrnd-Sheet.png" id="2_u820j"]
+[ext_resource type="Script" path="res://scripts/basicgrouper.gd" id="3_i6h04"]
+[ext_resource type="Texture2D" uid="uid://b7ff5st7n1b0w" path="res://assets/art/complex2.png" id="3_vmw81"]
+[ext_resource type="Texture2D" uid="uid://dkes6pldv3d7l" path="res://assets/art/complex1.png" id="4_n6w70"]
+[ext_resource type="Texture2D" uid="uid://cviwvycs8ktj" path="res://assets/art/fadh2.png" id="4_oxwfg"]
+[ext_resource type="Texture2D" uid="uid://blpaf2iqwfcgm" path="res://assets/art/complex3.png" id="6_o20tg"]
+[ext_resource type="Texture2D" uid="uid://bal7ooctwkol" path="res://assets/art/cq.png" id="7_i0qjv"]
+[ext_resource type="Texture2D" uid="uid://cfvqs7cfdoq5r" path="res://assets/art/electron.png" id="8_q1o5q"]
+[ext_resource type="Texture2D" uid="uid://ck0re3q1oq06n" path="res://assets/art/HIons.png" id="9_c46p1"]
+[ext_resource type="Script" path="res://scripts/basicdragscript.gd" id="10_f3sp0"]
+[ext_resource type="PackedScene" uid="uid://cymqlfh7j3n4b" path="res://scenes/textbox.tscn" id="12_jum2j"]
+[ext_resource type="Script" path="res://scripts/textboxScripts/TextboxGuided2.gd" id="13_fo2qo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7svfw"]
+atlas = ExtResource("2_u820j")
+region = Rect2(0, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqcjb"]
+atlas = ExtResource("2_u820j")
+region = Rect2(0, 1080, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmsta"]
+atlas = ExtResource("2_u820j")
+region = Rect2(0, 2160, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qypjg"]
+atlas = ExtResource("2_u820j")
+region = Rect2(0, 3240, 1920, 1080)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fxj4e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7svfw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqcjb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lmsta")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qypjg")
+}],
+"loop": true,
+"name": &"backgournd_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sssm4"]
+size = Vector2(289, 319)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h16qw"]
+size = Vector2(84, 76.25)
+
+[sub_resource type="Animation" id="Animation_pfmln"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../FADHB:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../FADHB:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(407, 966)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../HIons5:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../HIons6:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../HIons5:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(680, 1066)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../HIons6:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(708, 1079)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../Electron3:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../Electron4:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../Electron3:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(387, 915)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../Electron4:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(432, 914)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("../HIons7:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1349, 1110)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("../HIons8:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1297, 1127)]
+}
+
+[sub_resource type="Animation" id="Animation_l74u5"]
+resource_name = "donation2"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../FADHB:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 7.03333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../FADHB:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2, 4, 7.03333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(407, 966), Vector2(903, 867), Vector2(903, 867), Vector2(1035, 1147)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../HIons5:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../HIons6:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../HIons5:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(2, 2.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(962, 848), Vector2(1026, 867), Vector2(1446, 872)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../HIons6:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(2, 2.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(960, 893), Vector2(979, 872), Vector2(1404, 905)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../Electron3:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../Electron4:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../Electron3:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 2, 4, 6.03333, 6.56667, 7.03333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(387, 915), Vector2(879, 808), Vector2(879, 808), Vector2(953, 669), Vector2(900, 545), Vector2(916, 419)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../Electron4:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 2, 4, 6.03333, 7.03333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(432, 914), Vector2(928, 807), Vector2(928, 807), Vector2(915, 571), Vector2(987, 424)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("../HIons7:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(3.5, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1349, 1110), Vector2(1451, 941)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("../HIons8:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(3.5, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1297, 1127), Vector2(1404, 985)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qf1p2"]
+_data = {
+"RESET": SubResource("Animation_pfmln"),
+"donation2": SubResource("Animation_l74u5")
+}
+
+[node name="guidedMode2" type="Node2D"]
+
+[node name="Bkgrnd1" type="Sprite2D" parent="."]
+position = Vector2(961, 543)
+texture = ExtResource("1_doqwy")
+
+[node name="BackgroundAnimation" type="AnimatedSprite2D" parent="Bkgrnd1"]
+sprite_frames = SubResource("SpriteFrames_fxj4e")
+animation = &"backgournd_animation"
+autoplay = "backgournd_animation"
+
+[node name="Complex3" type="Sprite2D" parent="."]
+position = Vector2(1473, 549)
+scale = Vector2(1.37188, 1.83281)
+texture = ExtResource("6_o20tg")
+
+[node name="Cq" type="Sprite2D" parent="."]
+position = Vector2(955, 374)
+scale = Vector2(1.10469, 1.44687)
+texture = ExtResource("7_i0qjv")
+
+[node name="Complex1" type="Sprite2D" parent="."]
+position = Vector2(529.125, 446.875)
+scale = Vector2(1.66953, 1.30703)
+texture = ExtResource("4_n6w70")
+
+[node name="HIons" type="Sprite2D" parent="."]
+position = Vector2(670, 170)
+scale = Vector2(0.11875, 0.121875)
+texture = ExtResource("9_c46p1")
+
+[node name="HIons2" type="Sprite2D" parent="."]
+position = Vector2(621, 172)
+scale = Vector2(0.120164, 0.12392)
+texture = ExtResource("9_c46p1")
+
+[node name="HIons3" type="Sprite2D" parent="."]
+position = Vector2(556, 179)
+scale = Vector2(0.132249, 0.12389)
+texture = ExtResource("9_c46p1")
+
+[node name="HIons4" type="Sprite2D" parent="."]
+position = Vector2(502, 187)
+scale = Vector2(0.121851, 0.116616)
+texture = ExtResource("9_c46p1")
+
+[node name="Electron2" type="Sprite2D" parent="."]
+position = Vector2(1000, 350)
+scale = Vector2(0.140625, 0.148438)
+texture = ExtResource("8_q1o5q")
+
+[node name="Electron" type="Sprite2D" parent="."]
+position = Vector2(902, 358)
+scale = Vector2(0.140625, 0.148438)
+texture = ExtResource("8_q1o5q")
+
+[node name="C2" type="RigidBody2D" parent="."]
+position = Vector2(943, 697)
+freeze = true
+script = ExtResource("3_i6h04")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="C2"]
+position = Vector2(21.5, -26.5)
+shape = SubResource("RectangleShape2D_sssm4")
+
+[node name="Complex2" type="Sprite2D" parent="C2"]
+position = Vector2(6, -28)
+texture = ExtResource("3_vmw81")
+
+[node name="FADH" type="RigidBody2D" parent="."]
+position = Vector2(407, 966)
+freeze = true
+script = ExtResource("10_f3sp0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FADH"]
+position = Vector2(-11, -12.125)
+shape = SubResource("RectangleShape2D_h16qw")
+
+[node name="Sprite2D" type="Sprite2D" parent="FADH"]
+position = Vector2(-12.25, -12.25)
+scale = Vector2(0.345312, 0.339062)
+texture = ExtResource("4_oxwfg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FADH"]
+libraries = {
+"": SubResource("AnimationLibrary_qf1p2")
+}
+
+[node name="FADHB" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(407, 966)
+scale = Vector2(0.345312, 0.329687)
+texture = ExtResource("4_oxwfg")
+
+[node name="HIons5" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(680, 1066)
+scale = Vector2(0.11875, 0.121875)
+texture = ExtResource("9_c46p1")
+
+[node name="HIons6" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(708, 1079)
+scale = Vector2(0.120164, 0.12392)
+texture = ExtResource("9_c46p1")
+
+[node name="Electron3" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(387, 915)
+scale = Vector2(0.140625, 0.148438)
+texture = ExtResource("8_q1o5q")
+
+[node name="Electron4" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(432, 914)
+scale = Vector2(0.140625, 0.148438)
+texture = ExtResource("8_q1o5q")
+
+[node name="HIons7" type="Sprite2D" parent="."]
+position = Vector2(1349, 1110)
+scale = Vector2(0.120164, 0.12392)
+texture = ExtResource("9_c46p1")
+
+[node name="HIons8" type="Sprite2D" parent="."]
+position = Vector2(1297, 1127)
+scale = Vector2(0.120164, 0.12392)
+texture = ExtResource("9_c46p1")
+
+[node name="Textbox" parent="." instance=ExtResource("12_jum2j")]
+process_mode = 3
+script = ExtResource("13_fo2qo")

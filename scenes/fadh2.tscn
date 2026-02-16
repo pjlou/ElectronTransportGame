@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://weux2naatqew"]
+
+[ext_resource type="Script" path="res://scripts/unguidedDragScript.gd" id="1_34t3e"]
+[ext_resource type="Script" path="res://scripts/fadh_2.gd" id="1_cwkr0"]
+[ext_resource type="Texture2D" uid="uid://dqep4q81vipq" path="res://assets/art/fadh2 -Sheet.png" id="2_3oesi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wcmmm"]
+size = Vector2(77, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cfnn6"]
+atlas = ExtResource("2_3oesi")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yywhq"]
+atlas = ExtResource("2_3oesi")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_06yhu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cfnn6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yywhq")
+}],
+"loop": true,
+"name": &"fadh2_animation",
+"speed": 5.0
+}]
+
+[node name="Fadh2" type="Node2D"]
+script = ExtResource("1_cwkr0")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("1_34t3e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(8.5, 0)
+shape = SubResource("RectangleShape2D_wcmmm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+sprite_frames = SubResource("SpriteFrames_06yhu")
+animation = &"fadh2_animation"
+autoplay = "fadh2_animation"
+frame_progress = 0.985162

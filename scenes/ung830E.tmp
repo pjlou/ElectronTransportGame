@@ -1,0 +1,105 @@
+[gd_scene load_steps=10 format=3 uid="uid://bocxsb0hq60gu"]
+
+[ext_resource type="Texture2D" uid="uid://3a2dl5nkqccg" path="res://assets/art/bkgrnd1.png" id="1_4cvqq"]
+[ext_resource type="Script" path="res://scripts/unguidedMode.gd" id="1_jltc1"]
+[ext_resource type="Texture2D" uid="uid://bislb0op82f72" path="res://assets/art/bkgrnd-Sheet.png" id="2_0wk7v"]
+[ext_resource type="Script" path="res://scripts/scripts/flashcard_manager.gd" id="4_akusj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7svfw"]
+atlas = ExtResource("2_0wk7v")
+region = Rect2(0, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqcjb"]
+atlas = ExtResource("2_0wk7v")
+region = Rect2(0, 1080, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmsta"]
+atlas = ExtResource("2_0wk7v")
+region = Rect2(0, 2160, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qypjg"]
+atlas = ExtResource("2_0wk7v")
+region = Rect2(0, 3240, 1920, 1080)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uy2s8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7svfw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqcjb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lmsta")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qypjg")
+}],
+"loop": true,
+"name": &"backgournd_animation",
+"speed": 5.0
+}]
+
+[node name="UnguidedMode" type="Node2D"]
+script = ExtResource("1_jltc1")
+
+[node name="Bkgrnd1" type="Sprite2D" parent="."]
+position = Vector2(961, 543)
+texture = ExtResource("1_4cvqq")
+
+[node name="BackgroundAnimation" type="AnimatedSprite2D" parent="Bkgrnd1"]
+sprite_frames = SubResource("SpriteFrames_uy2s8")
+animation = &"backgournd_animation"
+autoplay = "backgournd_animation"
+frame = 3
+frame_progress = 0.629593
+
+[node name="h_ion_timer" type="Timer" parent="."]
+wait_time = 2.5
+autostart = true
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(1435.32, 153.741)
+
+[node name="Control" type="Control" parent="Node2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -154.0
+offset_top = -76.0
+offset_right = 254.0
+offset_bottom = 182.0
+script = ExtResource("4_akusj")
+
+[node name="QuestionLabel" type="Label" parent="Node2D/Control"]
+offset_left = -4.0
+offset_top = 10.0
+offset_right = 318.0
+offset_bottom = 257.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Node2D/Control"]
+offset_left = 154.0
+offset_top = 76.0
+offset_right = 578.0
+offset_bottom = 398.0
+
+[node name="AnswerA" type="Button" parent="Node2D/Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="AnswerB" type="Button" parent="Node2D/Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="AnswerC" type="Button" parent="Node2D/Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="AnswerD" type="Button" parent="Node2D/Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="Score" type="VBoxContainer" parent="Node2D/Control"]
+layout_mode = 0
+offset_left = -1134.32
+offset_top = 20.2591
+offset_right = -686.316
+offset_bottom = 152.259
+
+[connection signal="timeout" from="h_ion_timer" to="." method="_on_h_ion_timer_timeout"]

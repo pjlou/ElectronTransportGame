@@ -1,0 +1,241 @@
+[gd_scene load_steps=20 format=3 uid="uid://dshm1ectv5mev"]
+
+[ext_resource type="Texture2D" uid="uid://3a2dl5nkqccg" path="res://assets/art/bkgrnd1.png" id="1_3m1jv"]
+[ext_resource type="Script" path="res://scripts/victoryScreenGuided.gd" id="1_vh3dv"]
+[ext_resource type="Texture2D" uid="uid://0bptqtncg5dh" path="res://assets/art/mascotGood.png" id="2_e044t"]
+[ext_resource type="Texture2D" uid="uid://cfdf743crk4c" path="res://assets/art/mascotReg.png" id="3_1pdhs"]
+[ext_resource type="Texture2D" uid="uid://bqlu612yji3oo" path="res://assets/art/mascotGoodFlip.png" id="4_csx3e"]
+[ext_resource type="Texture2D" uid="uid://2km6roj63kh8" path="res://assets/art/mascotRegFlip.png" id="5_vgk4v"]
+[ext_resource type="FontFile" uid="uid://be215ewpt8022" path="res://assets/fonts/PressStart2P-vaV7.ttf" id="7_hm2jg"]
+[ext_resource type="Texture2D" uid="uid://dghau4mors32i" path="res://assets/art/confetti0.png" id="8_nw0br"]
+[ext_resource type="Texture2D" uid="uid://dnh4askkcfkdf" path="res://assets/art/confetti1.png" id="9_87832"]
+[ext_resource type="Texture2D" uid="uid://ch3iccpyd7s8b" path="res://assets/art/confetti2.png" id="10_34lm7"]
+[ext_resource type="Texture2D" uid="uid://buhxx5orp3tnj" path="res://assets/art/confetti3.png" id="11_4tw22"]
+[ext_resource type="Texture2D" uid="uid://dq1npsfc4g5mg" path="res://assets/art/confetti4.png" id="12_5v8e0"]
+[ext_resource type="StyleBox" uid="uid://dyqk1y387jthj" path="res://assets/art/hoverButton.tres" id="13_esw1m"]
+[ext_resource type="StyleBox" uid="uid://ctcomgtmjcv4r" path="res://assets/art/pressedButton.tres" id="14_mmsra"]
+[ext_resource type="StyleBox" uid="uid://c1itffj143mgb" path="res://assets/art/Button.tres" id="15_2t6g3"]
+[ext_resource type="StyleBox" uid="uid://cstq4423423bp" path="res://assets/art/stylizedBox.tres" id="16_gambf"]
+
+[sub_resource type="Animation" id="Animation_0pxsf"]
+resource_name = "Pleasesendhelp"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MascotGood:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.03333, 2, 3, 4, 5, 6, 7, 8, 9, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.261799, 0.0, 0.261799, 0.0, -0.261799, 0.0, 0.261799, 0.0, -0.261799, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MascotReg:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.261799, 0.0, -0.261799, 0.0, 0.261799, 0.0, -0.261799, 0.0, 0.261799, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MascotGoodFlip:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.261799, 0.0, -0.261799, 0.0, 0.261799, 0.0, -0.261799, 0.0, 0.261799, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MascotRegFlip:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.261799, 0.0, 0.261799, 0.0, -0.261799, 0.0, 0.261799, 0.0, -0.261799, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_w4jsh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MascotGood:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.261799]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MascotReg:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.261799]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MascotGoodFlip:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.261799]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MascotRegFlip:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.261799]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6e4wr"]
+_data = {
+"Pleasesendhelp": SubResource("Animation_0pxsf"),
+"RESET": SubResource("Animation_w4jsh")
+}
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_vh3dv")
+
+[node name="Bkgrnd1" type="Sprite2D" parent="."]
+position = Vector2(961, 543)
+texture = ExtResource("1_3m1jv")
+
+[node name="MascotGood" type="Sprite2D" parent="."]
+position = Vector2(205, 894)
+rotation = -0.261799
+scale = Vector2(1, 0.975)
+texture = ExtResource("2_e044t")
+
+[node name="MascotReg" type="Sprite2D" parent="."]
+position = Vector2(203, 191)
+rotation = 0.261799
+texture = ExtResource("3_1pdhs")
+
+[node name="MascotGoodFlip" type="Sprite2D" parent="."]
+position = Vector2(1726, 194)
+rotation = 0.261799
+texture = ExtResource("4_csx3e")
+
+[node name="MascotRegFlip" type="Sprite2D" parent="."]
+position = Vector2(1713, 871)
+rotation = -0.261799
+texture = ExtResource("5_vgk4v")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6e4wr")
+}
+
+[node name="Confetti0" type="Sprite2D" parent="."]
+position = Vector2(108, 622)
+texture = ExtResource("8_nw0br")
+
+[node name="Confetti1" type="Sprite2D" parent="."]
+position = Vector2(351, 403)
+texture = ExtResource("9_87832")
+
+[node name="Confetti2" type="Sprite2D" parent="."]
+position = Vector2(1540, 651)
+texture = ExtResource("10_34lm7")
+
+[node name="Confetti3" type="Sprite2D" parent="."]
+position = Vector2(1796, 387)
+texture = ExtResource("11_4tw22")
+
+[node name="Confetti4" type="Sprite2D" parent="."]
+position = Vector2(1548, 425)
+texture = ExtResource("12_5v8e0")
+
+[node name="Confetti5" type="Sprite2D" parent="."]
+position = Vector2(447, 995)
+texture = ExtResource("10_34lm7")
+
+[node name="DoneButton" type="Button" parent="."]
+offset_left = 1085.0
+offset_top = 893.0
+offset_right = 1448.0
+offset_bottom = 1021.0
+theme_override_colors/font_color = Color(0, 0.290196, 0.678431, 1)
+theme_override_fonts/font = ExtResource("7_hm2jg")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = ExtResource("13_esw1m")
+theme_override_styles/pressed = ExtResource("14_mmsra")
+theme_override_styles/normal = ExtResource("15_2t6g3")
+text = "Done"
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 499.0
+offset_top = 110.0
+offset_right = 1451.0
+offset_bottom = 888.0
+theme_override_styles/panel = ExtResource("16_gambf")
+
+[node name="Label" type="Label" parent="."]
+z_index = 1
+offset_left = 463.0
+offset_top = 159.0
+offset_right = 1482.0
+offset_bottom = 934.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.290196, 0.678431, 1)
+theme_override_colors/font_outline_color = Color(0, 0.290196, 0.678431, 1)
+theme_override_constants/line_spacing = 25
+theme_override_constants/outline_size = 40
+theme_override_fonts/font = ExtResource("7_hm2jg")
+theme_override_font_sizes/font_size = 25
+text = "Congratulations! 
+
+You've completed the Guided Mode
+For The Electron Transport Chain!
+
+Now that you've gotten a handle
+on the process, why not challenge
+your new knowledge by heading 
+over to Unguided mode where you 
+can complete the Chain without
+the tutorial? 
+
+Strive to make it to the 
+leaderboards and Good Luck!
+
+
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[connection signal="pressed" from="DoneButton" to="." method="_on_done_button_pressed"]

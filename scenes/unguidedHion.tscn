@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://daymmjbrc1fl3"]
+
+[ext_resource type="Texture2D" uid="uid://bcw3chyhqves5" path="res://assets/art/HIons1-ForAnimation-Sheet.png" id="1_3qy2a"]
+[ext_resource type="Script" path="res://scripts/unguided_hion.gd" id="1_ncv63"]
+[ext_resource type="Script" path="res://scripts/unguidedDragScript.gd" id="1_q7nir"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_18xdb"]
+radius = 38.0132
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ttmb"]
+atlas = ExtResource("1_3qy2a")
+region = Rect2(0, 0, 62, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivdo4"]
+atlas = ExtResource("1_3qy2a")
+region = Rect2(62, 0, 62, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ge7in"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ttmb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ivdo4")
+}],
+"loop": true,
+"name": &"hion_animation",
+"speed": 5.0
+}]
+
+[node name="UnguidedHion" type="Node2D"]
+script = ExtResource("1_ncv63")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("1_q7nir")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_18xdb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+sprite_frames = SubResource("SpriteFrames_ge7in")
+animation = &"hion_animation"
+autoplay = "hion_animation"
+frame_progress = 0.667634

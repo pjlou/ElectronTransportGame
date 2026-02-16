@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=3 uid="uid://cymqlfh7j3n4b"]
+
+[ext_resource type="Script" path="res://scripts/Textbox.gd" id="1_ajgwg"]
+[ext_resource type="StyleBox" uid="uid://cstq4423423bp" path="res://assets/art/stylizedBox.tres" id="1_vso8k"]
+[ext_resource type="FontFile" uid="uid://be215ewpt8022" path="res://assets/fonts/PressStart2P-vaV7.ttf" id="2_eyv28"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j8sr2"]
+
+[node name="Textbox" type="CanvasLayer"]
+script = ExtResource("1_ajgwg")
+
+[node name="FullBoxSize" type="MarginContainer" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -289.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Panel" type="Panel" parent="FullBoxSize"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("1_vso8k")
+
+[node name="TextMargins" type="MarginContainer" parent="FullBoxSize"]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="Panel" type="Panel" parent="FullBoxSize/TextMargins"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_j8sr2")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="FullBoxSize/TextMargins"]
+layout_mode = 2
+
+[node name="Start" type="Label" parent="FullBoxSize/TextMargins/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_eyv28")
+theme_override_font_sizes/font_size = 48
+text = "-"
+
+[node name="Text" type="Label" parent="FullBoxSize/TextMargins/HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 217.45)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+size_flags_stretch_ratio = 2.11
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_eyv28")
+theme_override_font_sizes/font_size = 48
+text = "Placeholder text! If I actually have like zero text to put in here I think it'll be ok, We aclso can fit like four lines in here perfectly"
+autowrap_mode = 2
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="End" type="Label" parent="FullBoxSize/TextMargins/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_eyv28")
+theme_override_font_sizes/font_size = 48
+text = ">"

@@ -1,0 +1,3 @@
+Complex IV no longer has any intermediates to pass the electrons onto, as we had with Coenzyme Q and Cyctochrome C.
+The electrons now need to be passed to the last electron receptor: Oxygen. 
+In passing these electrons to oxygen, the hydrogen ions and electrons combine to make water as a byproduct.

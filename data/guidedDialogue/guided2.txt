@@ -1,0 +1,3 @@
+Our next step involves FADH2, which is produced during the oxidation of succinate in the TCA cycle.
+FADH2 transfers two of its electrons to Complex 2, which move through Complex 2 similarly to Complex 1
+but does not pump any protons. 

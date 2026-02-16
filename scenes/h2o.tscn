@@ -1,0 +1,52 @@
+[gd_scene load_steps=9 format=3 uid="uid://iwldor3xa8xf"]
+
+[ext_resource type="Script" path="res://scripts/unguidedDragScript.gd" id="1_l7ufn"]
+[ext_resource type="Texture2D" uid="uid://btl2mlfqgp2he" path="res://assets/art/h2o-copy-Sheet.png" id="1_t7wd3"]
+[ext_resource type="Script" path="res://scripts/h2o.gd" id="1_wfbsd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_whp4k"]
+radius = 32.9848
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ddtoy"]
+atlas = ExtResource("1_t7wd3")
+region = Rect2(0, 0, 91, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bmwxq"]
+atlas = ExtResource("1_t7wd3")
+region = Rect2(91, 0, 91, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6gna3"]
+atlas = ExtResource("1_t7wd3")
+region = Rect2(182, 0, 91, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_goiwp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ddtoy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bmwxq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6gna3")
+}],
+"loop": true,
+"name": &"h2o_idle",
+"speed": 7.0
+}]
+
+[node name="H2o" type="Node2D"]
+script = ExtResource("1_wfbsd")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("1_l7ufn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_whp4k")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+sprite_frames = SubResource("SpriteFrames_goiwp")
+animation = &"h2o_idle"
+autoplay = "h2o_idle"
+frame_progress = 0.345731
