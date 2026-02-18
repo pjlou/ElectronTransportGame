@@ -17,10 +17,35 @@
 	"choices": ["Carbon Dioxide", "NAD+", "Water", "Oxygen"],
 	"answer": "Oxygen"
   },
- {
+  {
 	"id": 4,
-	"question": "What is ubiquinone (CoQ) and what is its role?",
-	"choices": ["Null1", "Null2", "Null3", "Null4"],
-	"answer": "Null3"
- }
+	"question": "Which is a naturally occurring biochemical cofactor and an antioxidant produced by the human body",
+	"choices": ["NAD+", "Cytoplasm", "ubiquinone", "FADH₂"],
+	"answer": "ubiquinone"
+  },
+  {
+	"id": 5,
+	"question": "Which complex is the NADH:ubiquinone oxidoreductase?",
+	"choices": ["Complex I", "Complex II", "Complex III", "Complex IV"],
+	"answer": "Complex I"
+  },
+  {
+	"id": 6,
+	"question": "Which complex is the succinate dehydrogenase?",
+	"choices": ["Complex I", "Complex II", "Complex III", "Complex IV"],
+	"answer": "Complex II"
+  },
+  {
+	"id": 7,
+	"question": "Which complex is the cytochrome bc1 complex?",
+	"choices": ["Complex I", "Complex II", "Complex III", "Complex IV"],
+	"answer": "Complex III"
+  },
+  {
+	"id": 8,
+	"question": "Which complex is the cytochrome c oxidase?",
+	"choices": ["Complex I", "Complex II", "Complex III", "Complex IV"],
+	"answer": "Complex IV"
+  },
+
 ]
