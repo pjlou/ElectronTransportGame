@@ -1,0 +1,55 @@
+## Possible Flashcard Questions (about 30 cards):
+
+### Location & Structure
+
+- Where in the cell does the ETC occur?
+- Where specifically in the mitochondria is the ETC located?
+- What are the two compartments separated by the inner mitochondrial membrane?
+- What property of the inner mitochondrial membrane makes it suitable for chemiosmosis?
+
+### Electron Carriers & Inputs
+
+- What are the two electron carriers that feed into the ETC?
+- Where do NADH and FADH₂ come from before entering the ETC?
+- What is ubiquinone (CoQ) and what is its role?
+- What is cytochrome c and what is its role?
+- Why is CoQ lipid-soluble and why does that matter?
+
+### The Four Complexes
+
+- What is the name of Complex I?
+- What electron donor does Complex I accept?
+- How many protons does Complex I pump?
+- What is the name of Complex II?
+- What electron donor does Complex II accept?
+- Why doesn't Complex II pump protons?
+- What is the name of Complex III?
+- How many protons does Complex III pump?
+- What is the name of Complex IV?
+- What is the terminal electron acceptor at Complex IV?
+- What molecule is produced when oxygen accepts electrons at Complex IV?
+- How many protons does Complex IV pump?
+
+### ATP Synthesis
+
+- What is chemiosmosis?
+- What is the proton-motive force?
+- What is the name of the enzyme that synthesizes ATP using the proton gradient?
+- What are the two structural subunits of ATP synthase?
+- Which direction do protons flow through ATP synthase?
+- Who proposed the chemiosmotic theory and when?
+
+### ATP Yield
+
+- How much ATP does one NADH produce?
+- How much ATP does one FADH₂ produce?
+- Why does FADH₂ produce less ATP than NADH?
+- What is the approximate total ATP yield from one glucose molecule?
+- What stage of respiration produces the most ATP?
+
+### Clinical & Inhibitor Connections
+
+- How does cyanide inhibit the ETC?
+- How does carbon monoxide affect the ETC?
+- What is an uncoupler and what does it do?
+- What does DNP do to the proton gradient?
