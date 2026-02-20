@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://ck0re3q1oq06n" path="res://assets/art/HIons.png" id="11_bdvog"]
 [ext_resource type="PackedScene" uid="uid://cymqlfh7j3n4b" path="res://scenes/textbox.tscn" id="12_xreus"]
 [ext_resource type="Script" uid="uid://wkbtrnabnwig" path="res://scripts/textboxScripts/TextboxGuided1.gd" id="13_0wwv2"]
-[ext_resource type="Texture2D" uid="uid://4j0wv7ilgm5s" path="res://assets/art/arrow.png" id="14_y1pua"]
+[ext_resource type="Texture2D" uid="uid://cwa53vp2a3dr6" path="res://assets/art/CurvedArrow.png" id="14_y1pua"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7svfw"]
 atlas = ExtResource("2_uqkxw")
@@ -507,6 +507,7 @@ process_mode = 3
 script = ExtResource("13_0wwv2")
 
 [node name="Arrow1" type="Sprite2D" parent="." unique_id=2123004144]
-position = Vector2(313, 797.9999)
-rotation = -0.85346603
+position = Vector2(338.00003, 818)
+rotation = -0.02617994
+scale = Vector2(10, 10)
 texture = ExtResource("14_y1pua")
