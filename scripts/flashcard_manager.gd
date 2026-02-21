@@ -17,7 +17,9 @@ extends Node2D
 @onready var correct_style: StyleBox = preload("res://assets/art/correctAnswerButton.tres")
 @onready var incorrect_style: StyleBox = preload("res://assets/art/incorrectAnswerButton.tres")
 @onready var default_style: StyleBox = preload("res://assets/art/stylizedBox.tres")
+@onready var hover_style: StyleBox = preload("res://assets/art/hoverButton.tres")
 
+var default_hover_font_color: Color
 var flashcards: Array = []
 var current_index: int = 0
 var total_flash: int = 0
@@ -26,6 +28,7 @@ var score: int = 0
 
 func _ready() -> void:
 	add_child(timer)
+	default_hover_font_color = answer_buttons[0].get_theme_color("font_hover_color")
 	timer.one_shot = true
 	timer.autostart = false
 	timer.timeout.connect(_on_timer_timeout)
@@ -61,6 +64,8 @@ func show_flashcard(index: int) -> void:
 
 		# Reset to the original theme style instead of removing
 		btn.add_theme_stylebox_override("normal", default_style)
+		btn.add_theme_stylebox_override("hover", hover_style)
+		btn.add_theme_color_override("font_hover_color", default_hover_font_color)
 
 		if btn.is_connected("pressed", Callable(self, "_on_answer_pressed")):
 			btn.disconnect("pressed", Callable(self, "_on_answer_pressed"))
@@ -82,13 +87,18 @@ func refresh_flashcards() -> void:
 		btn.visible = true
 
 func _on_answer_pressed(selected: String, correct: String, button: Button) -> void:
+	var normal_font_color := button.get_theme_color("font_color")
 	if selected == correct:
 		#score += 1
 		button.add_theme_stylebox_override("normal", correct_style)
+		button.add_theme_stylebox_override("hover", correct_style)
+		button.add_theme_color_override("font_hover_color", normal_font_color)
 		mascot_good.visible = true
 		mascot_bad.visible = false
 	else:
 		button.add_theme_stylebox_override("normal", incorrect_style)
+		button.add_theme_stylebox_override("hover", incorrect_style)
+		button.add_theme_color_override("font_hover_color", normal_font_color)
 		mascot_good.visible = false
 		mascot_bad.visible = true
 
@@ -99,6 +109,8 @@ func _on_answer_pressed(selected: String, correct: String, button: Button) -> vo
 		#b.disabled = true
 		if b.text == correct:
 			b.add_theme_stylebox_override("normal", correct_style)
+			b.add_theme_stylebox_override("hover", correct_style)
+			b.add_theme_color_override("font_hover_color", b.get_theme_color("font_color"))
 
 	timer.wait_time = 1.0
 	timer.start()

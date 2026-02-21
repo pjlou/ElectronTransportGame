@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://bc8mckniiv2fx" path="res://assets/art/bkgrnd3.png" id="3_xhx0m"]
 [ext_resource type="Texture2D" uid="uid://cta1bxeumk7cf" path="res://assets/art/bkgrnd4.png" id="4_7frys"]
 [ext_resource type="FontFile" uid="uid://be215ewpt8022" path="res://assets/fonts/PressStart2P-vaV7.ttf" id="5_yfwk6"]
-[ext_resource type="StyleBox" uid="uid://dyqk1y387jthj" path="res://assets/art/hoverButton.tres" id="6_bjvma"]
 [ext_resource type="StyleBox" uid="uid://ctcomgtmjcv4r" path="res://assets/art/pressedButton.tres" id="7_stv62"]
 [ext_resource type="StyleBox" uid="uid://c1itffj143mgb" path="res://assets/art/Button.tres" id="8_761wl"]
 [ext_resource type="StyleBox" uid="uid://cstq4423423bp" path="res://assets/art/stylizedBox.tres" id="10_n4u7n"]
@@ -33,6 +32,9 @@ animations = [{
 "name": &"bkgrnd",
 "speed": 5.0
 }]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7lmhq"]
+bg_color = Color(0, 0.290196, 0.678431, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5awwq"]
 
@@ -64,7 +66,7 @@ theme_override_fonts/font = ExtResource("5_yfwk6")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = ExtResource("8_761wl")
 theme_override_styles/pressed = ExtResource("7_stv62")
-theme_override_styles/hover = ExtResource("6_bjvma")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7lmhq")
 text = "<- Menu"
 metadata/_edit_use_anchors_ = true
 
@@ -86,7 +88,7 @@ theme_override_fonts/font = ExtResource("5_yfwk6")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = ExtResource("10_n4u7n")
 theme_override_styles/pressed = ExtResource("7_stv62")
-theme_override_styles/hover = ExtResource("6_bjvma")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7lmhq")
 text = "answer1"
 autowrap_mode = 3
 
@@ -108,7 +110,7 @@ theme_override_fonts/font = ExtResource("5_yfwk6")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = ExtResource("10_n4u7n")
 theme_override_styles/pressed = ExtResource("7_stv62")
-theme_override_styles/hover = ExtResource("6_bjvma")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7lmhq")
 text = "answer2"
 autowrap_mode = 3
 
@@ -130,7 +132,7 @@ theme_override_fonts/font = ExtResource("5_yfwk6")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = ExtResource("10_n4u7n")
 theme_override_styles/pressed = ExtResource("7_stv62")
-theme_override_styles/hover = ExtResource("6_bjvma")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7lmhq")
 text = "answer3"
 autowrap_mode = 3
 
@@ -152,7 +154,7 @@ theme_override_fonts/font = ExtResource("5_yfwk6")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = ExtResource("10_n4u7n")
 theme_override_styles/pressed = ExtResource("7_stv62")
-theme_override_styles/hover = ExtResource("6_bjvma")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7lmhq")
 text = "answer4"
 autowrap_mode = 3
 
@@ -194,7 +196,7 @@ theme_override_fonts/font = ExtResource("5_yfwk6")
 theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = ExtResource("8_761wl")
 theme_override_styles/pressed = ExtResource("7_stv62")
-theme_override_styles/hover = ExtResource("6_bjvma")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7lmhq")
 text = "Refresh Flashcards"
 
 [node name="ScoreLabel" type="Label" parent="animatedBackground/questionPanel" unique_id=1455013967]
@@ -227,4 +229,5 @@ position = Vector2(-178.464, 208)
 scale = Vector2(0.441123, 0.579687)
 texture = ExtResource("15_mascot_bad")
 
+[connection signal="focus_entered" from="animatedBackground/menuButton" to="." method="_on_menu_button_focus_entered"]
 [connection signal="pressed" from="animatedBackground/menuButton" to="." method="_on_menu_button_pressed"]
