@@ -215,17 +215,17 @@ offset_bottom = -1099.56
 theme_override_styles/panel = SubResource("StyleBoxEmpty_5awwq")
 
 [node name="MascotReg" type="Sprite2D" parent="animatedBackground/leaderboardMascotHolder" unique_id=2067523489]
-position = Vector2(-178.464, -36)
+position = Vector2(1.0028534, 115)
 scale = Vector2(0.451012, 0.551562)
 texture = ExtResource("11_ho8pb")
 
 [node name="mascotGood" type="Sprite2D" parent="animatedBackground/leaderboardMascotHolder" unique_id=1772124978]
-position = Vector2(-184.48, 469)
+position = Vector2(1.0028534, 114)
 scale = Vector2(0.451632, 0.580469)
 texture = ExtResource("14_mascot_good")
 
 [node name="mascotBad" type="Sprite2D" parent="animatedBackground/leaderboardMascotHolder" unique_id=841553862]
-position = Vector2(-178.464, 208)
+position = Vector2(1.0028687, 117)
 scale = Vector2(0.441123, 0.579687)
 texture = ExtResource("15_mascot_bad")
 
