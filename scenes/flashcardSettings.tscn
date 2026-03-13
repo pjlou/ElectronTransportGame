@@ -1,3 +1,336 @@
-[gd_scene format=3 uid="uid://f0aewksukd1r"]
+[gd_scene format=3 uid="uid://chflo2wsy4g21"]
 
-[node name="FlashcardSettings" type="Node2D" unique_id=251978428]
+[ext_resource type="Texture2D" uid="uid://3a2dl5nkqccg" path="res://assets/art/bkgrnd1.png" id="2_wxev4"]
+[ext_resource type="Texture2D" uid="uid://ekcq4006xf42" path="res://assets/art/bkgrnd2.png" id="3_oo3r0"]
+[ext_resource type="Texture2D" uid="uid://bc8mckniiv2fx" path="res://assets/art/bkgrnd3.png" id="4_6t3ma"]
+[ext_resource type="Texture2D" uid="uid://cta1bxeumk7cf" path="res://assets/art/bkgrnd4.png" id="5_wnqou"]
+[ext_resource type="FontFile" uid="uid://be215ewpt8022" path="res://assets/fonts/PressStart2P-vaV7.ttf" id="6_sijmc"]
+[ext_resource type="StyleBox" uid="uid://c1itffj143mgb" path="res://assets/art/Button.tres" id="7_8113p"]
+[ext_resource type="StyleBox" uid="uid://ctcomgtmjcv4r" path="res://assets/art/pressedButton.tres" id="8_7dfe1"]
+[ext_resource type="StyleBox" uid="uid://dyqk1y387jthj" path="res://assets/art/hoverButton.tres" id="9_ycm54"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j0y8o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_wxev4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_oo3r0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6t3ma")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_wnqou")
+}],
+"loop": true,
+"name": &"bkgrnd",
+"speed": 5.0
+}]
+
+[node name="FlashcardSettings" type="Node2D" unique_id=592768666]
+
+[node name="animatedBackground" type="AnimatedSprite2D" parent="." unique_id=1115780452]
+position = Vector2(957, 539)
+scale = Vector2(0.997396, 1)
+sprite_frames = SubResource("SpriteFrames_j0y8o")
+animation = &"bkgrnd"
+frame = 2
+frame_progress = 0.693778
+
+[node name="titleText" type="Label" parent="." unique_id=1947530999]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = 34.0
+offset_right = 1900.0
+offset_bottom = 259.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.290196, 0.678431, 1)
+theme_override_colors/font_outline_color = Color(0, 0.290196, 0.678431, 1)
+theme_override_constants/line_spacing = 25
+theme_override_constants/outline_size = 40
+theme_override_fonts/font = ExtResource("6_sijmc")
+theme_override_font_sizes/font_size = 100
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="includeText" type="Label" parent="." unique_id=901175817]
+z_index = 1
+offset_left = 163.0
+offset_top = 259.0
+offset_right = 686.0
+offset_bottom = 414.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.290196, 0.678431, 1)
+theme_override_colors/font_outline_color = Color(0, 0.290196, 0.678431, 1)
+theme_override_constants/line_spacing = 25
+theme_override_constants/outline_size = 40
+theme_override_fonts/font = ExtResource("6_sijmc")
+theme_override_font_sizes/font_size = 50
+text = "Flashcards to Include:"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="answerTypeText" type="Label" parent="." unique_id=1107109503]
+z_index = 1
+offset_left = 163.0
+offset_top = 547.0
+offset_right = 686.0
+offset_bottom = 728.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.290196, 0.678431, 1)
+theme_override_colors/font_outline_color = Color(0, 0.290196, 0.678431, 1)
+theme_override_constants/line_spacing = 25
+theme_override_constants/outline_size = 40
+theme_override_fonts/font = ExtResource("6_sijmc")
+theme_override_font_sizes/font_size = 50
+text = "Answer Type:"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="answerTypeText2" type="Label" parent="." unique_id=508205008]
+z_index = 1
+offset_top = 728.0
+offset_right = 801.0
+offset_bottom = 958.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.290196, 0.678431, 1)
+theme_override_colors/font_outline_color = Color(0, 0.290196, 0.678431, 1)
+theme_override_constants/line_spacing = 25
+theme_override_constants/outline_size = 40
+theme_override_fonts/font = ExtResource("6_sijmc")
+theme_override_font_sizes/font_size = 50
+text = "Replay Incorrectly Answered Cards:"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="menuButton" type="Button" parent="." unique_id=981976240]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 61.996704
+offset_top = 958.0
+offset_right = 490.9967
+offset_bottom = 1059.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0.290196, 0.678431, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("6_sijmc")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = ExtResource("7_8113p")
+theme_override_styles/pressed = ExtResource("8_7dfe1")
+theme_override_styles/hover = ExtResource("9_ycm54")
+text = "<- Menu"
+
+[node name="allText" type="Label" parent="." unique_id=2026971323]
+z_index = 1
+offset_left = 872.0
+offset_top = 259.0
+offset_right = 1095.0
+offset_bottom = 331.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.290196, 0.678431, 1)
+theme_override_colors/font_outline_color = Color(0, 0.290196, 0.678431, 1)
+theme_override_constants/line_spacing = 25
+theme_override_constants/outline_size = 40
+theme_override_fonts/font = ExtResource("6_sijmc")
+theme_override_font_sizes/font_size = 50
+text = "All"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="allCheckBox" type="CheckBox" parent="." unique_id=1063958992]
+offset_left = 800.0
+offset_top = 259.0
+offset_right = 824.0
+offset_bottom = 283.0
+scale = Vector2(3, 3)
+
+[node name="defaultsText" type="Label" parent="." unique_id=1347366416]
+z_index = 1
+offset_left = 872.0
+offset_top = 331.0
+offset_right = 1581.0
+offset_bottom = 403.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.290196, 0.678431, 1)
+theme_override_colors/font_outline_color = Color(0, 0.290196, 0.678431, 1)
+theme_override_constants/line_spacing = 25
+theme_override_constants/outline_size = 40
+theme_override_fonts/font = ExtResource("6_sijmc")
+theme_override_font_sizes/font_size = 50
+text = "Only Defaults"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="defaultsCheckBox" type="CheckBox" parent="." unique_id=1063724716]
+offset_left = 800.0
+offset_top = 331.0
+offset_right = 824.0
+offset_bottom = 355.0
+scale = Vector2(3, 3)
+
+[node name="customsText" type="Label" parent="." unique_id=1210532881]
+z_index = 1
+offset_left = 872.0
+offset_top = 403.0
+offset_right = 1532.0
+offset_bottom = 475.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.290196, 0.678431, 1)
+theme_override_colors/font_outline_color = Color(0, 0.290196, 0.678431, 1)
+theme_override_constants/line_spacing = 25
+theme_override_constants/outline_size = 40
+theme_override_fonts/font = ExtResource("6_sijmc")
+theme_override_font_sizes/font_size = 50
+text = "Only Customs"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="customsCheckBox" type="CheckBox" parent="." unique_id=1587318477]
+offset_left = 800.0
+offset_top = 403.0
+offset_right = 824.0
+offset_bottom = 427.0
+scale = Vector2(3, 3)
+
+[node name="favoritesText" type="Label" parent="." unique_id=2003196249]
+z_index = 1
+offset_left = 872.0
+offset_top = 475.0
+offset_right = 1635.0
+offset_bottom = 547.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.290196, 0.678431, 1)
+theme_override_colors/font_outline_color = Color(0, 0.290196, 0.678431, 1)
+theme_override_constants/line_spacing = 25
+theme_override_constants/outline_size = 40
+theme_override_fonts/font = ExtResource("6_sijmc")
+theme_override_font_sizes/font_size = 50
+text = "Only Favorites"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="favoritesCheckBox" type="CheckBox" parent="." unique_id=100360846]
+offset_left = 800.0
+offset_top = 459.0
+offset_right = 824.0
+offset_bottom = 483.0
+scale = Vector2(3, 3)
+
+[node name="multChoiceText" type="Label" parent="." unique_id=1340232534]
+z_index = 1
+offset_left = 872.0
+offset_top = 568.0
+offset_right = 1677.0
+offset_bottom = 640.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.290196, 0.678431, 1)
+theme_override_colors/font_outline_color = Color(0, 0.290196, 0.678431, 1)
+theme_override_constants/line_spacing = 25
+theme_override_constants/outline_size = 40
+theme_override_fonts/font = ExtResource("6_sijmc")
+theme_override_font_sizes/font_size = 50
+text = "Multiple Choice"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="multChoiceCheckBox" type="CheckBox" parent="." unique_id=1633796919]
+offset_left = 800.0
+offset_top = 552.0
+offset_right = 939.0
+offset_bottom = 583.0
+scale = Vector2(3, 3)
+
+[node name="fillInBlankText" type="Label" parent="." unique_id=1212819842]
+z_index = 1
+offset_left = 872.0
+offset_top = 656.0
+offset_right = 1760.0
+offset_bottom = 728.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.290196, 0.678431, 1)
+theme_override_colors/font_outline_color = Color(0, 0.290196, 0.678431, 1)
+theme_override_constants/line_spacing = 25
+theme_override_constants/outline_size = 40
+theme_override_fonts/font = ExtResource("6_sijmc")
+theme_override_font_sizes/font_size = 50
+text = "Fill-in-the-Blank"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="fillInBlankCheckBox" type="CheckBox" parent="." unique_id=336188816]
+offset_left = 800.0
+offset_top = 640.0
+offset_right = 939.0
+offset_bottom = 671.0
+scale = Vector2(3, 3)
+
+[node name="replayYesText" type="Label" parent="." unique_id=1760803469]
+z_index = 1
+offset_left = 872.0
+offset_top = 768.0
+offset_right = 1095.0
+offset_bottom = 840.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.290196, 0.678431, 1)
+theme_override_colors/font_outline_color = Color(0, 0.290196, 0.678431, 1)
+theme_override_constants/line_spacing = 25
+theme_override_constants/outline_size = 40
+theme_override_fonts/font = ExtResource("6_sijmc")
+theme_override_font_sizes/font_size = 50
+text = "Yes"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="replayYesCheckBox" type="CheckBox" parent="." unique_id=597198494]
+offset_left = 800.0
+offset_top = 752.0
+offset_right = 939.0
+offset_bottom = 783.0
+scale = Vector2(3, 3)
+
+[node name="replayNoText" type="Label" parent="." unique_id=311406437]
+z_index = 1
+offset_left = 872.0
+offset_top = 856.0
+offset_right = 1095.0
+offset_bottom = 928.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.290196, 0.678431, 1)
+theme_override_colors/font_outline_color = Color(0, 0.290196, 0.678431, 1)
+theme_override_constants/line_spacing = 25
+theme_override_constants/outline_size = 40
+theme_override_fonts/font = ExtResource("6_sijmc")
+theme_override_font_sizes/font_size = 50
+text = "No"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="replayNoCheckBox" type="CheckBox" parent="." unique_id=1608110223]
+offset_left = 800.0
+offset_top = 840.0
+offset_right = 939.0
+offset_bottom = 871.0
+scale = Vector2(3, 3)
+
+[connection signal="pressed" from="menuButton" to="." method="_on_menu_button_pressed"]
