@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://chflo2wsy4g21"]
+[gd_scene format=3 uid="uid://f0aewksukd1r"]
 
 [ext_resource type="Script" uid="uid://coxreluva2ycg" path="res://scripts/flashcardMenu.gd" id="1_vllqt"]
 [ext_resource type="Texture2D" uid="uid://3a2dl5nkqccg" path="res://assets/art/bkgrnd1.png" id="2_0b4gv"]
@@ -9,7 +9,6 @@
 [ext_resource type="StyleBox" uid="uid://c1itffj143mgb" path="res://assets/art/Button.tres" id="7_5y6rl"]
 [ext_resource type="StyleBox" uid="uid://ctcomgtmjcv4r" path="res://assets/art/pressedButton.tres" id="8_yy8j5"]
 [ext_resource type="StyleBox" uid="uid://dyqk1y387jthj" path="res://assets/art/hoverButton.tres" id="9_kuire"]
-[ext_resource type="StyleBox" uid="uid://bin7dou6oci7h" path="res://assets/art/disabledButton.tres" id="10_jks8l"]
 [ext_resource type="StyleBox" uid="uid://4ebbh2jlqyc5" path="res://assets/art/bNwBox.tres" id="11_wbcam"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_j0y8o"]
@@ -82,33 +81,11 @@ theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = ExtResource("7_5y6rl")
 theme_override_styles/pressed = ExtResource("8_yy8j5")
 theme_override_styles/hover = ExtResource("9_kuire")
-text = "<- Menu"
-
-[node name="playButton" type="Button" parent="." unique_id=1926856844]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 1433.5
-offset_top = 958.0
-offset_right = 1862.4998
-offset_bottom = 1059.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0.290196, 0.678431, 1)
-theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("6_h4fld")
-theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = ExtResource("7_5y6rl")
-theme_override_styles/pressed = ExtResource("8_yy8j5")
-theme_override_styles/hover = ExtResource("9_kuire")
-theme_override_styles/disabled = ExtResource("10_jks8l")
-disabled = true
-text = "Play ->"
+text = "<- Back"
 
 [node name="startButton" type="Button" parent="." unique_id=647764366]
 anchors_preset = -1
+anchor_top = -0.60555553
 anchor_bottom = -0.60555553
 offset_left = 326.0
 offset_top = 249.0
@@ -141,7 +118,7 @@ autowrap_mode = 3
 
 [node name="settingsButton" type="Button" parent="." unique_id=1879214848]
 anchors_preset = -1
-anchor_top = -0.60555553
+anchor_top = -1.2111111
 anchor_bottom = -1.2111111
 offset_left = 326.0
 offset_top = 527.0
@@ -180,7 +157,7 @@ autowrap_mode = 3
 [node name="viewButton" type="Button" parent="." unique_id=1012730068]
 anchors_preset = -1
 anchor_left = -0.029242802
-anchor_top = -0.6027778
+anchor_top = -1.1731482
 anchor_bottom = -1.1731482
 offset_left = 992.00006
 offset_top = 249.0
@@ -220,7 +197,7 @@ autowrap_mode = 3
 [node name="editButton" type="Button" parent="." unique_id=147734580]
 anchors_preset = -1
 anchor_left = -0.029242802
-anchor_top = -1.1731482
+anchor_top = -1.7398148
 anchor_bottom = -1.7398148
 offset_left = 992.00006
 offset_top = 527.0
@@ -258,4 +235,4 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [connection signal="pressed" from="menuButton" to="." method="_on_menu_button_pressed"]
-[connection signal="pressed" from="playButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="startButton" to="." method="_on_start_button_pressed"]

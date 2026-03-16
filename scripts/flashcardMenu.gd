@@ -36,8 +36,12 @@ func _on_play_button_pressed():
 		print("No button selected")
 
 func _on_menu_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/startScreen.tscn")
+	get_tree().change_scene_to_file("res://scenes/modeSelection.tscn")
 
 
 func _on_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/leaderboard.tscn")
+
+
+func _on_start_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/flashcardMode.tscn")

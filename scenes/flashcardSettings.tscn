@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://chflo2wsy4g21"]
 
+[ext_resource type="Script" uid="uid://bweaio2kk1h2q" path="res://scenes/flashcardSettings.gd" id="1_0ly7s"]
 [ext_resource type="Texture2D" uid="uid://3a2dl5nkqccg" path="res://assets/art/bkgrnd1.png" id="2_wxev4"]
 [ext_resource type="Texture2D" uid="uid://ekcq4006xf42" path="res://assets/art/bkgrnd2.png" id="3_oo3r0"]
 [ext_resource type="Texture2D" uid="uid://bc8mckniiv2fx" path="res://assets/art/bkgrnd3.png" id="4_6t3ma"]
@@ -30,6 +31,7 @@ animations = [{
 }]
 
 [node name="FlashcardSettings" type="Node2D" unique_id=592768666]
+script = ExtResource("1_0ly7s")
 
 [node name="animatedBackground" type="AnimatedSprite2D" parent="." unique_id=1115780452]
 position = Vector2(957, 539)
@@ -131,7 +133,7 @@ theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = ExtResource("7_8113p")
 theme_override_styles/pressed = ExtResource("8_7dfe1")
 theme_override_styles/hover = ExtResource("9_ycm54")
-text = "<- Menu"
+text = "<- Back"
 
 [node name="allText" type="Label" parent="." unique_id=2026971323]
 z_index = 1
