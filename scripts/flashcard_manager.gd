@@ -21,7 +21,8 @@ extends Node2D
 
 var default_hover_font_color: Color
 var flashcards: Array = []
-var settings: Dictionary[String, int] = {}
+var missed: Array = []
+var settings: Dictionary = {}
 var current_index: int = 0
 var total_flash: int = 0
 var score: int = 0
@@ -50,10 +51,16 @@ func _ready() -> void:
 
 func show_flashcard(index: int) -> void:
 	if index >= flashcards.size():
-		question_label.text = "Well done! You've completed all flashcards."
-		for button in answer_buttons:
-			button.visible = false
-		return
+		if settings['replayIncorrectlyAnsweredCards']==1 or missed.size()==0:
+			question_label.text = "Well done! You've completed all flashcards."
+			for button in answer_buttons:
+				button.visible = false
+			return
+		else:
+			current_index = 0
+			index = 0
+			flashcards = missed
+			missed = []
 
 	var card: Dictionary = flashcards[index]
 	question_label.text = card["question"]
@@ -97,6 +104,7 @@ func _on_answer_pressed(selected: String, correct: String, button: Button) -> vo
 		mascot_good.visible = true
 		mascot_bad.visible = false
 	else:
+		missed.append(flashcards[current_index])
 		button.add_theme_stylebox_override("normal", incorrect_style)
 		button.add_theme_stylebox_override("hover", incorrect_style)
 		button.add_theme_color_override("font_hover_color", normal_font_color)

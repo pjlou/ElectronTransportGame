@@ -2,7 +2,7 @@ extends Node
 
 var flashcards: Array = []
 
-var settings: Dictionary[String,int] = {}
+var settings: Dictionary = {}
 
 var exePath = OS.get_executable_path()
 var exeDir = exePath.get_base_dir()
@@ -53,11 +53,13 @@ func load_settings(fileLoc):
 		return
 		
 	settings = result
+	for key in settings:
+		settings[key] = int(key)
 	print("Settings loaded successfully!")
 	
 
 func get_flashcards() -> Array:
 	return flashcards
 
-func get_settings() -> Dictionary[String,int]:
+func get_settings() -> Dictionary:
 	return settings
