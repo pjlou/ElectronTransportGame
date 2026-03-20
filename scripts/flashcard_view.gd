@@ -31,8 +31,6 @@ func _ready() -> void:
 	#score_label.text = "Score: %d/%d" % [score, total_flash]
 
 	show_flashcard(current_index)
-	refresh.text = "Refresh Flashcards"
-	refresh.pressed.connect(refresh_flashcards)
 
 
 func show_flashcard(index: int) -> void:
@@ -91,7 +89,7 @@ func _on_timer_timeout() -> void:
 
 
 func _on_menu_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/modeSelection.tscn")
+	get_tree().change_scene_to_file("res://scenes/flashcardMenu.tscn")
 
 
 func _on_prev_pressed() -> void:
