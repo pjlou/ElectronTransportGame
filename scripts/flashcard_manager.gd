@@ -21,6 +21,7 @@ extends Node2D
 
 var default_hover_font_color: Color
 var flashcards: Array = []
+var settings: Dictionary[String, int] = {}
 var current_index: int = 0
 var total_flash: int = 0
 var score: int = 0
@@ -37,6 +38,7 @@ func _ready() -> void:
 	loader.preLoad()
 	flashcards = loader.get_flashcards()
 	total_flash = flashcards.size()
+	settings = loader.get_settings()
 	#score_label.text = "Score: %d/%d" % [score, total_flash]
 
 	show_flashcard(current_index)
@@ -45,7 +47,6 @@ func _ready() -> void:
 	mascot_good.visible = false
 	mascot_bad.visible = false
 	mascot_reg.visible = true
-
 
 func show_flashcard(index: int) -> void:
 	if index >= flashcards.size():
