@@ -1,8 +1,8 @@
-[gd_scene load_steps=24 format=3 uid="uid://blovx0h384u0d"]
+[gd_scene format=3 uid="uid://blovx0h384u0d"]
 
 [ext_resource type="Texture2D" uid="uid://3a2dl5nkqccg" path="res://assets/art/bkgrnd1.png" id="1_doqwy"]
 [ext_resource type="Texture2D" uid="uid://bislb0op82f72" path="res://assets/art/bkgrnd-Sheet.png" id="2_u820j"]
-[ext_resource type="Script" path="res://scripts/basicgrouper.gd" id="3_i6h04"]
+[ext_resource type="Script" uid="uid://c68nwr5gjau3t" path="res://scripts/basicgrouper.gd" id="3_i6h04"]
 [ext_resource type="Texture2D" uid="uid://b7ff5st7n1b0w" path="res://assets/art/complex2.png" id="3_vmw81"]
 [ext_resource type="Texture2D" uid="uid://dkes6pldv3d7l" path="res://assets/art/complex1.png" id="4_n6w70"]
 [ext_resource type="Texture2D" uid="uid://cviwvycs8ktj" path="res://assets/art/fadh2.png" id="4_oxwfg"]
@@ -10,9 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://bal7ooctwkol" path="res://assets/art/cq.png" id="7_i0qjv"]
 [ext_resource type="Texture2D" uid="uid://cfvqs7cfdoq5r" path="res://assets/art/electron.png" id="8_q1o5q"]
 [ext_resource type="Texture2D" uid="uid://ck0re3q1oq06n" path="res://assets/art/HIons.png" id="9_c46p1"]
-[ext_resource type="Script" path="res://scripts/basicdragscript.gd" id="10_f3sp0"]
+[ext_resource type="Script" uid="uid://emndyvmpaln7" path="res://scripts/basicdragscript.gd" id="10_f3sp0"]
 [ext_resource type="PackedScene" uid="uid://cymqlfh7j3n4b" path="res://scenes/textbox.tscn" id="12_jum2j"]
-[ext_resource type="Script" path="res://scripts/textboxScripts/TextboxGuided2.gd" id="13_fo2qo"]
+[ext_resource type="Script" uid="uid://cptadt1x0mp4b" path="res://scripts/textboxScripts/TextboxGuided2.gd" id="13_fo2qo"]
+[ext_resource type="Texture2D" uid="uid://cwa53vp2a3dr6" path="res://assets/art/CurvedArrow.png" id="14_8re8a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7svfw"]
 atlas = ExtResource("2_u820j")
@@ -214,6 +215,18 @@ tracks/12/keys = {
 "update": 0,
 "values": [Vector2(1297, 1127)]
 }
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("../Arrow2:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
 
 [sub_resource type="Animation" id="Animation_l74u5"]
 resource_name = "donation2"
@@ -374,141 +387,157 @@ tracks/12/keys = {
 "update": 0,
 "values": [Vector2(1297, 1127), Vector2(1404, 985)]
 }
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("../Arrow2:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 0.033333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qf1p2"]
 _data = {
-"RESET": SubResource("Animation_pfmln"),
-"donation2": SubResource("Animation_l74u5")
+&"RESET": SubResource("Animation_pfmln"),
+&"donation2": SubResource("Animation_l74u5")
 }
 
-[node name="guidedMode2" type="Node2D"]
+[node name="guidedMode2" type="Node2D" unique_id=2007759389]
 
-[node name="Bkgrnd1" type="Sprite2D" parent="."]
+[node name="Bkgrnd1" type="Sprite2D" parent="." unique_id=907443909]
 position = Vector2(961, 543)
 texture = ExtResource("1_doqwy")
 
-[node name="BackgroundAnimation" type="AnimatedSprite2D" parent="Bkgrnd1"]
+[node name="BackgroundAnimation" type="AnimatedSprite2D" parent="Bkgrnd1" unique_id=677461951]
 sprite_frames = SubResource("SpriteFrames_fxj4e")
 animation = &"backgournd_animation"
 autoplay = "backgournd_animation"
 
-[node name="Complex3" type="Sprite2D" parent="."]
+[node name="Complex3" type="Sprite2D" parent="." unique_id=541300475]
 position = Vector2(1473, 549)
 scale = Vector2(1.37188, 1.83281)
 texture = ExtResource("6_o20tg")
 
-[node name="Cq" type="Sprite2D" parent="."]
+[node name="Cq" type="Sprite2D" parent="." unique_id=263813397]
 position = Vector2(955, 374)
 scale = Vector2(1.10469, 1.44687)
 texture = ExtResource("7_i0qjv")
 
-[node name="Complex1" type="Sprite2D" parent="."]
+[node name="Complex1" type="Sprite2D" parent="." unique_id=369551938]
 position = Vector2(529.125, 446.875)
 scale = Vector2(1.66953, 1.30703)
 texture = ExtResource("4_n6w70")
 
-[node name="HIons" type="Sprite2D" parent="."]
+[node name="HIons" type="Sprite2D" parent="." unique_id=1850560057]
 position = Vector2(670, 170)
 scale = Vector2(0.11875, 0.121875)
 texture = ExtResource("9_c46p1")
 
-[node name="HIons2" type="Sprite2D" parent="."]
+[node name="HIons2" type="Sprite2D" parent="." unique_id=1961633848]
 position = Vector2(621, 172)
 scale = Vector2(0.120164, 0.12392)
 texture = ExtResource("9_c46p1")
 
-[node name="HIons3" type="Sprite2D" parent="."]
+[node name="HIons3" type="Sprite2D" parent="." unique_id=244072322]
 position = Vector2(556, 179)
 scale = Vector2(0.132249, 0.12389)
 texture = ExtResource("9_c46p1")
 
-[node name="HIons4" type="Sprite2D" parent="."]
+[node name="HIons4" type="Sprite2D" parent="." unique_id=1987155051]
 position = Vector2(502, 187)
 scale = Vector2(0.121851, 0.116616)
 texture = ExtResource("9_c46p1")
 
-[node name="Electron2" type="Sprite2D" parent="."]
+[node name="Electron2" type="Sprite2D" parent="." unique_id=1914325762]
 position = Vector2(1000, 350)
 scale = Vector2(0.140625, 0.148438)
 texture = ExtResource("8_q1o5q")
 
-[node name="Electron" type="Sprite2D" parent="."]
+[node name="Electron" type="Sprite2D" parent="." unique_id=1487156528]
 position = Vector2(902, 358)
 scale = Vector2(0.140625, 0.148438)
 texture = ExtResource("8_q1o5q")
 
-[node name="C2" type="RigidBody2D" parent="."]
+[node name="C2" type="RigidBody2D" parent="." unique_id=130205931]
 position = Vector2(943, 697)
 freeze = true
 script = ExtResource("3_i6h04")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="C2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="C2" unique_id=14645652]
 position = Vector2(21.5, -26.5)
 shape = SubResource("RectangleShape2D_sssm4")
 
-[node name="Complex2" type="Sprite2D" parent="C2"]
+[node name="Complex2" type="Sprite2D" parent="C2" unique_id=490977692]
 position = Vector2(6, -28)
 texture = ExtResource("3_vmw81")
 
-[node name="FADH" type="RigidBody2D" parent="."]
+[node name="FADH" type="RigidBody2D" parent="." unique_id=432176357]
 position = Vector2(407, 966)
 freeze = true
 script = ExtResource("10_f3sp0")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FADH"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FADH" unique_id=458300725]
 position = Vector2(-11, -12.125)
 shape = SubResource("RectangleShape2D_h16qw")
 
-[node name="Sprite2D" type="Sprite2D" parent="FADH"]
+[node name="Sprite2D" type="Sprite2D" parent="FADH" unique_id=1916689951]
 position = Vector2(-12.25, -12.25)
 scale = Vector2(0.345312, 0.339062)
 texture = ExtResource("4_oxwfg")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="FADH"]
-libraries = {
-"": SubResource("AnimationLibrary_qf1p2")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FADH" unique_id=1035510930]
+libraries/ = SubResource("AnimationLibrary_qf1p2")
 
-[node name="FADHB" type="Sprite2D" parent="."]
+[node name="FADHB" type="Sprite2D" parent="." unique_id=1118911080]
 visible = false
 position = Vector2(407, 966)
 scale = Vector2(0.345312, 0.329687)
 texture = ExtResource("4_oxwfg")
 
-[node name="HIons5" type="Sprite2D" parent="."]
+[node name="HIons5" type="Sprite2D" parent="." unique_id=150334009]
 visible = false
 position = Vector2(680, 1066)
 scale = Vector2(0.11875, 0.121875)
 texture = ExtResource("9_c46p1")
 
-[node name="HIons6" type="Sprite2D" parent="."]
+[node name="HIons6" type="Sprite2D" parent="." unique_id=1831343875]
 visible = false
 position = Vector2(708, 1079)
 scale = Vector2(0.120164, 0.12392)
 texture = ExtResource("9_c46p1")
 
-[node name="Electron3" type="Sprite2D" parent="."]
+[node name="Electron3" type="Sprite2D" parent="." unique_id=568697146]
 visible = false
 position = Vector2(387, 915)
 scale = Vector2(0.140625, 0.148438)
 texture = ExtResource("8_q1o5q")
 
-[node name="Electron4" type="Sprite2D" parent="."]
+[node name="Electron4" type="Sprite2D" parent="." unique_id=475928340]
 visible = false
 position = Vector2(432, 914)
 scale = Vector2(0.140625, 0.148438)
 texture = ExtResource("8_q1o5q")
 
-[node name="HIons7" type="Sprite2D" parent="."]
+[node name="HIons7" type="Sprite2D" parent="." unique_id=265485222]
 position = Vector2(1349, 1110)
 scale = Vector2(0.120164, 0.12392)
 texture = ExtResource("9_c46p1")
 
-[node name="HIons8" type="Sprite2D" parent="."]
+[node name="HIons8" type="Sprite2D" parent="." unique_id=891847049]
 position = Vector2(1297, 1127)
 scale = Vector2(0.120164, 0.12392)
 texture = ExtResource("9_c46p1")
 
-[node name="Textbox" parent="." instance=ExtResource("12_jum2j")]
+[node name="Textbox" parent="." unique_id=398871769 instance=ExtResource("12_jum2j")]
 process_mode = 3
 script = ExtResource("13_fo2qo")
+
+[node name="Arrow2" type="Sprite2D" parent="." unique_id=2029934331]
+position = Vector2(722.2208, 924.91516)
+rotation = 0.24783675
+scale = Vector2(17.408642, 8.808046)
+texture = ExtResource("14_8re8a")
