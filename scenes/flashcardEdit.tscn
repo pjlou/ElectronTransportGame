@@ -1,3 +1,201 @@
-[gd_scene format=3 uid="uid://b8tuck6rto57x"]
+[gd_scene format=3 uid="uid://bgtq2uwrldo54"]
 
-[node name="FlaschcardEdit" type="Node2D" unique_id=752511015]
+[ext_resource type="Texture2D" uid="uid://3a2dl5nkqccg" path="res://assets/art/bkgrnd1.png" id="1_qwjeo"]
+[ext_resource type="Texture2D" uid="uid://ekcq4006xf42" path="res://assets/art/bkgrnd2.png" id="2_70d0w"]
+[ext_resource type="Texture2D" uid="uid://bc8mckniiv2fx" path="res://assets/art/bkgrnd3.png" id="3_xhx0m"]
+[ext_resource type="Texture2D" uid="uid://cta1bxeumk7cf" path="res://assets/art/bkgrnd4.png" id="4_7frys"]
+[ext_resource type="FontFile" uid="uid://be215ewpt8022" path="res://assets/fonts/PressStart2P-vaV7.ttf" id="5_yfwk6"]
+[ext_resource type="StyleBox" uid="uid://ctcomgtmjcv4r" path="res://assets/art/pressedButton.tres" id="7_stv62"]
+[ext_resource type="StyleBox" uid="uid://c1itffj143mgb" path="res://assets/art/Button.tres" id="8_761wl"]
+[ext_resource type="StyleBox" uid="uid://cstq4423423bp" path="res://assets/art/stylizedBox.tres" id="10_n4u7n"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7vrav"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_qwjeo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_70d0w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xhx0m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7frys")
+}],
+"loop": true,
+"name": &"bkgrnd",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7lmhq"]
+bg_color = Color(0, 0.290196, 0.678431, 1)
+
+[node name="FlashcardEdit" type="Node2D" unique_id=556960107]
+
+[node name="animatedBackground" type="AnimatedSprite2D" parent="." unique_id=646963689]
+position = Vector2(958, 540)
+scale = Vector2(0.997396, 1)
+sprite_frames = SubResource("SpriteFrames_7vrav")
+animation = &"bkgrnd"
+
+[node name="menuButton" type="Button" parent="animatedBackground" unique_id=1298518685]
+anchors_preset = -1
+anchor_left = 0.46986
+anchor_top = 0.5
+anchor_right = 0.46986
+anchor_bottom = 0.5
+offset_left = -371.23
+offset_top = -102.0
+offset_right = 57.7695
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0.290196, 0.678431, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_yfwk6")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("8_761wl")
+theme_override_styles/pressed = ExtResource("7_stv62")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7lmhq")
+text = "<- Menu"
+metadata/_edit_use_anchors_ = true
+
+[node name="answer1" type="Button" parent="animatedBackground" unique_id=459522174]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.505
+anchor_bottom = 0.5
+offset_left = -1755.07
+offset_top = -526.0
+offset_right = -1066.67
+offset_bottom = -326.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0.290196, 0.678431, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_yfwk6")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = ExtResource("10_n4u7n")
+theme_override_styles/pressed = ExtResource("7_stv62")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7lmhq")
+text = "answer1"
+autowrap_mode = 3
+
+[node name="answer2" type="Button" parent="animatedBackground" unique_id=667702879]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.505
+anchor_bottom = 0.5
+offset_left = -1037.2
+offset_top = -524.0
+offset_right = -348.801
+offset_bottom = -324.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0.290196, 0.678431, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_yfwk6")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = ExtResource("10_n4u7n")
+theme_override_styles/pressed = ExtResource("7_stv62")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7lmhq")
+text = "answer2"
+autowrap_mode = 3
+
+[node name="answer3" type="Button" parent="animatedBackground" unique_id=829477627]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.505
+anchor_bottom = 0.5
+offset_left = -1756.07
+offset_top = -312.0
+offset_right = -1067.68
+offset_bottom = -112.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0.290196, 0.678431, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_yfwk6")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = ExtResource("10_n4u7n")
+theme_override_styles/pressed = ExtResource("7_stv62")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7lmhq")
+text = "answer3"
+autowrap_mode = 3
+
+[node name="answer4" type="Button" parent="animatedBackground" unique_id=195267778]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.505
+anchor_bottom = 0.5
+offset_left = -1036.2
+offset_top = -311.0
+offset_right = -347.798
+offset_bottom = -111.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0.290196, 0.678431, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_yfwk6")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = ExtResource("10_n4u7n")
+theme_override_styles/pressed = ExtResource("7_stv62")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7lmhq")
+text = "answer4"
+autowrap_mode = 3
+
+[node name="questionPanel" type="Panel" parent="animatedBackground" unique_id=1563949056]
+anchors_preset = -1
+anchor_right = 0.994
+anchor_bottom = 1.0
+offset_left = -800.083
+offset_top = -499.0
+offset_right = -1280.56
+offset_bottom = -1075.0
+theme_override_styles/panel = ExtResource("10_n4u7n")
+
+[node name="questionLabel" type="Label" parent="animatedBackground/questionPanel" unique_id=231024935]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.015
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 38.0996
+offset_top = 32.44
+offset_right = -33.9004
+offset_bottom = -192.0
+theme_override_colors/font_color = Color(0, 0.290196, 0.678431, 1)
+theme_override_fonts/font = ExtResource("5_yfwk6")
+theme_override_font_sizes/font_size = 50
+text = "question:"
+autowrap_mode = 3
+
+[node name="RefreshFlash" type="Button" parent="animatedBackground/questionPanel" unique_id=706828445]
+layout_mode = 0
+offset_left = -145.379
+offset_top = 939.0
+offset_right = 198.621
+offset_bottom = 1037.0
+theme_override_colors/font_color = Color(0, 0.290196, 0.678431, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_yfwk6")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("8_761wl")
+theme_override_styles/pressed = ExtResource("7_stv62")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7lmhq")
+text = "Refresh Flashcards"
+
+[node name="ScoreLabel" type="Label" parent="animatedBackground/questionPanel" unique_id=1455013967]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[connection signal="focus_entered" from="animatedBackground/menuButton" to="." method="_on_menu_button_focus_entered"]
+[connection signal="pressed" from="animatedBackground/menuButton" to="." method="_on_menu_button_pressed"]
