@@ -63,3 +63,8 @@ func _on_replay_no_check_box_pressed() -> void:
 		$replayNoCheckBox.button_pressed = true
 	else:
 		$replayYesCheckBox.button_pressed = false
+
+
+func _on_back_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/flashcardMenu.tscn")
+	# add persistence of settings change here
