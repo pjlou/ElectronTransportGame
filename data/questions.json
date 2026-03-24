@@ -3,49 +3,57 @@
 	"id": 1,
 	"question": "What molecule donates electrons to the Electron Transport Chain?",
 	"choices": ["NADH", "ATP", "Oxygen", "FADH2"],
-	"answer": "NADH"
+	"answer": "NADH",
+	"favorited": false
   },
   {
 	"id": 2,
 	"question": "Where does the Electron Transport Chain take place?",
 	"choices": ["Cytoplasm", "Mitochondrial Matrix", "Inner Mitochondrial Membrane", "Nucleus"],
-	"answer": "Inner Mitochondrial Membrane"
+	"answer": "Inner Mitochondrial Membrane",
+	"favorited": false
   },
   {
 	"id": 3,
 	"question": "What is the final electron acceptor in the Electron Transport Chain?",
 	"choices": ["Carbon Dioxide", "NAD+", "Water", "Oxygen"],
-	"answer": "Oxygen"
+	"answer": "Oxygen",
+	"favorited": false
   },
   {
 	"id": 4,
 	"question": "Which is a naturally occurring biochemical cofactor and an antioxidant produced by the human body",
 	"choices": ["NAD+", "Cytoplasm", "ubiquinone", "FADH₂"],
-	"answer": "ubiquinone"
+	"answer": "ubiquinone",
+	"favorited": false
   },
   {
 	"id": 5,
 	"question": "Which complex is the NADH:ubiquinone oxidoreductase?",
 	"choices": ["Complex I", "Complex II", "Complex III", "Complex IV"],
-	"answer": "Complex I"
+	"answer": "Complex I",
+	"favorited": false
   },
   {
 	"id": 6,
 	"question": "Which complex is the succinate dehydrogenase?",
 	"choices": ["Complex I", "Complex II", "Complex III", "Complex IV"],
-	"answer": "Complex II"
+	"answer": "Complex II",
+	"favorited": false
   },
   {
 	"id": 7,
 	"question": "Which complex is the cytochrome bc1 complex?",
 	"choices": ["Complex I", "Complex II", "Complex III", "Complex IV"],
-	"answer": "Complex III"
+	"answer": "Complex III",
+	"favorited": false
   },
   {
 	"id": 8,
 	"question": "Which complex is the cytochrome c oxidase?",
 	"choices": ["Complex I", "Complex II", "Complex III", "Complex IV"],
-	"answer": "Complex IV"
+	"answer": "Complex IV",
+	"favorited": false
   },
 
 ]

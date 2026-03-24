@@ -37,7 +37,7 @@ func _ready() -> void:
 
 	var loader = preload("res://scripts/flashcard_loader.gd").new()
 	loader.preLoad()
-	flashcards = loader.get_flashcards()
+	flashcards = loader.get_filtered_flashcards()
 	total_flash = flashcards.size()
 	settings = loader.get_settings()
 	#score_label.text = "Score: %d/%d" % [score, total_flash]
@@ -85,7 +85,7 @@ func refresh_flashcards() -> void:
 
 	var loader = preload("res://scripts/flashcard_loader.gd").new()
 	loader.preLoad()
-	flashcards = loader.get_flashcards()
+	flashcards = loader.get_filtered_flashcards()
 	total_flash = flashcards.size()
 
 	#score_label.text = "Score: %d/%d" % [score, total_flash]
