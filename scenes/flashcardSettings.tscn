@@ -113,7 +113,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="menuButton" type="Button" parent="." unique_id=981976240]
+[node name="backButton" type="Button" parent="." unique_id=981976240]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -159,6 +159,7 @@ offset_top = 259.0
 offset_right = 824.0
 offset_bottom = 283.0
 scale = Vector2(3, 3)
+button_pressed = true
 
 [node name="defaultsText" type="Label" parent="." unique_id=1347366416]
 z_index = 1
@@ -259,6 +260,7 @@ offset_top = 552.0
 offset_right = 939.0
 offset_bottom = 583.0
 scale = Vector2(3, 3)
+button_pressed = true
 
 [node name="fillInBlankText" type="Label" parent="." unique_id=1212819842]
 z_index = 1
@@ -334,5 +336,14 @@ offset_top = 840.0
 offset_right = 939.0
 offset_bottom = 871.0
 scale = Vector2(3, 3)
+button_pressed = true
 
-[connection signal="pressed" from="menuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="backButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="allCheckBox" to="." method="_on_all_check_box_pressed"]
+[connection signal="pressed" from="defaultsCheckBox" to="." method="_on_defaults_check_box_pressed"]
+[connection signal="pressed" from="customsCheckBox" to="." method="_on_customs_check_box_pressed"]
+[connection signal="pressed" from="favoritesCheckBox" to="." method="_on_favorites_check_box_pressed"]
+[connection signal="pressed" from="multChoiceCheckBox" to="." method="_on_mult_choice_check_box_pressed"]
+[connection signal="pressed" from="fillInBlankCheckBox" to="." method="_on_fill_in_blank_check_box_pressed"]
+[connection signal="pressed" from="replayYesCheckBox" to="." method="_on_replay_yes_check_box_pressed"]
+[connection signal="pressed" from="replayNoCheckBox" to="." method="_on_replay_no_check_box_pressed"]

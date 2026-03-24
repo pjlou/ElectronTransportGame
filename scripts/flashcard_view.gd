@@ -31,8 +31,6 @@ func _ready() -> void:
 	#score_label.text = "Score: %d/%d" % [score, total_flash]
 
 	show_flashcard(current_index)
-	refresh.text = "Refresh Flashcards"
-	refresh.pressed.connect(refresh_flashcards)
 
 
 func show_flashcard(index: int) -> void:
@@ -44,7 +42,6 @@ func show_flashcard(index: int) -> void:
 		index = flashcards.size() - 1
 		current_index = flashcards.size() - 1
 		show_flashcard(current_index)
-	
 
 	var card: Dictionary = flashcards[index]
 	question_label.text = card["question"]
@@ -59,6 +56,13 @@ func show_flashcard(index: int) -> void:
 		btn.add_theme_stylebox_override("hover", hover_style)
 		btn.add_theme_color_override("font_hover_color", default_hover_font_color)
 
+		for b in answer_buttons:
+			#b.disabled = true
+			if b.text == card["answer"]:
+				b.add_theme_stylebox_override("normal", correct_style)
+				b.add_theme_stylebox_override("hover", correct_style)
+				b.add_theme_color_override("font_hover_color", b.get_theme_color("font_color"))
+		
 func refresh_flashcards() -> void:
 	score = 0
 	current_index = 0
@@ -85,7 +89,7 @@ func _on_timer_timeout() -> void:
 
 
 func _on_menu_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/modeSelection.tscn")
+	get_tree().change_scene_to_file("res://scenes/flashcardMenu.tscn")
 
 
 func _on_prev_pressed() -> void:
@@ -95,3 +99,10 @@ func _on_prev_pressed() -> void:
 func _on_next_pressed() -> void:
 	current_index += 1
 	show_flashcard(current_index)
+
+func _on_fav_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_edit_pressed() -> void:
+	pass # Replace with function body.
