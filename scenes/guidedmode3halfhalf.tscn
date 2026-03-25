@@ -1,8 +1,10 @@
-[gd_scene format=3 uid="uid://b7dgrj1dfoiqq"]
+[gd_scene format=4 uid="uid://b7dgrj1dfoiqq"]
 
 [ext_resource type="Texture2D" uid="uid://3a2dl5nkqccg" path="res://assets/art/bkgrnd1.png" id="1_qclws"]
 [ext_resource type="Texture2D" uid="uid://bislb0op82f72" path="res://assets/art/bkgrnd-Sheet.png" id="2_4q8f2"]
 [ext_resource type="Texture2D" uid="uid://ck0re3q1oq06n" path="res://assets/art/HIons.png" id="3_d8i6d"]
+[ext_resource type="Texture2D" uid="uid://cxm3nb6sldmd3" path="res://assets/art/lipid_tiles_big.png" id="3_msbex"]
+[ext_resource type="Texture2D" uid="uid://ddekkv0w4h8j8" path="res://assets/art/lipid_tiles_big_flipped.png" id="4_8fqaq"]
 [ext_resource type="Texture2D" uid="uid://ru4liwfhg5fk" path="res://assets/art/Complex4.png" id="4_8uaxk"]
 [ext_resource type="Texture2D" uid="uid://idanu5gblvhn" path="res://assets/art/pfadp.png" id="5_r5fjq"]
 [ext_resource type="Script" uid="uid://c68nwr5gjau3t" path="res://scripts/basicgrouper.gd" id="6_1ei5q"]
@@ -50,6 +52,40 @@ animations = [{
 "name": &"backgournd_animation",
 "speed": 5.0
 }]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wd07d"]
+texture = ExtResource("3_msbex")
+texture_region_size = Vector2i(120, 60)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_neonr"]
+texture = ExtResource("4_8fqaq")
+texture_region_size = Vector2i(120, 60)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_pynh4"]
+sources/0 = SubResource("TileSetAtlasSource_wd07d")
+sources/2 = SubResource("TileSetAtlasSource_neonr")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nsov0"]
 size = Vector2(463, 545)
@@ -656,6 +692,11 @@ texture = ExtResource("1_qclws")
 sprite_frames = SubResource("SpriteFrames_rabw6")
 animation = &"backgournd_animation"
 autoplay = "backgournd_animation"
+
+[node name="LipidTileLayer" type="TileMapLayer" parent="Bkgrnd1" unique_id=2066444968]
+position = Vector2(-961, -543)
+tile_map_data = PackedByteArray("AAADAB8AAAAAAAAAAAALAB8AAAAAAAAAAAATAB8AAAAAAAAAAAAaAB8AAAAAAAAAAAAiAB8AAAAAAAAAAAAqAB8AAAAAAAAAAAAxAB8AAAAAAAAAAAA5AB8AAAAAAAAAAABBAB8AAAAAAAAAAABJAB8AAAAAAAAAAABQAB8AAAAAAAAAAABYAB8AAAAAAAAAAAB0AB8AAAAAAAAAAABtAB8AAAAAAAAAAABnAB8AAAAAAAAAAABhAB8AAAAAAAAAAAADABsAAgAAAAAAAAALABsAAgAAAAAAAAATABsAAgAAAAAAAAAcABsAAgAAAAAAAAAlABoAAgAAAAAAAAAtABsAAgAAAAAAAAA0ABsAAgAAAAAAAAA9ABsAAgAAAAAAAABCABsAAgAAAAAAAABJABsAAgAAAAAAAABRABsAAgAAAAAAAABYABsAAgAAAAAAAABfABsAAgAAAAAAAABnABsAAgAAAAAAAABvABsAAgAAAAAAAAB0ABsAAgAAAAAAAAA=")
+tile_set = SubResource("TileSet_pynh4")
 
 [node name="HIons" type="Sprite2D" parent="." unique_id=1276271902]
 position = Vector2(511, 97)

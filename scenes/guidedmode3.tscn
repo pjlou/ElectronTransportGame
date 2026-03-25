@@ -1,9 +1,11 @@
-[gd_scene format=3 uid="uid://des7js64dero"]
+[gd_scene format=4 uid="uid://des7js64dero"]
 
 [ext_resource type="Texture2D" uid="uid://3a2dl5nkqccg" path="res://assets/art/bkgrnd1.png" id="1_f4npc"]
 [ext_resource type="Texture2D" uid="uid://bislb0op82f72" path="res://assets/art/bkgrnd-Sheet.png" id="2_mw6kq"]
+[ext_resource type="Texture2D" uid="uid://cxm3nb6sldmd3" path="res://assets/art/lipid_tiles_big.png" id="3_1l0c4"]
 [ext_resource type="Texture2D" uid="uid://blpaf2iqwfcgm" path="res://assets/art/complex3.png" id="3_l0swp"]
 [ext_resource type="Texture2D" uid="uid://ck0re3q1oq06n" path="res://assets/art/HIons.png" id="4_4yk7g"]
+[ext_resource type="Texture2D" uid="uid://ddekkv0w4h8j8" path="res://assets/art/lipid_tiles_big_flipped.png" id="4_7jg33"]
 [ext_resource type="Texture2D" uid="uid://bal7ooctwkol" path="res://assets/art/cq.png" id="4_tqpfy"]
 [ext_resource type="Texture2D" uid="uid://dkes6pldv3d7l" path="res://assets/art/complex1.png" id="5_a4hqw"]
 [ext_resource type="Script" uid="uid://emndyvmpaln7" path="res://scripts/basicdragscript.gd" id="6_kpgqt"]
@@ -51,6 +53,40 @@ animations = [{
 "name": &"backgournd_animation",
 "speed": 5.0
 }]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sq6ot"]
+texture = ExtResource("3_1l0c4")
+texture_region_size = Vector2i(120, 60)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ntx0g"]
+texture = ExtResource("4_7jg33")
+texture_region_size = Vector2i(120, 60)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_lgj3b"]
+sources/0 = SubResource("TileSetAtlasSource_sq6ot")
+sources/2 = SubResource("TileSetAtlasSource_ntx0g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_twua5"]
 size = Vector2(337, 240)
@@ -573,6 +609,11 @@ texture = ExtResource("1_f4npc")
 sprite_frames = SubResource("SpriteFrames_2y1c6")
 animation = &"backgournd_animation"
 autoplay = "backgournd_animation"
+
+[node name="LipidTileLayer" type="TileMapLayer" parent="Bkgrnd1" unique_id=1195218094]
+position = Vector2(-961, -543)
+tile_map_data = PackedByteArray("AAADAB8AAAAAAAAAAAALAB8AAAAAAAAAAAATAB8AAAAAAAAAAAAaAB8AAAAAAAAAAAAiAB8AAAAAAAAAAAAqAB8AAAAAAAAAAAAxAB8AAAAAAAAAAAA5AB8AAAAAAAAAAABBAB8AAAAAAAAAAABJAB8AAAAAAAAAAABQAB8AAAAAAAAAAABYAB8AAAAAAAAAAAB0AB8AAAAAAAAAAABtAB8AAAAAAAAAAABnAB8AAAAAAAAAAABhAB8AAAAAAAAAAAADABsAAgAAAAAAAAALABsAAgAAAAAAAAATABsAAgAAAAAAAAAcABsAAgAAAAAAAAAlABoAAgAAAAAAAAAtABsAAgAAAAAAAAA0ABsAAgAAAAAAAAA9ABsAAgAAAAAAAABCABsAAgAAAAAAAABJABsAAgAAAAAAAABRABsAAgAAAAAAAABYABsAAgAAAAAAAABfABsAAgAAAAAAAABnABsAAgAAAAAAAABvABsAAgAAAAAAAAB0ABsAAgAAAAAAAAA=")
+tile_set = SubResource("TileSet_lgj3b")
 
 [node name="Complex1" type="Sprite2D" parent="." unique_id=1091614896]
 position = Vector2(67.1248, 435.375)
