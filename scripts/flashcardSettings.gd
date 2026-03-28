@@ -31,6 +31,14 @@ func settings_to_checkboxes():
 	else:
 		printerr("Flashcard settings error. Defaulting to All.")
 		_on_all_check_box_pressed()
+	
+	if settings["answerType"] == 1:
+		_on_fill_in_blank_check_box_pressed()
+	elif settings["answerType"] == 0:
+		_on_mult_choice_check_box_pressed()
+	else:
+		printerr("Flashcard settings error. Defaulting to Multiple Choice.")
+		_on_mult_choice_check_box_pressed()
 		
 	if settings["replayIncorrectlyAnsweredCards"] == 1:
 		_on_replay_no_check_box_pressed()
@@ -85,12 +93,16 @@ func _on_favorites_check_box_pressed() -> void:
 		$customsCheckBox.button_pressed = false
 
 func _on_mult_choice_check_box_pressed() -> void:
+	settings["answerType"] = 0
+	save_settings()
 	if $multChoiceCheckBox.button_pressed == false:
 		$multChoiceCheckBox.button_pressed = true
 	else:
 		$fillInBlankCheckBox.button_pressed = false
 
 func _on_fill_in_blank_check_box_pressed() -> void:
+	settings["answerType"] = 1
+	save_settings()
 	if $fillInBlankCheckBox.button_pressed == false:
 		$fillInBlankCheckBox.button_pressed = true
 	else:

@@ -7,6 +7,9 @@ extends Node2D
 	$animatedBackground/answer3,
 	$animatedBackground/answer4
 ]
+@onready var fill_answer_entry = $animatedBackground/fillAnswerEntry
+@onready var fill_answer_button = $animatedBackground/fillAnswerButton
+@onready var fill_answer_status = $animatedBackground/fillAnswerStatus
 @onready var score_label: Label = get_node_or_null("animatedBackground/questionPanel/ScoreLabel")
 @onready var refresh: Button = get_node_or_null("animatedBackground/questionPanel/RefreshFlash")
 @onready var mascot_good: Sprite2D = get_node_or_null("animatedBackground/leaderboardMascotHolder/mascotGood")
@@ -48,6 +51,16 @@ func _ready() -> void:
 	mascot_good.visible = false
 	mascot_bad.visible = false
 	mascot_reg.visible = true
+	
+	if settings['answerType'] == 1:
+		# hide multiple choice options
+		for button in answer_buttons:
+			button.visible = false
+		# show fill-in-the-blank
+		fill_answer_entry.visible = true
+		fill_answer_button.visible = true
+		fill_answer_entry.add_theme_font_size_override("font_size", 48)
+		fill_answer_entry.keep_editing_on_text_submit = true
 
 func show_flashcard(index: int) -> void:
 	if index >= flashcards.size():
@@ -55,6 +68,8 @@ func show_flashcard(index: int) -> void:
 			question_label.text = "Well done! You've completed all flashcards."
 			for button in answer_buttons:
 				button.visible = false
+			fill_answer_entry.visible = false
+			fill_answer_button.visible = false
 			return
 		else:
 			current_index = 0
@@ -79,6 +94,16 @@ func show_flashcard(index: int) -> void:
 			btn.disconnect("pressed", Callable(self, "_on_answer_pressed"))
 		btn.pressed.connect(Callable(self, "_on_answer_pressed").bind(card["choices"][i], card["answer"], btn))
 
+	if settings["answerType"] == 1:
+		# Reset to the original theme style instead of removing
+		fill_answer_button.add_theme_stylebox_override("normal", default_style)
+		fill_answer_button.add_theme_stylebox_override("hover", hover_style)
+		fill_answer_button.add_theme_color_override("font_hover_color", default_hover_font_color)
+		
+		fill_answer_status.text = "Enter your answer above"
+		fill_answer_entry.text = ""
+		fill_answer_entry.edit()
+
 func refresh_flashcards() -> void:
 	score = 0
 	current_index = 0
@@ -91,8 +116,9 @@ func refresh_flashcards() -> void:
 	#score_label.text = "Score: %d/%d" % [score, total_flash]
 	show_flashcard(current_index)
 
-	for btn in answer_buttons:
-		btn.visible = true
+	if settings['answerType'] == 0:
+		for btn in answer_buttons:
+			btn.visible = true
 
 func _on_answer_pressed(selected: String, correct: String, button: Button) -> void:
 	var normal_font_color := button.get_theme_color("font_color")
@@ -122,6 +148,43 @@ func _on_answer_pressed(selected: String, correct: String, button: Button) -> vo
 			b.add_theme_color_override("font_hover_color", b.get_theme_color("font_color"))
 
 	timer.wait_time = 1.0
+	timer.start()
+
+func _on_fill_answer_entry_text_submitted(answer: String) -> void:
+	var normal_font_color = fill_answer_button.get_theme_color("font_color")
+	var isCorrect
+	if answer.to_lower() == flashcards[current_index]["answer"].to_lower():
+		#score += 1
+		isCorrect = true
+		fill_answer_button.add_theme_stylebox_override("normal", correct_style)
+		fill_answer_button.add_theme_stylebox_override("hover", correct_style)
+		fill_answer_button.add_theme_color_override("font_hover_color", normal_font_color)
+		fill_answer_status.text = ""
+		mascot_good.visible = true
+		mascot_bad.visible = false
+	elif answer.to_lower().similarity(flashcards[current_index]["answer"].to_lower()) > 0.8:
+		fill_answer_status.text = "Close! Check your spelling."
+		fill_answer_entry.grab_focus()
+		fill_answer_entry.edit()
+		return
+	else:
+		missed.append(flashcards[current_index])
+		isCorrect = false
+		fill_answer_button.add_theme_stylebox_override("normal", incorrect_style)
+		fill_answer_button.add_theme_stylebox_override("hover", incorrect_style)
+		fill_answer_button.add_theme_color_override("font_hover_color", normal_font_color)
+		fill_answer_status.text = "Correct Answer: " + flashcards[current_index]["answer"]
+		mascot_good.visible = false
+		mascot_bad.visible = true
+
+	mascot_reg.visible = false
+	#score_label.text = "Score: %d/%d" % [score, total_flash]
+	
+	# longer wait time for wrong answers
+	if isCorrect:
+		timer.wait_time = 1.0
+	else:
+		timer.wait_time = 2.0
 	timer.start()
 
 func _on_timer_timeout() -> void:

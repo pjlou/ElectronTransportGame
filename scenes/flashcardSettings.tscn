@@ -259,7 +259,6 @@ offset_top = 552.0
 offset_right = 939.0
 offset_bottom = 583.0
 scale = Vector2(3, 3)
-button_pressed = true
 
 [node name="fillInBlankText" type="Label" parent="." unique_id=1212819842]
 z_index = 1
