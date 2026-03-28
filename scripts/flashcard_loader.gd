@@ -50,6 +50,8 @@ func load_default_flashcards(fileLoc):
 		return
 
 	default_flashcards = result
+	for flashcard in default_flashcards:
+		flashcard["isCustom"] = false
 	print("Default flashcards loaded successfully!")
 
 func load_custom_flashcards(fileLoc):
@@ -61,6 +63,8 @@ func load_custom_flashcards(fileLoc):
 		return
 
 	custom_flashcards = result
+	for flashcard in custom_flashcards:
+		flashcard["isCustom"] = true
 	print("Custom flashcards loaded successfully!")
 
 func load_settings(fileLoc):

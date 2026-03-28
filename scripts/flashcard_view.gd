@@ -7,6 +7,7 @@ extends Node2D
 	$animatedBackground/answer3,
 	$animatedBackground/answer4
 ]
+@onready var favButton = $fav
 @onready var score_label: Label = get_node_or_null("animatedBackground/questionPanel/ScoreLabel")
 @onready var refresh: Button = get_node_or_null("animatedBackground/questionPanel/RefreshFlash")
 
@@ -14,6 +15,8 @@ extends Node2D
 @onready var incorrect_style: StyleBox = preload("res://assets/art/incorrectAnswerButton.tres")
 @onready var default_style: StyleBox = preload("res://assets/art/stylizedBox.tres")
 @onready var hover_style: StyleBox = preload("res://assets/art/hoverButton.tres")
+
+var loader = preload("res://scripts/flashcard_loader.gd").new()
 
 var default_hover_font_color: Color
 var flashcards: Array = []
@@ -24,7 +27,6 @@ var score: int = 0
 func _ready() -> void:
 	default_hover_font_color = answer_buttons[0].get_theme_color("font_hover_color")
 
-	var loader = preload("res://scripts/flashcard_loader.gd").new()
 	loader.preLoad()
 	flashcards = loader.get_flashcards()
 	total_flash = flashcards.size()
@@ -45,6 +47,15 @@ func show_flashcard(index: int) -> void:
 
 	var card: Dictionary = flashcards[index]
 	question_label.text = card["question"]
+	if card["favorited"]:
+		favButton.add_theme_stylebox_override("normal", correct_style)
+		favButton.add_theme_stylebox_override("hover", correct_style)
+		favButton.add_theme_color_override("font_hover_color", favButton.get_theme_color("font_color"))
+	else:
+		# Reset to the original theme style instead of removing
+		favButton.add_theme_stylebox_override("normal", default_style)
+		favButton.add_theme_stylebox_override("hover", hover_style)
+		favButton.add_theme_color_override("font_hover_color", default_hover_font_color)
 
 	for i in range(answer_buttons.size()):
 		var btn: Button = answer_buttons[i]
@@ -101,8 +112,35 @@ func _on_next_pressed() -> void:
 	show_flashcard(current_index)
 
 func _on_fav_pressed() -> void:
-	pass # Replace with function body.
-
+	if not flashcards[current_index]["favorited"]:
+		flashcards[current_index]["favorited"] = true
+		save_settings(flashcards[current_index]["isCustom"])
+		favButton.add_theme_stylebox_override("normal", correct_style)
+		favButton.add_theme_stylebox_override("hover", correct_style)
+		favButton.add_theme_color_override("font_hover_color", favButton.get_theme_color("font_color"))
+	else:
+		# Reset to the original theme style instead of removing
+		flashcards[current_index]["favorited"] = false
+		save_settings(flashcards[current_index]["isCustom"])
+		favButton.add_theme_stylebox_override("normal", default_style)
+		favButton.add_theme_stylebox_override("hover", hover_style)
+		favButton.add_theme_color_override("font_hover_color", default_hover_font_color)
 
 func _on_edit_pressed() -> void:
-	pass # Replace with function body.
+	pass # Replace with function body
+	
+func save_settings(isCustom):
+	var questionDir
+	if isCustom:
+		questionDir = loader.customQuestionsDir
+	else:
+		questionDir = loader.defaultQuestionsDir
+	var save_file = FileAccess.open(questionDir, FileAccess.WRITE)
+	# JSON provides a static method to serialized JSON string.
+	var json_string
+	if isCustom:
+		json_string = JSON.stringify(loader.custom_flashcards)
+	else:
+		json_string = JSON.stringify(loader.default_flashcards)
+	# Store the save dictionary as a new line in the save file.
+	save_file.store_line(json_string)
