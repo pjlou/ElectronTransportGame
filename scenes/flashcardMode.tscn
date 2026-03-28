@@ -159,6 +159,7 @@ text = "answer4"
 autowrap_mode = 3
 
 [node name="fillAnswerButton" type="Button" parent="animatedBackground" unique_id=492456115]
+visible = false
 anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.5
@@ -180,6 +181,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_7lmhq")
 autowrap_mode = 3
 
 [node name="fillAnswerEntry" type="LineEdit" parent="animatedBackground" unique_id=1243819343]
+visible = false
 offset_left = -771.0077
 offset_top = 66.0
 offset_right = 609.5874

@@ -238,3 +238,4 @@ autowrap_mode = 3
 [connection signal="pressed" from="startButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="settingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="viewButton" to="." method="_on_view_button_pressed"]
+[connection signal="pressed" from="editButton" to="." method="_on_edit_button_pressed"]

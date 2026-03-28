@@ -20,3 +20,6 @@ func _on_settings_button_pressed() -> void:
 
 func _on_view_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/flashcardView.tscn")
+
+func _on_edit_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/flashcardView.tscn")
