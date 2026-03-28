@@ -1,32 +1,29 @@
-[gd_scene format=3 uid="uid://vagojvo7opu2"]
+[gd_scene format=3 uid="uid://bi5y1e6rva1qk"]
 
-[ext_resource type="Script" uid="uid://bt8wsc6v7lp80" path="res://scripts/flashcard_manager.gd" id="1_rxp6l"]
-[ext_resource type="Texture2D" uid="uid://3a2dl5nkqccg" path="res://assets/art/bkgrnd1.png" id="2_7fc0n"]
-[ext_resource type="Texture2D" uid="uid://ekcq4006xf42" path="res://assets/art/bkgrnd2.png" id="3_rxp6l"]
-[ext_resource type="Texture2D" uid="uid://bc8mckniiv2fx" path="res://assets/art/bkgrnd3.png" id="4_nyuu3"]
-[ext_resource type="Texture2D" uid="uid://cta1bxeumk7cf" path="res://assets/art/bkgrnd4.png" id="5_2vurm"]
-[ext_resource type="FontFile" uid="uid://be215ewpt8022" path="res://assets/fonts/PressStart2P-vaV7.ttf" id="6_jyna1"]
-[ext_resource type="StyleBox" uid="uid://c1itffj143mgb" path="res://assets/art/Button.tres" id="7_vjr2h"]
-[ext_resource type="StyleBox" uid="uid://ctcomgtmjcv4r" path="res://assets/art/pressedButton.tres" id="8_pqr4m"]
-[ext_resource type="StyleBox" uid="uid://cstq4423423bp" path="res://assets/art/stylizedBox.tres" id="9_nyuu3"]
-[ext_resource type="Texture2D" uid="uid://cfdf743crk4c" path="res://assets/art/mascotReg.png" id="10_2vurm"]
-[ext_resource type="Texture2D" uid="uid://0bptqtncg5dh" path="res://assets/art/mascotGood.png" id="11_jyna1"]
-[ext_resource type="Texture2D" uid="uid://uvumc6sgqkd" path="res://assets/art/mascotBad.png" id="12_vjr2h"]
+[ext_resource type="Script" uid="uid://dvcncuefq3pu5" path="res://scripts/flashcard_view.gd" id="1_15j7m"]
+[ext_resource type="Texture2D" uid="uid://3a2dl5nkqccg" path="res://assets/art/bkgrnd1.png" id="2_guttd"]
+[ext_resource type="Texture2D" uid="uid://ekcq4006xf42" path="res://assets/art/bkgrnd2.png" id="3_wk1lu"]
+[ext_resource type="Texture2D" uid="uid://bc8mckniiv2fx" path="res://assets/art/bkgrnd3.png" id="4_08cba"]
+[ext_resource type="Texture2D" uid="uid://cta1bxeumk7cf" path="res://assets/art/bkgrnd4.png" id="5_wc5rd"]
+[ext_resource type="FontFile" uid="uid://be215ewpt8022" path="res://assets/fonts/PressStart2P-vaV7.ttf" id="6_fm80x"]
+[ext_resource type="StyleBox" uid="uid://c1itffj143mgb" path="res://assets/art/Button.tres" id="7_ct8u3"]
+[ext_resource type="StyleBox" uid="uid://ctcomgtmjcv4r" path="res://assets/art/pressedButton.tres" id="8_6fxxv"]
+[ext_resource type="StyleBox" uid="uid://cstq4423423bp" path="res://assets/art/stylizedBox.tres" id="9_ieg5k"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7vrav"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_7fc0n")
+"texture": ExtResource("2_guttd")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_rxp6l")
+"texture": ExtResource("3_wk1lu")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_nyuu3")
+"texture": ExtResource("4_08cba")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_2vurm")
+"texture": ExtResource("5_wc5rd")
 }],
 "loop": true,
 "name": &"bkgrnd",
@@ -36,10 +33,8 @@ animations = [{
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7lmhq"]
 bg_color = Color(0, 0.290196, 0.678431, 1)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5awwq"]
-
-[node name="FlashcardMode" type="Node2D" unique_id=556960107]
-script = ExtResource("1_rxp6l")
+[node name="FlashcardView" type="Node2D" unique_id=556960107]
+script = ExtResource("1_15j7m")
 
 [node name="animatedBackground" type="AnimatedSprite2D" parent="." unique_id=646963689]
 position = Vector2(958, 540)
@@ -62,10 +57,10 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0.290196, 0.678431, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("6_jyna1")
+theme_override_fonts/font = ExtResource("6_fm80x")
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = ExtResource("7_vjr2h")
-theme_override_styles/pressed = ExtResource("8_pqr4m")
+theme_override_styles/normal = ExtResource("7_ct8u3")
+theme_override_styles/pressed = ExtResource("8_6fxxv")
 theme_override_styles/hover = SubResource("StyleBoxFlat_7lmhq")
 text = "<- Menu"
 metadata/_edit_use_anchors_ = true
@@ -76,18 +71,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.505
 anchor_bottom = 0.5
-offset_left = -1755.07
+offset_left = -1619.7179
 offset_top = -526.0
-offset_right = -1066.67
+offset_right = -944.53467
 offset_bottom = -326.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0.290196, 0.678431, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("6_jyna1")
+theme_override_fonts/font = ExtResource("6_fm80x")
 theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = ExtResource("9_nyuu3")
-theme_override_styles/pressed = ExtResource("8_pqr4m")
+theme_override_styles/normal = ExtResource("9_ieg5k")
+theme_override_styles/pressed = ExtResource("8_6fxxv")
 theme_override_styles/hover = SubResource("StyleBoxFlat_7lmhq")
 text = "answer1"
 autowrap_mode = 3
@@ -98,18 +93,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.505
 anchor_bottom = 0.5
-offset_left = -1037.2
+offset_left = -923.906
 offset_top = -524.0
-offset_right = -348.801
+offset_right = -348.80103
 offset_bottom = -324.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0.290196, 0.678431, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("6_jyna1")
+theme_override_fonts/font = ExtResource("6_fm80x")
 theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = ExtResource("9_nyuu3")
-theme_override_styles/pressed = ExtResource("8_pqr4m")
+theme_override_styles/normal = ExtResource("9_ieg5k")
+theme_override_styles/pressed = ExtResource("8_6fxxv")
 theme_override_styles/hover = SubResource("StyleBoxFlat_7lmhq")
 text = "answer2"
 autowrap_mode = 3
@@ -120,18 +115,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.505
 anchor_bottom = 0.5
-offset_left = -1756.07
+offset_left = -1612.6996
 offset_top = -312.0
-offset_right = -1067.68
+offset_right = -944.53467
 offset_bottom = -112.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0.290196, 0.678431, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("6_jyna1")
+theme_override_fonts/font = ExtResource("6_fm80x")
 theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = ExtResource("9_nyuu3")
-theme_override_styles/pressed = ExtResource("8_pqr4m")
+theme_override_styles/normal = ExtResource("9_ieg5k")
+theme_override_styles/pressed = ExtResource("8_6fxxv")
 theme_override_styles/hover = SubResource("StyleBoxFlat_7lmhq")
 text = "answer3"
 autowrap_mode = 3
@@ -142,18 +137,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.505
 anchor_bottom = 0.5
-offset_left = -1036.2
+offset_left = -925.91125
 offset_top = -311.0
-offset_right = -347.798
+offset_right = -347.79797
 offset_bottom = -111.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0.290196, 0.678431, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("6_jyna1")
+theme_override_fonts/font = ExtResource("6_fm80x")
 theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = ExtResource("9_nyuu3")
-theme_override_styles/pressed = ExtResource("8_pqr4m")
+theme_override_styles/normal = ExtResource("9_ieg5k")
+theme_override_styles/pressed = ExtResource("8_6fxxv")
 theme_override_styles/hover = SubResource("StyleBoxFlat_7lmhq")
 text = "answer4"
 autowrap_mode = 3
@@ -162,11 +157,11 @@ autowrap_mode = 3
 anchors_preset = -1
 anchor_right = 0.994
 anchor_bottom = 1.0
-offset_left = -800.083
+offset_left = -651.697
 offset_top = -499.0
 offset_right = -1280.56
 offset_bottom = -1075.0
-theme_override_styles/panel = ExtResource("9_nyuu3")
+theme_override_styles/panel = ExtResource("9_ieg5k")
 
 [node name="questionLabel" type="Label" parent="animatedBackground/questionPanel" unique_id=231024935]
 layout_mode = 1
@@ -179,7 +174,7 @@ offset_top = 32.44
 offset_right = -33.9004
 offset_bottom = -192.0
 theme_override_colors/font_color = Color(0, 0.290196, 0.678431, 1)
-theme_override_fonts/font = ExtResource("6_jyna1")
+theme_override_fonts/font = ExtResource("6_fm80x")
 theme_override_font_sizes/font_size = 50
 text = "question:"
 autowrap_mode = 3
@@ -192,10 +187,10 @@ offset_right = 198.621
 offset_bottom = 1037.0
 theme_override_colors/font_color = Color(0, 0.290196, 0.678431, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("6_jyna1")
+theme_override_fonts/font = ExtResource("6_fm80x")
 theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = ExtResource("7_vjr2h")
-theme_override_styles/pressed = ExtResource("8_pqr4m")
+theme_override_styles/normal = ExtResource("7_ct8u3")
+theme_override_styles/pressed = ExtResource("8_6fxxv")
 theme_override_styles/hover = SubResource("StyleBoxFlat_7lmhq")
 text = "Refresh Flashcards"
 
@@ -204,30 +199,51 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 
-[node name="leaderboardMascotHolder" type="PanelContainer" parent="animatedBackground" unique_id=1366400374]
+[node name="prev" type="Button" parent="." unique_id=1123781094]
 anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.007
-offset_left = -703.833
-offset_top = -220.0
-offset_right = -2398.83
-offset_bottom = -1099.56
-theme_override_styles/panel = SubResource("StyleBoxEmpty_5awwq")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.505
+anchor_bottom = 0.5
+offset_left = 2.0
+offset_top = 390.0
+offset_right = 262.26273
+offset_bottom = 590.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0.290196, 0.678431, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("6_fm80x")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = ExtResource("9_ieg5k")
+theme_override_styles/pressed = ExtResource("8_6fxxv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7lmhq")
+text = "prev"
+autowrap_mode = 3
 
-[node name="MascotReg" type="Sprite2D" parent="animatedBackground/leaderboardMascotHolder" unique_id=2067523489]
-position = Vector2(1.0028534, 115)
-scale = Vector2(0.451012, 0.551562)
-texture = ExtResource("10_2vurm")
-
-[node name="mascotGood" type="Sprite2D" parent="animatedBackground/leaderboardMascotHolder" unique_id=1772124978]
-position = Vector2(1.0028534, 114)
-scale = Vector2(0.451632, 0.580469)
-texture = ExtResource("11_jyna1")
-
-[node name="mascotBad" type="Sprite2D" parent="animatedBackground/leaderboardMascotHolder" unique_id=841553862]
-position = Vector2(1.0028687, 117)
-scale = Vector2(0.441123, 0.579687)
-texture = ExtResource("12_vjr2h")
+[node name="next" type="Button" parent="." unique_id=2088694048]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.505
+anchor_bottom = 0.5
+offset_left = 1620.0
+offset_top = 390.0
+offset_right = 1880.2627
+offset_bottom = 590.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0.290196, 0.678431, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("6_fm80x")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = ExtResource("9_ieg5k")
+theme_override_styles/pressed = ExtResource("8_6fxxv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7lmhq")
+text = "next"
+autowrap_mode = 3
 
 [connection signal="focus_entered" from="animatedBackground/menuButton" to="." method="_on_menu_button_focus_entered"]
 [connection signal="pressed" from="animatedBackground/menuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="prev" to="." method="_on_prev_pressed"]
+[connection signal="pressed" from="next" to="." method="_on_next_pressed"]

@@ -1,11 +1,40 @@
 extends Node2D
 
 var include_option = 0
+var loader = preload("res://scripts/flashcard_loader.gd").new()
+var settings: Dictionary = {}
 
 func _ready() -> void:
-	pass
+	load_settings()
+	settings_to_checkboxes()
+	
+func load_settings():
+	loader.preLoad()
+	settings = loader.get_settings()
 
+func save_settings():
+	var save_file = FileAccess.open(loader.settingsDir, FileAccess.WRITE)
+	# JSON provides a static method to serialized JSON string.
+	var json_string = JSON.stringify(settings)
+	# Store the save dictionary as a new line in the save file.
+	save_file.store_line(json_string)
+	
+func settings_to_checkboxes():
+	if settings["flashcardsToInclude"] == 0:
+		_on_all_check_box_pressed()
+	elif settings["flashcardsToInclude"] == 1:
+		_on_defaults_check_box_pressed()
+	elif settings["flashcardsToInclude"] == 2:
+		_on_customs_check_box_pressed()
+	elif settings["flashcardsToInclude"] == 3:
+		_on_favorites_check_box_pressed()
+	else:
+		printerr("Flashcard settings error. Defaulting to All.")
+		_on_all_check_box_pressed()
+			
 func _on_all_check_box_pressed() -> void:
+	settings["flashcardsToInclude"] = 0
+	save_settings()
 	if $allCheckBox.button_pressed == false:
 		$allCheckBox.button_pressed = true
 	else:
@@ -15,8 +44,11 @@ func _on_all_check_box_pressed() -> void:
 
 
 func _on_defaults_check_box_pressed() -> void:
+	settings["flashcardsToInclude"] = 1
+	save_settings()
 	if $defaultsCheckBox.button_pressed == false:
 		$defaultsCheckBox.button_pressed = true
+		
 	else:
 		$allCheckBox.button_pressed = false
 		$customsCheckBox.button_pressed = false
@@ -24,6 +56,8 @@ func _on_defaults_check_box_pressed() -> void:
 
 
 func _on_customs_check_box_pressed() -> void:
+	settings["flashcardsToInclude"] = 2
+	save_settings()
 	if $customsCheckBox.button_pressed == false:
 		$customsCheckBox.button_pressed = true
 	else:
@@ -33,6 +67,8 @@ func _on_customs_check_box_pressed() -> void:
 
 
 func _on_favorites_check_box_pressed() -> void:
+	settings["flashcardsToInclude"] = 3
+	save_settings()
 	if $favoritesCheckBox.button_pressed == false:
 		$favoritesCheckBox.button_pressed = true
 	else:
