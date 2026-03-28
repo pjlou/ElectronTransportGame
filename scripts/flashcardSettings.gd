@@ -31,6 +31,14 @@ func settings_to_checkboxes():
 	else:
 		printerr("Flashcard settings error. Defaulting to All.")
 		_on_all_check_box_pressed()
+		
+	if settings["replayIncorrectlyAnsweredCards"] == 1:
+		_on_replay_no_check_box_pressed()
+	elif settings["replayIncorrectlyAnsweredCards"] == 0:
+		_on_replay_yes_check_box_pressed()
+	else:
+		printerr("Flashcard settings error. Defaulting to No Replay.")
+		_on_replay_no_check_box_pressed()
 			
 func _on_all_check_box_pressed() -> void:
 	settings["flashcardsToInclude"] = 0
@@ -89,12 +97,16 @@ func _on_fill_in_blank_check_box_pressed() -> void:
 		$multChoiceCheckBox.button_pressed = false
 
 func _on_replay_yes_check_box_pressed() -> void:
+	settings["replayIncorrectlyAnsweredCards"] = 0
+	save_settings()
 	if $replayYesCheckBox.button_pressed == false:
 		$replayYesCheckBox.button_pressed = true
 	else:
 		$replayNoCheckBox.button_pressed = false
 
 func _on_replay_no_check_box_pressed() -> void:
+	settings["replayIncorrectlyAnsweredCards"] = 1
+	save_settings()
 	if $replayNoCheckBox.button_pressed == false:
 		$replayNoCheckBox.button_pressed = true
 	else:

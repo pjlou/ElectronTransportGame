@@ -335,7 +335,6 @@ offset_top = 840.0
 offset_right = 939.0
 offset_bottom = 871.0
 scale = Vector2(3, 3)
-button_pressed = true
 
 [connection signal="pressed" from="backButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="allCheckBox" to="." method="_on_all_check_box_pressed"]
