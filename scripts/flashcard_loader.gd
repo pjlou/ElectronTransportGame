@@ -97,6 +97,12 @@ func filter_flashcards() -> void:
 
 func get_flashcards() -> Array:
 	return all_flashcards
+	
+func get_default_flashcards() -> Array:
+	return default_flashcards
+	
+func get_custom_flashcards() -> Array:
+	return custom_flashcards
 
 func get_filtered_flashcards() -> Array:
 	return flashcards

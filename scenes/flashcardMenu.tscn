@@ -228,8 +228,7 @@ theme_override_constants/line_spacing = 25
 theme_override_constants/outline_size = 40
 theme_override_fonts/font = ExtResource("6_h4fld")
 theme_override_font_sizes/font_size = 50
-text = "Edit
-Flashcards"
+text = "Custom Flashcards"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
