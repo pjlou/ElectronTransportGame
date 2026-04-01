@@ -9,6 +9,7 @@ var electron_scene = load("res://scenes/electron.tscn")
 var rng = RandomNumberGenerator.new() # used for random hion positions when they spawn
 var hion_complexI_spawn = Rect2(Vector2(150, 820), Vector2(100, 100)) # location boxes for spawning hion
 var hion_complexII_spawn = Rect2(Vector2(570, 820), Vector2(100, 100))
+signal addATP()
 
 func _ready():
 	add_to_group("draggable")
@@ -99,6 +100,7 @@ func inTargetAreaCheck() -> void:
 				for i in range(2):
 					electron_spawn($CollisionShape2D)
 				hion_spawn(hion_complexI_spawn)
+				emit_signal("addATP")
 				
 				current_instance.free()
 				return
@@ -110,6 +112,7 @@ func inTargetAreaCheck() -> void:
 				for i in range(2):
 					electron_spawn($CollisionShape2D)
 				hion_spawn(hion_complexII_spawn)
+				emit_signal("addATP")
 				
 				current_instance.free()
 				return
