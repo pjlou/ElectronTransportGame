@@ -1,5 +1,7 @@
 extends Area2D
 
+signal addATP()
+
 var hions_inside := []
 var required_hion_count = 4
 var phosphate_scene = load("res://scenes/phosphate.tscn")
@@ -29,6 +31,7 @@ func _check_trigger() -> void:
 		spawn_phosphate()
 		spawn_adp()
 		print("Event triggered! Enough items are inside intermembrane space.")
+		emit_signal("addATP", 20)
 
 func spawn_phosphate() -> void:
 	var spawn_position = Vector2(

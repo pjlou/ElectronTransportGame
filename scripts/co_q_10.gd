@@ -1,5 +1,7 @@
 extends Area2D
 
+signal addATP()
+
 @export var required_electron_count := 4
 var electrons_inside := []
 var loaded := false
@@ -44,6 +46,7 @@ func _check_electron_load() -> void:
 		loaded = true
 		sprite_node.frame = 0
 		print("CoQ10 is now loaded! Drag it to Complex III.")
+		# emit_signal("addATP", 5)
 
 func _deliver_to_complex(complex_node: Area2D) -> void:
 	# Cast the shape to RectangleShape2D so we can get its rect
