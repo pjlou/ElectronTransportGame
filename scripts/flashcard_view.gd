@@ -133,14 +133,14 @@ func _on_next_pressed() -> void:
 func _on_fav_pressed() -> void:
 	if not flashcards[current_index]["favorited"]:
 		flashcards[current_index]["favorited"] = true
-		save_settings(flashcards[current_index]["isCustom"])
+		save_card_data(flashcards[current_index])
 		favButton.add_theme_stylebox_override("normal", correct_style)
 		favButton.add_theme_stylebox_override("hover", correct_style)
 		favButton.add_theme_color_override("font_hover_color", favButton.get_theme_color("font_color"))
 	else:
 		# Reset to the original theme style instead of removing
 		flashcards[current_index]["favorited"] = false
-		save_settings(flashcards[current_index]["isCustom"])
+		save_card_data(flashcards[current_index])
 		favButton.add_theme_stylebox_override("normal", default_style)
 		favButton.add_theme_stylebox_override("hover", hover_style)
 		favButton.add_theme_color_override("font_hover_color", default_hover_font_color)
@@ -151,16 +151,16 @@ func _on_edit_pressed() -> void:
 	else:
 		disable_edit_mode()
 	
-func save_settings(isCustom):
+func save_card_data(card):
 	var questionDir
-	if isCustom:
+	if card["isCustom"]:
 		questionDir = loader.customQuestionsDir
 	else:
 		questionDir = loader.defaultQuestionsDir
 	var save_file = FileAccess.open(questionDir, FileAccess.WRITE)
 	# JSON provides a static method to serialized JSON string.
 	var json_string
-	if isCustom:
+	if card["isCustom"]:
 		json_string = JSON.stringify(loader.custom_flashcards)
 	else:
 		json_string = JSON.stringify(loader.default_flashcards)
@@ -203,28 +203,28 @@ func disable_edit_mode():
 
 func _on_question_edit_text_changed() -> void:
 	flashcards[current_index]["question"] = question_edit_field.text
-	save_settings(flashcards[current_index]["isCustom"])
+	save_card_data(flashcards[current_index])
 
 func _on_choice_edit_1_text_changed(new_text: String) -> void:
 	flashcards[current_index]["choices"][0] = $animatedBackground/choiceEdit1.text
 	if correctAnswerIndex == 0:
 		flashcards[current_index]["answer"] = $animatedBackground/choiceEdit1.text
-	save_settings(flashcards[current_index]["isCustom"])
+	save_card_data(flashcards[current_index])
 
 func _on_choice_edit_2_text_changed(new_text: String) -> void:
 	flashcards[current_index]["choices"][1] = $animatedBackground/choiceEdit2.text
 	if correctAnswerIndex == 1:
 		flashcards[current_index]["answer"] = $animatedBackground/choiceEdit2.text
-	save_settings(flashcards[current_index]["isCustom"])
+	save_card_data(flashcards[current_index])
 
 func _on_choice_edit_3_text_changed(new_text: String) -> void:
 	flashcards[current_index]["choices"][2] = $animatedBackground/choiceEdit3.text
 	if correctAnswerIndex == 2:
 		flashcards[current_index]["answer"] = $animatedBackground/choiceEdit3.text
-	save_settings(flashcards[current_index]["isCustom"])
+	save_card_data(flashcards[current_index])
 
 func _on_choice_edit_4_text_changed(new_text: String) -> void:
 	flashcards[current_index]["choices"][3] = $animatedBackground/choiceEdit4.text
 	if correctAnswerIndex == 3:
 		flashcards[current_index]["answer"] = $animatedBackground/choiceEdit4.text
-	save_settings(flashcards[current_index]["isCustom"])
+	save_card_data(flashcards[current_index])
