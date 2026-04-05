@@ -6,9 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://ck0re3q1oq06n" path="res://assets/art/HIons.png" id="3_wla24"]
 [ext_resource type="Texture2D" uid="uid://ddekkv0w4h8j8" path="res://assets/art/lipid_tiles_big_flipped.png" id="4_02cvd"]
 [ext_resource type="Script" uid="uid://c68nwr5gjau3t" path="res://scripts/basicgrouper.gd" id="4_6e7qw"]
-[ext_resource type="Texture2D" uid="uid://parc1vr01wgk" path="res://assets/art/atpSyn.png" id="4_e8bwr"]
-[ext_resource type="Texture2D" uid="uid://ru4liwfhg5fk" path="res://assets/art/Complex4.png" id="5_134et"]
+[ext_resource type="Texture2D" uid="uid://cjtt46jauj4ph" path="res://assets/art/Complex4_text.png" id="5_u1olt"]
 [ext_resource type="Script" uid="uid://emndyvmpaln7" path="res://scripts/basicdragscript.gd" id="6_q103c"]
+[ext_resource type="Texture2D" uid="uid://crcqmxguc8ytg" path="res://assets/art/atpSyn_text.png" id="7_02cvd"]
 [ext_resource type="Texture2D" uid="uid://bso6pbyqu77p5" path="res://assets/art/adp.png" id="8_3dce8"]
 [ext_resource type="Texture2D" uid="uid://4j0wv7ilgm5s" path="res://assets/art/arrow.png" id="9_o5kij"]
 [ext_resource type="Texture2D" uid="uid://wrhj7mp8n5ge" path="res://assets/art/atp.png" id="10_rmda6"]
@@ -991,7 +991,7 @@ tile_set = SubResource("TileSet_hcsgy")
 [node name="Complex4" type="Sprite2D" parent="." unique_id=869353071]
 position = Vector2(363.501, 519.25)
 scale = Vector2(1.53125, 1.8875)
-texture = ExtResource("5_134et")
+texture = ExtResource("5_u1olt")
 
 [node name="FEEDMEJESUS" type="RigidBody2D" parent="." unique_id=1285953551]
 position = Vector2(1048, 562)
@@ -1005,7 +1005,7 @@ shape = SubResource("RectangleShape2D_b0uce")
 [node name="AtpSyn" type="Sprite2D" parent="FEEDMEJESUS" unique_id=1807108400]
 position = Vector2(-6.49927, -10.75)
 scale = Vector2(1.47813, 1.71875)
-texture = ExtResource("4_e8bwr")
+texture = ExtResource("7_02cvd")
 
 [node name="THEIONPOOL" type="RigidBody2D" parent="." unique_id=507932298]
 position = Vector2(1170, 123)
