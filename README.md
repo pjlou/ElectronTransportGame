@@ -1,11 +1,25 @@
-# CS499BioGame
-Oxidative Phosphorylation
-ATP and Me
+# CS499 Electron Transport Game
 
-This is a work in progress game that can be installed by downloading the project and importing it into Godot 4.3.  It can then be run within Godot by pressing F5 once the main scene has loaded.
+This game aims to teach the electron transport chain to introductory college level biology students.
 
-Guided mode: This mode explains the electron transport chain step by step.  At the first action step the user must move NADH onto Complex 1 (the leftmost shape).
+Currently the game can be installed by downloading the project and importing it into Godot 4.6.  It can then be run within Godot by pressing F5 once the main scene has loaded.
 
-Unguided mode: This mode assumes prior knowledge of the electron transport chain.
+Once this game is complete, a Windows executable will be made available in the main directory.
 
-Flashcard mode works like a multiple choice quiz in the form of flashcards.
+For biology teachers, the default flashcard questions can be replaced by placing a json file in the main directory.
+
+## Features
+
+This game has three modes that students can learn from.
+
+### Guided mode 
+
+This mode explains the electron transport chain step by step.  The user is able to drag and drop components to get a feel for what happens at each step in the chain.
+
+### Unguided mode
+
+This mode is a time attack game where the user uses their knowledge of the electron transport chain to generate ATP as quickly as possible.
+
+### Flashcard mode
+
+This mode allows users to practice their memory and recall of facts related to the electron transport chain.  Options to study by multiple choice or fill-in-the-blank are available.  It is also possible for the user to add their own questions.
