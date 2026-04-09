@@ -55,6 +55,7 @@ func load_default_flashcards(fileLoc):
 	default_flashcards = result
 	for flashcard in default_flashcards:
 		flashcard["isCustom"] = false
+		add_review_info(flashcard)
 	print("Default flashcards loaded successfully!")
 
 func load_custom_flashcards(fileLoc):
@@ -68,7 +69,18 @@ func load_custom_flashcards(fileLoc):
 	custom_flashcards = result
 	for flashcard in custom_flashcards:
 		flashcard["isCustom"] = true
+		add_review_info(flashcard)
 	print("Custom flashcards loaded successfully!")
+
+func add_review_info(card):
+	if not card.has("isNew"):
+		card["isNew"] = true
+	if not card.has("lastReview"):
+		card["lastReview"] = Time.get_datetime_dict_from_unix_time(0)
+	if not card.has("nextReview"):
+		card["nextReview"] = Time.get_datetime_dict_from_system()
+	if not card.has("correctStreak"):
+		card["correctStreak"] = 0
 
 func load_settings(fileLoc):
 	var result = load_json(fileLoc)
@@ -96,6 +108,15 @@ func filter_flashcards() -> void:
 				flashcards.append(card)
 	else:
 		printerr("Flashcard settings error")
+	if not settings.has("isReview"):
+		settings["isReview"] = 0
+	print(settings["isReview"])
+	if settings["isReview"] == 1:
+		var reviewFlashcards: Array = []
+		for card in flashcards:
+			if (Time.get_unix_time_from_datetime_dict(card["nextReview"]) - Time.get_unix_time_from_system()) <= 0:
+				reviewFlashcards.append(card)
+		flashcards = reviewFlashcards
 	
 
 func get_flashcards() -> Array:

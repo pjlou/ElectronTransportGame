@@ -22,7 +22,7 @@
   },
   {
 	"id": 4,
-	"question": "Which is a naturally occurring biochemical cofactor and an antioxidant produced by the human body",
+	"question": "Which is a naturally occurring biochemical cofactor and an antioxidant produced by the human body?",
 	"choices": ["NAD+", "Cytoplasm", "ubiquinone", "FADH₂"],
 	"answer": "ubiquinone",
 	"favorited": false
@@ -55,5 +55,88 @@
 	"answer": "Complex IV",
 	"favorited": false
   },
-
+{
+	"id": 9,
+	"question": "What is another name for Coenzyme Q (CoQ)?",
+	"choices": ["cytochrome c", "flavin adenine dinucleotide", "nicotinamide adenine dinucleotide", "ubiquinone"],
+	"answer": "ubiquinone",
+	"favorited": false
+  },
+{
+	"id": 10,
+	"question": "Which complex takes electrons from NADH?",
+	"choices": ["Complex I", "Complex II", "Complex III", "Complex IV"],
+	"answer": "Complex I",
+	"favorited": false
+  },
+{
+	"id": 11,
+	"question": "Which complex takes electrons from FADH₂?",
+	"choices": ["Complex I", "Complex II", "Complex III", "Complex IV"],
+	"answer": "Complex II",
+	"favorited": false
+  },
+{
+	"id": 12,
+	"question": "What does the electron transport chain produce that drives ATP synthesis?",
+	"choices": ["a proton gradient", "an electron gradient", "a Na⁺ gradient", "a CO₂ concentration gradient"],
+	"answer": "a proton gradient",
+	"favorited": false
+  },
+{
+	"id": 13,
+	"question": "What process does the mitochondrion use to connect electron transport to ATP synthesis?",
+	"choices": ["oxidative deamination", "glycolysis", "chemiosmosis", "substrate-level phosphorylation"],
+	"answer": "chemiosmosis",
+	"favorited": false
+  },
+{
+	"id": 14,
+	"question": "Through what protein complex do H⁺ ions flow back across the inner mitochondrial membrane?",
+	"choices": ["Cytochrome c oxidase", "NADH dehydrogenase", "succinate dehydrogenase", "ATP synthase"],
+	"answer": "ATP synthase",
+	"favorited": false
+  },
+{
+	"id": 15,
+	"question": "Which mobile protein carrier transfers electrons from Complex III to Complex IV?",
+	"choices": ["cytochrome c", "plastocyanin", "ferredoxin", "azurin"],
+	"answer": "cytochrome c",
+	"favorited": false
+  },
+{
+	"id": 16,
+	"question": "Which mobile lipid-soluble carrier transfers electrons from Complex II to Complex III?",
+	"choices": ["plastoquinol", "menaquinol", "ubiquinol", "cytochrome c"],
+	"answer": "ubiquinol",
+	"favorited": false
+  },
+{
+	"id": 17,
+	"question": "What molecule is produced when oxygen accepts electrons at Complex IV?",
+	"choices": ["carbon dioxide", "hydrogen peroxide", "ATP", "water"],
+	"answer": "water",
+	"favorited": false
+  },
+{
+	"id": 18,
+	"question": "Approximately how many ATP are produced per NADH that enters the ETC?",
+	"choices": ["1.5", "2.5", "4", "38"],
+	"answer": "1.5",
+	"favorited": false
+  },
+{
+	"id": 19,
+	"question": "Which two upstream metabolic processes supply NADH and FADH₂ to the ETC?",
+	"choices": ["fermentation and oxidative phosphorylation", "glycolysis and the citric acid cycle", "beta-oxidation and chemiosmosis", "glycolysis and gluconeogenesis"],
+	"answer": "Complex IV",
+	"favorited": false
+  },
+{
+	"id": 20,
+	"question": "Which of the following can cause the electron transport chain to stop functioning",
+	"choices": ["a lack of oxygen", "a lack of carbon dioxide", "an overabundance of glucose", "none of the above"],
+	"answer": "a lack of oxygen",
+	"favorited": false
+  },
 ]

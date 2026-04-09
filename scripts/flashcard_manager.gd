@@ -16,14 +16,17 @@ extends Node2D
 @onready var mascot_bad: Sprite2D = get_node_or_null("animatedBackground/leaderboardMascotHolder/mascotBad")
 @onready var mascot_reg: Sprite2D = get_node_or_null("animatedBackground/leaderboardMascotHolder/MascotReg")
 
-
 @onready var correct_style: StyleBox = preload("res://assets/art/correctAnswerButton.tres")
 @onready var incorrect_style: StyleBox = preload("res://assets/art/incorrectAnswerButton.tres")
 @onready var default_style: StyleBox = preload("res://assets/art/stylizedBox.tres")
 @onready var hover_style: StyleBox = preload("res://assets/art/hoverButton.tres")
 
+var loader = preload("res://scripts/flashcard_loader.gd").new()
+
 var default_hover_font_color: Color
 var flashcards: Array = []
+var customFlashcards: Array = []
+var defaultFlashcards: Array = []
 var missed: Array = []
 var settings: Dictionary = {}
 var current_index: int = 0
@@ -41,6 +44,8 @@ func _ready() -> void:
 	var loader = preload("res://scripts/flashcard_loader.gd").new()
 	loader.preLoad()
 	flashcards = loader.get_filtered_flashcards()
+	defaultFlashcards = loader.get_default_flashcards()
+	customFlashcards = loader.get_custom_flashcards()
 	total_flash = flashcards.size()
 	settings = loader.get_settings()
 	#score_label.text = "Score: %d/%d" % [score, total_flash]
@@ -121,6 +126,59 @@ func refresh_flashcards() -> void:
 		for btn in answer_buttons:
 			btn.visible = true
 
+func calculate_next_review(isCorrect: bool):
+	var card = flashcards[current_index]
+	card["isNew"] = false
+	card["lastReview"] = Time.get_datetime_dict_from_system()
+	var nextReviewTime
+	var q
+	# use SM-2 learning algorithm where I(n) is I(n-1) * Ease Factor
+	# wherease Ease Factor (EF) is EF + (0.1 - (5 - q) * (0.08 + (5 - q) * 0.02))
+	# see en.wikipedia.org/wiki/SuperMemo for more information
+	if not card.has("EF"):
+		# EF is 2.5 initially
+		card["EF"] = 2.5
+	if isCorrect: 
+		# assume user rates correct response as "correct with hesitation" (q value of 4)
+		q = 4
+		if card["correctStreak"] == 0:
+			# next review is in one day, converted to seconds for unix time
+			nextReviewTime = Time.get_unix_time_from_system() + 24 * 60 * 60
+		elif card["correctStreak"] == 1:
+			# next review is in six days, converted to seconds for unix time
+			nextReviewTime = Time.get_unix_time_from_system() + 24 * 60 * 60
+		else:
+			nextReviewTime = Time.get_unix_time_from_system() + (24 * 60 * 60) * card["EF"]
+		card["correctStreak"] += 1
+	else:
+		# assume user rates incorrect response as familiar upon seeing the correct answer (q value of 1)
+		q = 1
+		# user is expected to review until getting it correct, so the next review time is the current time
+		nextReviewTime = Time.get_unix_time_from_system()
+		card["correctStreak"] = 0
+	card["nextReview"] = Time.get_datetime_dict_from_unix_time(nextReviewTime)
+	card["EF"] =  card["EF"] + (0.1 - (5 - q) * (0.08 + (5 - q) * 0.02))
+	if card["EF"] < 1.3:
+		card["EF"] = 1.3
+	save_card_data(card)
+
+func save_card_data(card):
+	var questionDir
+	if card["isCustom"]:
+		questionDir = loader.customQuestionsDir
+	else:
+		questionDir = loader.defaultQuestionsDir
+	var save_file = FileAccess.open(questionDir, FileAccess.WRITE)
+	# JSON provides a static method to serialized JSON string.
+	var json_string
+	if card["isCustom"]:
+		json_string = JSON.stringify(customFlashcards)
+	else:
+		json_string = JSON.stringify(defaultFlashcards)
+	# Store the save dictionary as a new line in the save file.
+	save_file.store_line(json_string)
+	print("Wrote to " + questionDir)
+
 func _on_answer_pressed(selected: String, correct: String, button: Button) -> void:
 	var normal_font_color := button.get_theme_color("font_color")
 	if selected == correct:
@@ -130,6 +188,7 @@ func _on_answer_pressed(selected: String, correct: String, button: Button) -> vo
 		button.add_theme_color_override("font_hover_color", normal_font_color)
 		mascot_good.visible = true
 		mascot_bad.visible = false
+		calculate_next_review(true)
 	else:
 		missed.append(flashcards[current_index])
 		button.add_theme_stylebox_override("normal", incorrect_style)
@@ -137,6 +196,7 @@ func _on_answer_pressed(selected: String, correct: String, button: Button) -> vo
 		button.add_theme_color_override("font_hover_color", normal_font_color)
 		mascot_good.visible = false
 		mascot_bad.visible = true
+		calculate_next_review(false)
 
 	mascot_reg.visible = false
 	#score_label.text = "Score: %d/%d" % [score, total_flash]
@@ -165,6 +225,7 @@ func _on_fill_answer_entry_text_submitted(answer: String) -> void:
 		fill_answer_status.text = ""
 		mascot_good.visible = true
 		mascot_bad.visible = false
+		calculate_next_review(true)
 	elif answer.to_lower().similarity(flashcards[current_index]["answer"].to_lower()) > 0.8:
 		fill_answer_status.text = "Close! Check your spelling."
 		fill_answer_entry.grab_focus()
@@ -179,6 +240,7 @@ func _on_fill_answer_entry_text_submitted(answer: String) -> void:
 		fill_answer_status.text = "Correct Answer: " + flashcards[current_index]["answer"]
 		mascot_good.visible = false
 		mascot_bad.visible = true
+		calculate_next_review(false)
 
 	mascot_reg.visible = false
 	#score_label.text = "Score: %d/%d" % [score, total_flash]

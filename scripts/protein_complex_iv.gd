@@ -1,5 +1,7 @@
 extends Area2D
 
+signal addATP()
+
 var electrons_inside := []
 var required_electron_count = 4
 var rng = RandomNumberGenerator.new()
@@ -27,6 +29,7 @@ func _check_trigger() -> void:
 	if electrons_inside.size() >= required_electron_count:
 		oxygen_spawn(oxygen_sbox)
 		print("Event triggered! Enough items are inside protein complex IV.")
+		emit_signal("addATP", 5)
 
 @warning_ignore("shadowed_variable")
 func oxygen_spawn(oxygen_sbox: Rect2) -> void:

@@ -3,16 +3,16 @@
 [ext_resource type="Texture2D" uid="uid://3a2dl5nkqccg" path="res://assets/art/bkgrnd1.png" id="1_qjgus"]
 [ext_resource type="Texture2D" uid="uid://bislb0op82f72" path="res://assets/art/bkgrnd-Sheet.png" id="2_6q6t0"]
 [ext_resource type="Texture2D" uid="uid://cxm3nb6sldmd3" path="res://assets/art/lipid_tiles_big.png" id="3_6b8tk"]
-[ext_resource type="Texture2D" uid="uid://ru4liwfhg5fk" path="res://assets/art/Complex4.png" id="3_f1fuk"]
-[ext_resource type="Texture2D" uid="uid://blpaf2iqwfcgm" path="res://assets/art/complex3.png" id="4_8e0hp"]
 [ext_resource type="Texture2D" uid="uid://ddekkv0w4h8j8" path="res://assets/art/lipid_tiles_big_flipped.png" id="4_aiyfr"]
 [ext_resource type="Texture2D" uid="uid://ck0re3q1oq06n" path="res://assets/art/HIons.png" id="4_mbvyw"]
-[ext_resource type="Texture2D" uid="uid://parc1vr01wgk" path="res://assets/art/atpSyn.png" id="5_yas70"]
 [ext_resource type="Script" uid="uid://c68nwr5gjau3t" path="res://scripts/basicgrouper.gd" id="6_1vwxl"]
-[ext_resource type="Texture2D" uid="uid://idanu5gblvhn" path="res://assets/art/pfadp.png" id="7_bxhbg"]
+[ext_resource type="Texture2D" uid="uid://uicogmksxrqu" path="res://assets/art/complex3_text.png" id="6_6b8tk"]
+[ext_resource type="Texture2D" uid="uid://crcqmxguc8ytg" path="res://assets/art/atpSyn_text.png" id="7_aiyfr"]
 [ext_resource type="Texture2D" uid="uid://cfvqs7cfdoq5r" path="res://assets/art/electron.png" id="8_rex3c"]
+[ext_resource type="Texture2D" uid="uid://cjtt46jauj4ph" path="res://assets/art/Complex4_text.png" id="9_gto75"]
 [ext_resource type="Texture2D" uid="uid://c4mkqmml8w1ap" path="res://assets/art/oxygn.png" id="9_pxn41"]
 [ext_resource type="Script" uid="uid://emndyvmpaln7" path="res://scripts/basicdragscript.gd" id="10_w4mpn"]
+[ext_resource type="Texture2D" uid="uid://b6i4y12gaoo6r" path="res://assets/art/pfadp_text.png" id="12_2amso"]
 [ext_resource type="Texture2D" uid="uid://b70e1pcm0nqu0" path="res://assets/art/Boom_Science2.png" id="12_f67n0"]
 [ext_resource type="Texture2D" uid="uid://cojygwpgj3kyw" path="res://assets/art/h2o.png" id="13_n7nux"]
 [ext_resource type="PackedScene" uid="uid://cymqlfh7j3n4b" path="res://scenes/textbox.tscn" id="14_0pv1c"]
@@ -935,12 +935,12 @@ texture = ExtResource("4_mbvyw")
 [node name="Complex3" type="Sprite2D" parent="." unique_id=1548855844]
 position = Vector2(-47.4992, 525.25)
 scale = Vector2(1.37188, 1.83281)
-texture = ExtResource("4_8e0hp")
+texture = ExtResource("6_6b8tk")
 
 [node name="AtpSyn" type="Sprite2D" parent="." unique_id=1469044716]
 position = Vector2(1611.5, 545.5)
 scale = Vector2(1.47813, 1.71875)
-texture = ExtResource("5_yas70")
+texture = ExtResource("7_aiyfr")
 
 [node name="COMPLEX4h" type="RigidBody2D" parent="." unique_id=2136096896]
 position = Vector2(915.501, 462.5)
@@ -954,7 +954,7 @@ shape = SubResource("RectangleShape2D_gsdow")
 [node name="Complex4" type="Sprite2D" parent="COMPLEX4h" unique_id=1152892373]
 position = Vector2(18, 51)
 scale = Vector2(1.53125, 1.8875)
-texture = ExtResource("3_f1fuk")
+texture = ExtResource("9_gto75")
 
 [node name="HIons9" type="Sprite2D" parent="." unique_id=146112289]
 position = Vector2(990, 160)
@@ -1022,7 +1022,7 @@ texture = ExtResource("4_mbvyw")
 [node name="Tophat2" type="Sprite2D" parent="." unique_id=803865359]
 position = Vector2(536, 359)
 scale = Vector2(1.18281, 1.42969)
-texture = ExtResource("7_bxhbg")
+texture = ExtResource("12_2amso")
 
 [node name="Electron" type="Sprite2D" parent="Tophat2" unique_id=1515959081]
 position = Vector2(460.767, 233.617)

@@ -1,8 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://bfjr2kag7cocp"]
+[gd_scene format=3 uid="uid://bfjr2kag7cocp"]
 
-[ext_resource type="Script" path="res://scripts/unguidedDragScript.gd" id="1_70vt5"]
+[ext_resource type="Script" uid="uid://bw3n4fi2nfu76" path="res://scripts/unguidedDragScript.gd" id="1_70vt5"]
 [ext_resource type="Texture2D" uid="uid://8a7y05slacgt" path="res://assets/art/P_Power-Sheet.png" id="1_nvibo"]
-[ext_resource type="Script" path="res://scripts/phosphate_tracking.gd" id="3_iqf7x"]
+[ext_resource type="Script" uid="uid://5emhmdqphtvy" path="res://scripts/phosphate_tracking.gd" id="3_iqf7x"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6xbn6"]
 radius = 24.0
@@ -43,21 +43,21 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Phosphate" type="Node2D"]
+[node name="Phosphate" type="Node2D" unique_id=1805936907]
 
-[node name="DraggingArea2D" type="Area2D" parent="."]
+[node name="DraggingArea2D" type="Area2D" parent="." unique_id=2069272762]
 script = ExtResource("1_70vt5")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DraggingArea2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DraggingArea2D" unique_id=1653764866]
 shape = SubResource("CircleShape2D_6xbn6")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DraggingArea2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DraggingArea2D" unique_id=2058192382]
 sprite_frames = SubResource("SpriteFrames_8rgb7")
 animation = &"phosphate_idle"
 frame_progress = 0.339038
 
-[node name="TrackingArea2D" type="Area2D" parent="DraggingArea2D"]
+[node name="TrackingArea2D" type="Area2D" parent="DraggingArea2D" unique_id=1296314727]
 script = ExtResource("3_iqf7x")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DraggingArea2D/TrackingArea2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DraggingArea2D/TrackingArea2D" unique_id=1387153151]
 shape = SubResource("CircleShape2D_6xbn6")

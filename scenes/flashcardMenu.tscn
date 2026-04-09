@@ -233,8 +233,61 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
+[node name="reviewReadyText" type="Label" parent="." unique_id=1981702118]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = 710.0
+offset_right = 1900.0
+offset_bottom = 935.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.290196, 0.678431, 1)
+theme_override_colors/font_outline_color = Color(0, 0.290196, 0.678431, 1)
+theme_override_constants/line_spacing = 25
+theme_override_constants/outline_size = 40
+theme_override_fonts/font = ExtResource("6_h4fld")
+theme_override_font_sizes/font_size = 50
+text = "# cards ready to review"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="reviewButton" type="Button" parent="." unique_id=1307214176]
+anchors_preset = -1
+anchor_top = -0.60555553
+anchor_bottom = -0.60555553
+offset_left = 687.0
+offset_top = 875.0
+offset_right = 1210.0
+offset_bottom = 1045.0
+theme_override_colors/font_color = Color(0, 0.290196, 0.678431, 1)
+theme_override_fonts/font = ExtResource("6_h4fld")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = ExtResource("11_wbcam")
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="reviewText" type="Label" parent="reviewButton" unique_id=1257761539]
+z_index = 1
+layout_mode = 1
+offset_top = 10.0
+offset_right = 523.0
+offset_bottom = 165.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.290196, 0.678431, 1)
+theme_override_colors/font_outline_color = Color(0, 0.290196, 0.678431, 1)
+theme_override_constants/line_spacing = 25
+theme_override_constants/outline_size = 40
+theme_override_fonts/font = ExtResource("6_h4fld")
+theme_override_font_sizes/font_size = 50
+text = "Review"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
 [connection signal="pressed" from="menuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="startButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="settingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="viewButton" to="." method="_on_view_button_pressed"]
 [connection signal="pressed" from="editButton" to="." method="_on_edit_button_pressed"]
+[connection signal="pressed" from="reviewButton" to="." method="_on_review_button_pressed"]

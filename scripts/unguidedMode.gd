@@ -18,6 +18,12 @@ var game_ended = false
 func _ready():
 	Globals.score = 5
 	randomize() # seed the random number generator
+	$ProteinComplexI.addATP.connect(_new_ATP)
+	$ProteinComplexII.addATP.connect(_new_ATP)
+	$CoQ10/TrackingArea2D.addATP.connect(_new_ATP)  # ATP generation for this is currently disabled.  Enable in co_q_10.gd
+	$ProteinComplexIII.addATP.connect(_new_ATP)
+	$ProteinComplexIV.addATP.connect(_new_ATP)
+	$ATPSyn.addATP.connect(_new_ATP)
 	
 func _process(delta: float) -> void:
 	if game_ended:
@@ -56,10 +62,10 @@ func fadh2_spawn():
 	get_tree().root.get_node("UnguidedMode").add_child(object_instance)   
 	
 func _on_nadh_timer_timeout() -> void:
-	nadh_spawn()
+	pass
 
 func _on_fadh2_timer_timeout() -> void:
-	fadh2_spawn()
+	pass
 	
 func _on_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/modeSelection.tscn")
@@ -68,3 +74,18 @@ func end_game():
 	game_ended=true
 	$YouLose.visible = true
 	Globals.score=0
+
+
+func _on_nadh_button_pressed() -> void:
+	nadh_spawn()
+
+func _on_fadh_2_button_pressed() -> void:
+	fadh2_spawn()
+	
+func _new_ATP(amount):
+	$ATPProgressBar.value += amount
+	if $ATPProgressBar.value >= 100:
+		var main = get_tree().root.get_node("UnguidedMode")
+		var elapsed_time = main.elapsed_time
+		Globals.score = round(100*total_time-elapsed_time)
+		get_tree().change_scene_to_file("res://scenes/UnguidedVictory.tscn")
