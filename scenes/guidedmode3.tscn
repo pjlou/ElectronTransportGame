@@ -757,7 +757,6 @@ process_mode = 3
 script = ExtResource("14_vyrto")
 
 [node name="Arrow3" type="Sprite2D" parent="." unique_id=1216625698]
-visible = false
 position = Vector2(720, 498.99994)
 rotation = 0.9302605
 scale = Vector2(10.6, 10.6)
