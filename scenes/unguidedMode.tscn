@@ -1,5 +1,9 @@
 [gd_scene format=3 uid="uid://bocxsb0hq60gu"]
 
+<<<<<<< HEAD
+[ext_resource type="Script" uid="uid://bpwrifm6k43o7" path="res://fadh_2.gd" id="1_hl6fg"]
+[ext_resource type="Script" uid="uid://ccuh3nstjjh8i" path="res://scenes/nadh_2.gd" id="2_7y2nl"]
+=======
 [ext_resource type="Texture2D" uid="uid://3a2dl5nkqccg" path="res://assets/art/bkgrnd1.png" id="1_4cvqq"]
 [ext_resource type="Script" uid="uid://dlxn2jcbib2ai" path="res://scripts/unguidedMode.gd" id="1_jltc1"]
 [ext_resource type="Texture2D" uid="uid://bislb0op82f72" path="res://assets/art/bkgrnd-Sheet.png" id="2_0wk7v"]
@@ -29,19 +33,26 @@
 [ext_resource type="StyleBox" uid="uid://ctcomgtmjcv4r" path="res://assets/art/pressedButton.tres" id="27_yrn2v"]
 [ext_resource type="StyleBox" uid="uid://c1itffj143mgb" path="res://assets/art/Button.tres" id="28_bhg2r"]
 [ext_resource type="StyleBox" uid="uid://cstq4423423bp" path="res://assets/art/stylizedBox.tres" id="29_g12j1"]
+<<<<<<< Updated upstream
+=======
+>>>>>>> a9621652f3cb5e056e54e482d1847acb108ca0d8
+>>>>>>> Stashed changes
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7svfw"]
-atlas = ExtResource("2_0wk7v")
-region = Rect2(0, 0, 1920, 1080)
+[node name="Fadh2" type="Node2D" unique_id=1473804670]
+script = ExtResource("1_hl6fg")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tqcjb"]
-atlas = ExtResource("2_0wk7v")
-region = Rect2(0, 1080, 1920, 1080)
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=550742489]
+offset_right = 4.0
+offset_bottom = 27.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lmsta"]
-atlas = ExtResource("2_0wk7v")
-region = Rect2(0, 2160, 1920, 1080)
+[node name="Nadh2" type="Node2D" parent="." unique_id=1002553557]
+script = ExtResource("2_7y2nl")
 
+<<<<<<< HEAD
+[node name="ProgressBar" type="ProgressBar" parent="Nadh2" unique_id=1612693192]
+offset_right = 4.0
+offset_bottom = 27.0
+=======
 [sub_resource type="AtlasTexture" id="AtlasTexture_qypjg"]
 atlas = ExtResource("2_0wk7v")
 region = Rect2(0, 3240, 1920, 1080)
@@ -426,3 +437,7 @@ offset_bottom = 179.0
 [connection signal="pressed" from="YouLose/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="NADHButton" to="." method="_on_nadh_button_pressed"]
 [connection signal="pressed" from="FADH2Button" to="." method="_on_fadh_2_button_pressed"]
+<<<<<<< Updated upstream
+=======
+>>>>>>> a9621652f3cb5e056e54e482d1847acb108ca0d8
+>>>>>>> Stashed changes
