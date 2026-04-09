@@ -7,11 +7,14 @@ var all_flashcards: Array = []
 
 var settings: Dictionary = {}
 
-var exePath = OS.get_executable_path()
-var exeDir = exePath.get_base_dir()
-var defaultQuestionsDir = exeDir.path_join("questions.json")
-var customQuestionsDir = exeDir.path_join("customquestions.json")
-var settingsDir = exeDir.path_join("flashcardsettings.json")
+#var exePath = OS.get_executable_path()
+#var exeDir = exePath.get_base_dir()
+#var defaultQuestionsDir = exeDir.path_join("questions.json")
+#var customQuestionsDir = exeDir.path_join("customquestions.json")
+#var settingsDir = exeDir.path_join("flashcardsettings.json")
+var defaultQuestionsDir = "user://questions.json"
+var customQuestionsDir = "user://customquestions.json"
+var settingsDir = "user://flashcardsettings.json"
 
 func preLoad():
 	if FileAccess.file_exists(settingsDir):
