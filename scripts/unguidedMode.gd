@@ -76,13 +76,6 @@ func end_game():
 	Globals.score=0
 
 
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
-func _on_timer_timeout() -> void:
-	pass # Replace with function body.
-=======
->>>>>>> Stashed changes
 func _on_nadh_button_pressed() -> void:
 	nadh_spawn()
 
@@ -96,7 +89,3 @@ func _new_ATP(amount):
 		var elapsed_time = main.elapsed_time
 		Globals.score = round(100*total_time-elapsed_time)
 		get_tree().change_scene_to_file("res://scenes/UnguidedVictory.tscn")
-<<<<<<< Updated upstream
-=======
->>>>>>> a9621652f3cb5e056e54e482d1847acb108ca0d8
->>>>>>> Stashed changes
