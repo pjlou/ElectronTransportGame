@@ -107,6 +107,7 @@ func show_flashcard(index: int) -> void:
 func refresh_flashcards() -> void:
 	score = 0
 	current_index = 0
+	missed = []
 
 	var loader = preload("res://scripts/flashcard_loader.gd").new()
 	loader.preLoad()
@@ -146,6 +147,8 @@ func _on_answer_pressed(selected: String, correct: String, button: Button) -> vo
 			b.add_theme_stylebox_override("normal", correct_style)
 			b.add_theme_stylebox_override("hover", correct_style)
 			b.add_theme_color_override("font_hover_color", b.get_theme_color("font_color"))
+		print(b.mouse_filter)
+		b.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 	timer.wait_time = 1.0
 	timer.start()
@@ -191,6 +194,8 @@ func _on_timer_timeout() -> void:
 	mascot_good.visible = false
 	mascot_bad.visible = false
 	mascot_reg.visible = true
+	for b in answer_buttons:
+		b.mouse_filter = Control.MOUSE_FILTER_STOP
 
 	current_index += 1
 	show_flashcard(current_index)
