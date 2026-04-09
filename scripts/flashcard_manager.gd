@@ -44,6 +44,7 @@ func _ready() -> void:
 	var loader = preload("res://scripts/flashcard_loader.gd").new()
 	loader.preLoad()
 	flashcards = loader.get_filtered_flashcards()
+	flashcards.shuffle()
 	defaultFlashcards = loader.get_default_flashcards()
 	customFlashcards = loader.get_custom_flashcards()
 	total_flash = flashcards.size()
