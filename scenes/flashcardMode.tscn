@@ -1,32 +1,32 @@
-[gd_scene format=3 uid="uid://bgtq2uwrldo54"]
+[gd_scene format=3 uid="uid://vagojvo7opu2"]
 
-[ext_resource type="Texture2D" uid="uid://3a2dl5nkqccg" path="res://assets/art/bkgrnd1.png" id="1_qwjeo"]
-[ext_resource type="Texture2D" uid="uid://ekcq4006xf42" path="res://assets/art/bkgrnd2.png" id="2_70d0w"]
-[ext_resource type="Texture2D" uid="uid://bc8mckniiv2fx" path="res://assets/art/bkgrnd3.png" id="3_xhx0m"]
-[ext_resource type="Texture2D" uid="uid://cta1bxeumk7cf" path="res://assets/art/bkgrnd4.png" id="4_7frys"]
-[ext_resource type="FontFile" uid="uid://be215ewpt8022" path="res://assets/fonts/PressStart2P-vaV7.ttf" id="5_yfwk6"]
-[ext_resource type="StyleBox" uid="uid://ctcomgtmjcv4r" path="res://assets/art/pressedButton.tres" id="7_stv62"]
-[ext_resource type="StyleBox" uid="uid://c1itffj143mgb" path="res://assets/art/Button.tres" id="8_761wl"]
-[ext_resource type="StyleBox" uid="uid://cstq4423423bp" path="res://assets/art/stylizedBox.tres" id="10_n4u7n"]
-[ext_resource type="Texture2D" uid="uid://cfdf743crk4c" path="res://assets/art/mascotReg.png" id="11_ho8pb"]
-[ext_resource type="Script" uid="uid://bt8wsc6v7lp80" path="res://scripts/flashcard_manager.gd" id="13_flashcard_manager"]
-[ext_resource type="Texture2D" uid="uid://0bptqtncg5dh" path="res://assets/art/mascotGood.png" id="14_mascot_good"]
-[ext_resource type="Texture2D" uid="uid://uvumc6sgqkd" path="res://assets/art/mascotBad.png" id="15_mascot_bad"]
+[ext_resource type="Script" uid="uid://bt8wsc6v7lp80" path="res://scripts/flashcard_manager.gd" id="1_rxp6l"]
+[ext_resource type="Texture2D" uid="uid://3a2dl5nkqccg" path="res://assets/art/bkgrnd1.png" id="2_7fc0n"]
+[ext_resource type="Texture2D" uid="uid://ekcq4006xf42" path="res://assets/art/bkgrnd2.png" id="3_rxp6l"]
+[ext_resource type="Texture2D" uid="uid://bc8mckniiv2fx" path="res://assets/art/bkgrnd3.png" id="4_nyuu3"]
+[ext_resource type="Texture2D" uid="uid://cta1bxeumk7cf" path="res://assets/art/bkgrnd4.png" id="5_2vurm"]
+[ext_resource type="FontFile" uid="uid://be215ewpt8022" path="res://assets/fonts/PressStart2P-vaV7.ttf" id="6_jyna1"]
+[ext_resource type="StyleBox" uid="uid://c1itffj143mgb" path="res://assets/art/Button.tres" id="7_vjr2h"]
+[ext_resource type="StyleBox" uid="uid://ctcomgtmjcv4r" path="res://assets/art/pressedButton.tres" id="8_pqr4m"]
+[ext_resource type="StyleBox" uid="uid://cstq4423423bp" path="res://assets/art/stylizedBox.tres" id="9_nyuu3"]
+[ext_resource type="Texture2D" uid="uid://cfdf743crk4c" path="res://assets/art/mascotReg.png" id="10_2vurm"]
+[ext_resource type="Texture2D" uid="uid://0bptqtncg5dh" path="res://assets/art/mascotGood.png" id="11_jyna1"]
+[ext_resource type="Texture2D" uid="uid://uvumc6sgqkd" path="res://assets/art/mascotBad.png" id="12_vjr2h"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7vrav"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_qwjeo")
+"texture": ExtResource("2_7fc0n")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_70d0w")
+"texture": ExtResource("3_rxp6l")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_xhx0m")
+"texture": ExtResource("4_nyuu3")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_7frys")
+"texture": ExtResource("5_2vurm")
 }],
 "loop": true,
 "name": &"bkgrnd",
@@ -39,7 +39,7 @@ bg_color = Color(0, 0.290196, 0.678431, 1)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5awwq"]
 
 [node name="FlashcardMode" type="Node2D" unique_id=556960107]
-script = ExtResource("13_flashcard_manager")
+script = ExtResource("1_rxp6l")
 
 [node name="animatedBackground" type="AnimatedSprite2D" parent="." unique_id=646963689]
 position = Vector2(958, 540)
@@ -62,10 +62,10 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0.290196, 0.678431, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("5_yfwk6")
+theme_override_fonts/font = ExtResource("6_jyna1")
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = ExtResource("8_761wl")
-theme_override_styles/pressed = ExtResource("7_stv62")
+theme_override_styles/normal = ExtResource("7_vjr2h")
+theme_override_styles/pressed = ExtResource("8_pqr4m")
 theme_override_styles/hover = SubResource("StyleBoxFlat_7lmhq")
 text = "<- Menu"
 metadata/_edit_use_anchors_ = true
@@ -84,10 +84,10 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0.290196, 0.678431, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("5_yfwk6")
-theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = ExtResource("10_n4u7n")
-theme_override_styles/pressed = ExtResource("7_stv62")
+theme_override_fonts/font = ExtResource("6_jyna1")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("9_nyuu3")
+theme_override_styles/pressed = ExtResource("8_pqr4m")
 theme_override_styles/hover = SubResource("StyleBoxFlat_7lmhq")
 text = "answer1"
 autowrap_mode = 3
@@ -106,10 +106,10 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0.290196, 0.678431, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("5_yfwk6")
-theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = ExtResource("10_n4u7n")
-theme_override_styles/pressed = ExtResource("7_stv62")
+theme_override_fonts/font = ExtResource("6_jyna1")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("9_nyuu3")
+theme_override_styles/pressed = ExtResource("8_pqr4m")
 theme_override_styles/hover = SubResource("StyleBoxFlat_7lmhq")
 text = "answer2"
 autowrap_mode = 3
@@ -128,10 +128,10 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0.290196, 0.678431, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("5_yfwk6")
-theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = ExtResource("10_n4u7n")
-theme_override_styles/pressed = ExtResource("7_stv62")
+theme_override_fonts/font = ExtResource("6_jyna1")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("9_nyuu3")
+theme_override_styles/pressed = ExtResource("8_pqr4m")
 theme_override_styles/hover = SubResource("StyleBoxFlat_7lmhq")
 text = "answer3"
 autowrap_mode = 3
@@ -150,12 +150,59 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0.290196, 0.678431, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("5_yfwk6")
-theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = ExtResource("10_n4u7n")
-theme_override_styles/pressed = ExtResource("7_stv62")
+theme_override_fonts/font = ExtResource("6_jyna1")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("9_nyuu3")
+theme_override_styles/pressed = ExtResource("8_pqr4m")
 theme_override_styles/hover = SubResource("StyleBoxFlat_7lmhq")
 text = "answer4"
+autowrap_mode = 3
+
+[node name="fillAnswerButton" type="Button" parent="animatedBackground" unique_id=492456115]
+visible = false
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.505
+anchor_bottom = 0.5
+offset_left = -1751.0599
+offset_top = -496.0
+offset_right = -341.96558
+offset_bottom = -296.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0.290196, 0.678431, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("6_jyna1")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = ExtResource("9_nyuu3")
+theme_override_styles/pressed = ExtResource("8_pqr4m")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7lmhq")
+autowrap_mode = 3
+
+[node name="fillAnswerEntry" type="LineEdit" parent="animatedBackground" unique_id=1243819343]
+visible = false
+offset_left = -771.0077
+offset_top = 66.0
+offset_right = 609.5874
+offset_bottom = 222.0
+alignment = 1
+
+[node name="fillAnswerStatus" type="Label" parent="animatedBackground" unique_id=348364888]
+z_index = 1
+offset_left = -783.0391
+offset_top = 293.0
+offset_right = 602.56903
+offset_bottom = 365.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.290196, 0.678431, 1)
+theme_override_colors/font_outline_color = Color(0, 0.290196, 0.678431, 1)
+theme_override_constants/line_spacing = 25
+theme_override_constants/outline_size = 40
+theme_override_fonts/font = ExtResource("6_jyna1")
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="questionPanel" type="Panel" parent="animatedBackground" unique_id=1563949056]
@@ -166,7 +213,7 @@ offset_left = -800.083
 offset_top = -499.0
 offset_right = -1280.56
 offset_bottom = -1075.0
-theme_override_styles/panel = ExtResource("10_n4u7n")
+theme_override_styles/panel = ExtResource("9_nyuu3")
 
 [node name="questionLabel" type="Label" parent="animatedBackground/questionPanel" unique_id=231024935]
 layout_mode = 1
@@ -179,7 +226,7 @@ offset_top = 32.44
 offset_right = -33.9004
 offset_bottom = -192.0
 theme_override_colors/font_color = Color(0, 0.290196, 0.678431, 1)
-theme_override_fonts/font = ExtResource("5_yfwk6")
+theme_override_fonts/font = ExtResource("6_jyna1")
 theme_override_font_sizes/font_size = 50
 text = "question:"
 autowrap_mode = 3
@@ -192,10 +239,10 @@ offset_right = 198.621
 offset_bottom = 1037.0
 theme_override_colors/font_color = Color(0, 0.290196, 0.678431, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("5_yfwk6")
+theme_override_fonts/font = ExtResource("6_jyna1")
 theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = ExtResource("8_761wl")
-theme_override_styles/pressed = ExtResource("7_stv62")
+theme_override_styles/normal = ExtResource("7_vjr2h")
+theme_override_styles/pressed = ExtResource("8_pqr4m")
 theme_override_styles/hover = SubResource("StyleBoxFlat_7lmhq")
 text = "Refresh Flashcards"
 
@@ -215,19 +262,20 @@ offset_bottom = -1099.56
 theme_override_styles/panel = SubResource("StyleBoxEmpty_5awwq")
 
 [node name="MascotReg" type="Sprite2D" parent="animatedBackground/leaderboardMascotHolder" unique_id=2067523489]
-position = Vector2(-178.464, -36)
+position = Vector2(1.0028534, 115)
 scale = Vector2(0.451012, 0.551562)
-texture = ExtResource("11_ho8pb")
+texture = ExtResource("10_2vurm")
 
 [node name="mascotGood" type="Sprite2D" parent="animatedBackground/leaderboardMascotHolder" unique_id=1772124978]
-position = Vector2(-184.48, 469)
+position = Vector2(1.0028534, 114)
 scale = Vector2(0.451632, 0.580469)
-texture = ExtResource("14_mascot_good")
+texture = ExtResource("11_jyna1")
 
 [node name="mascotBad" type="Sprite2D" parent="animatedBackground/leaderboardMascotHolder" unique_id=841553862]
-position = Vector2(-178.464, 208)
+position = Vector2(1.0028687, 117)
 scale = Vector2(0.441123, 0.579687)
-texture = ExtResource("15_mascot_bad")
+texture = ExtResource("12_vjr2h")
 
 [connection signal="focus_entered" from="animatedBackground/menuButton" to="." method="_on_menu_button_focus_entered"]
 [connection signal="pressed" from="animatedBackground/menuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="text_submitted" from="animatedBackground/fillAnswerEntry" to="." method="_on_fill_answer_entry_text_submitted"]

@@ -1,6 +1,4 @@
-Here's the grand finale — ATP Synthase! All those protons that got pumped into the intermembrane space have built up massive pressure, and now they want out.
-The only way through?
-ATP Synthase.
-
-As protons flood back through it, they physically spin the protein like a turbine. That spinning motion powers the attachment of a phosphate group onto ADP — and just like that, you've got ATP!
-All that electron shuffling and proton pumping was building toward this one moment.
+Our final step takes us to the ATP Synthase. The high concentration of Protons the process has made sitting in the innermembrane space
+now wants to go down the concentration gradiant. The channel open to them is through ATP Synthase.
+As the Hydrogen ions move down through ATP Synthase, it will physically begin to spin the protons.
+This process of spinning catalyzes the phosphorylation of Phosphate and ADP to create the one and only: ATP!

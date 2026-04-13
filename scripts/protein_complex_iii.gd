@@ -1,5 +1,7 @@
 extends Area2D
 
+signal addATP()
+
 var electrons_inside := []
 var required_electron_count = 4
 # Called when the node enters the scene tree for the first time.
@@ -21,3 +23,4 @@ func _on_area_exited(area: Area2D) -> void:
 func _check_trigger() -> void:
 	if electrons_inside.size() >= required_electron_count:
 		print("Event triggered! Enough items are inside protein complex III.")
+		emit_signal("addATP", 5)

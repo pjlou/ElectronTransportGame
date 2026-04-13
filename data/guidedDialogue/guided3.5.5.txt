@@ -1,2 +1,3 @@
-Cytochrome C delivers the electrons to Complex IV, sitting in the inner membrane. Complex IV uses that delivery as a signal to pump even more protons across.
-The pressure is really building up on the other side now!
+Cytochrome c, located in the innermembrane space, transports the electrons to Complex IV.
+It is here in Complex IV where the donation of electrons once again excites the channel to
+pump more protons into the innermembrane space.

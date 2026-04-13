@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dfqhx5188ggqq"]
+[gd_scene format=3 uid="uid://dfqhx5188ggqq"]
 
 [ext_resource type="Texture2D" uid="uid://3a2dl5nkqccg" path="res://assets/art/bkgrnd1.png" id="1_ldavj"]
 [ext_resource type="Texture2D" uid="uid://ekcq4006xf42" path="res://assets/art/bkgrnd2.png" id="2_6yqux"]
@@ -10,7 +10,7 @@
 [ext_resource type="StyleBox" uid="uid://c1itffj143mgb" path="res://assets/art/Button.tres" id="8_3k2wh"]
 [ext_resource type="StyleBox" uid="uid://bin7dou6oci7h" path="res://assets/art/disabledButton.tres" id="10_c13p3"]
 [ext_resource type="StyleBox" uid="uid://4ebbh2jlqyc5" path="res://assets/art/bNwBox.tres" id="11_tcka8"]
-[ext_resource type="Script" path="res://scripts/modeSelection.gd" id="12_khbru"]
+[ext_resource type="Script" uid="uid://dt5dsme370jqa" path="res://scripts/modeSelection.gd" id="12_khbru"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_j0y8o"]
 animations = [{
@@ -32,10 +32,10 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="ModeSelection" type="Node2D"]
+[node name="ModeSelection" type="Node2D" unique_id=271079055]
 script = ExtResource("12_khbru")
 
-[node name="animatedBackground" type="AnimatedSprite2D" parent="."]
+[node name="animatedBackground" type="AnimatedSprite2D" parent="." unique_id=903624385]
 position = Vector2(957, 539)
 scale = Vector2(0.997396, 1)
 sprite_frames = SubResource("SpriteFrames_j0y8o")
@@ -43,7 +43,7 @@ animation = &"bkgrnd"
 frame = 2
 frame_progress = 0.693778
 
-[node name="menuButton" type="Button" parent="animatedBackground"]
+[node name="menuButton" type="Button" parent="animatedBackground" unique_id=835558924]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -55,40 +55,17 @@ offset_right = -1428.34
 offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0.290196, 0.678431, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_color = Color(0, 0.290196, 0.678431, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("5_egr16")
 theme_override_font_sizes/font_size = 50
-theme_override_styles/hover = ExtResource("6_qeilw")
-theme_override_styles/pressed = ExtResource("7_dy1vb")
 theme_override_styles/normal = ExtResource("8_3k2wh")
-text = "<- Menu"
-
-[node name="playButton" type="Button" parent="animatedBackground"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -482.256
-offset_top = -121.0
-offset_right = -53.2563
-offset_bottom = -20.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
-theme_override_colors/font_color = Color(0, 0.290196, 0.678431, 1)
-theme_override_fonts/font = ExtResource("5_egr16")
-theme_override_font_sizes/font_size = 50
-theme_override_styles/disabled = ExtResource("10_c13p3")
-theme_override_styles/hover = ExtResource("6_qeilw")
 theme_override_styles/pressed = ExtResource("7_dy1vb")
-theme_override_styles/normal = ExtResource("8_3k2wh")
-disabled = true
-text = "Play ->"
+theme_override_styles/hover = ExtResource("6_qeilw")
+text = "<- Back"
 
-[node name="guidedButton" type="Button" parent="animatedBackground"]
+[node name="guidedButton" type="Button" parent="animatedBackground" unique_id=1429210195]
 offset_left = -897.337
 offset_top = -467.0
 offset_right = -374.337
@@ -120,7 +97,7 @@ Learn the topic and learn how to play the game. Shows step by step of the proces
 autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="guidedModeText" type="Label" parent="animatedBackground/guidedButton"]
+[node name="guidedModeText" type="Label" parent="animatedBackground/guidedButton" unique_id=1714410654]
 z_index = 1
 layout_mode = 1
 anchors_preset = 5
@@ -143,7 +120,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Panel" type="Panel" parent="animatedBackground/guidedButton"]
+[node name="Panel" type="Panel" parent="animatedBackground/guidedButton" unique_id=479456994]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.056
@@ -153,7 +130,7 @@ offset_top = 177.0
 offset_right = 452.712
 offset_bottom = 507.394
 
-[node name="unguidedButton" type="Button" parent="animatedBackground"]
+[node name="unguidedButton" type="Button" parent="animatedBackground" unique_id=1029452521]
 offset_left = -255.666
 offset_top = -467.0
 offset_right = 267.334
@@ -185,7 +162,7 @@ text = "
 Test your knowledge and beat your best score. A time attack mode to collect points and flaunt your point. A good mode for testing speed of recalling knowledge learned."
 autowrap_mode = 3
 
-[node name="guidedModeText" type="Label" parent="animatedBackground/unguidedButton"]
+[node name="guidedModeText" type="Label" parent="animatedBackground/unguidedButton" unique_id=1186064407]
 z_index = 1
 layout_mode = 1
 anchors_preset = 5
@@ -208,7 +185,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Panel" type="Panel" parent="animatedBackground/unguidedButton"]
+[node name="Panel" type="Panel" parent="animatedBackground/unguidedButton" unique_id=1027739143]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.056
@@ -218,7 +195,7 @@ offset_top = 177.0
 offset_right = 447.829
 offset_bottom = 507.394
 
-[node name="flashcardButton" type="Button" parent="animatedBackground"]
+[node name="flashcardButton" type="Button" parent="animatedBackground" unique_id=202524003]
 offset_left = 378.0
 offset_top = -467.0
 offset_right = 901.0
@@ -244,7 +221,7 @@ text = "
 More of a reader? Review what you've learned with only flashcards."
 autowrap_mode = 3
 
-[node name="guidedModeText" type="Label" parent="animatedBackground/flashcardButton"]
+[node name="guidedModeText" type="Label" parent="animatedBackground/flashcardButton" unique_id=1260776289]
 z_index = 1
 layout_mode = 1
 anchors_preset = 5
@@ -267,7 +244,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Panel" type="Panel" parent="animatedBackground/flashcardButton"]
+[node name="Panel" type="Panel" parent="animatedBackground/flashcardButton" unique_id=646376253]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.056
@@ -277,21 +254,23 @@ offset_top = 177.0
 offset_right = 447.829
 offset_bottom = 507.394
 
-[node name="Button" type="Button" parent="animatedBackground"]
+[node name="Button" type="Button" parent="animatedBackground" unique_id=1425666069]
 offset_left = -283.739
 offset_top = 418.0
 offset_right = 286.261
 offset_bottom = 522.0
-theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
 theme_override_colors/font_color = Color(0, 0.290196, 0.678431, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("5_egr16")
 theme_override_font_sizes/font_size = 50
-theme_override_styles/disabled = ExtResource("10_c13p3")
-theme_override_styles/hover = ExtResource("6_qeilw")
-theme_override_styles/pressed = ExtResource("7_dy1vb")
 theme_override_styles/normal = ExtResource("8_3k2wh")
+theme_override_styles/pressed = ExtResource("7_dy1vb")
+theme_override_styles/hover = ExtResource("6_qeilw")
+theme_override_styles/disabled = ExtResource("10_c13p3")
 text = "Leaderboard"
 
 [connection signal="pressed" from="animatedBackground/menuButton" to="." method="_on_menu_button_pressed"]
-[connection signal="pressed" from="animatedBackground/playButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="animatedBackground/guidedButton" to="." method="_on_guided_button_pressed"]
+[connection signal="pressed" from="animatedBackground/unguidedButton" to="." method="_on_unguided_button_pressed"]
+[connection signal="pressed" from="animatedBackground/flashcardButton" to="." method="_on_flashcard_button_pressed"]
 [connection signal="pressed" from="animatedBackground/Button" to="." method="_on_button_pressed"]

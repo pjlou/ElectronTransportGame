@@ -1,7 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://doytqa07kldep"]
+[gd_scene format=3 uid="uid://doytqa07kldep"]
 
 [ext_resource type="Texture2D" uid="uid://3a2dl5nkqccg" path="res://assets/art/bkgrnd1.png" id="1_2dvrh"]
-[ext_resource type="Script" path="res://scenes/unguided_victory.gd" id="1_x0ldu"]
+[ext_resource type="Script" uid="uid://p66i1yianox" path="res://scripts/unguided_victory.gd" id="1_x0ldu"]
 [ext_resource type="Texture2D" uid="uid://0bptqtncg5dh" path="res://assets/art/mascotGood.png" id="2_24d7u"]
 [ext_resource type="Texture2D" uid="uid://cfdf743crk4c" path="res://assets/art/mascotReg.png" id="3_qagkl"]
 [ext_resource type="Texture2D" uid="uid://bqlu612yji3oo" path="res://assets/art/mascotGoodFlip.png" id="4_dky0q"]

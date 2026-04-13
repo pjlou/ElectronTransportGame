@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://dqb6nkgdjedn1"]
+[gd_scene load_steps=13 format=3 uid="uid://dqb6nkgdjedn1"]
 
-[ext_resource type="Script" uid="uid://dd22fa2h3fu5g" path="res://scripts/startScreen.gd" id="1_1jmj7"]
+[ext_resource type="Script" path="res://scripts/startScreen.gd" id="1_1jmj7"]
 [ext_resource type="Texture2D" uid="uid://3a2dl5nkqccg" path="res://assets/art/bkgrnd1.png" id="1_hscec"]
 [ext_resource type="FontFile" uid="uid://be215ewpt8022" path="res://assets/fonts/PressStart2P-vaV7.ttf" id="2_e5ycx"]
 [ext_resource type="Texture2D" uid="uid://dvg8q0u05hqp6" path="res://assets/art/whatp.png" id="3_pppee"]
@@ -11,16 +11,16 @@
 [ext_resource type="StyleBox" uid="uid://c1itffj143mgb" path="res://assets/art/Button.tres" id="6_aqrtf"]
 [ext_resource type="Texture2D" uid="uid://ck0re3q1oq06n" path="res://assets/art/HIons.png" id="6_ho7x0"]
 [ext_resource type="Texture2D" uid="uid://4j0wv7ilgm5s" path="res://assets/art/arrow.png" id="7_aalga"]
-[ext_resource type="Script" uid="uid://co4dbpam8f4y5" path="res://pause.gd" id="9_bx3jd"]
+[ext_resource type="Script" path="res://pause.gd" id="9_bx3jd"]
 
-[node name="StartScreen" type="Node2D" unique_id=220975446]
+[node name="StartScreen" type="Node2D"]
 script = ExtResource("1_1jmj7")
 
-[node name="Bkgrnd1" type="Sprite2D" parent="." unique_id=1736520215]
+[node name="Bkgrnd1" type="Sprite2D" parent="."]
 position = Vector2(961, 543)
 texture = ExtResource("1_hscec")
 
-[node name="titleText" type="Label" parent="Bkgrnd1" unique_id=1747655059]
+[node name="titleText" type="Label" parent="Bkgrnd1"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -41,7 +41,7 @@ Game"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="startButton" type="Button" parent="Bkgrnd1" unique_id=1793590820]
+[node name="startButton" type="Button" parent="Bkgrnd1"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -53,16 +53,16 @@ offset_right = -748.0
 offset_bottom = -494.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0.290196, 0.678431, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0.290196, 0.678431, 1)
 theme_override_fonts/font = ExtResource("2_e5ycx")
 theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = ExtResource("6_aqrtf")
-theme_override_styles/pressed = ExtResource("5_0sqa5")
 theme_override_styles/hover = ExtResource("4_ybfi8")
+theme_override_styles/pressed = ExtResource("5_0sqa5")
+theme_override_styles/normal = ExtResource("6_aqrtf")
 text = "Start"
 
-[node name="quitButton" type="Button" parent="Bkgrnd1" unique_id=476997418]
+[node name="quitButton" type="Button" parent="Bkgrnd1"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -77,37 +77,37 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0.290196, 0.678431, 1)
 theme_override_fonts/font = ExtResource("2_e5ycx")
 theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = ExtResource("6_aqrtf")
-theme_override_styles/pressed = ExtResource("5_0sqa5")
 theme_override_styles/hover = ExtResource("4_ybfi8")
+theme_override_styles/pressed = ExtResource("5_0sqa5")
+theme_override_styles/normal = ExtResource("6_aqrtf")
 text = "Quit"
 
-[node name="Whatp" type="Sprite2D" parent="Bkgrnd1" unique_id=1083782286]
+[node name="Whatp" type="Sprite2D" parent="Bkgrnd1"]
 position = Vector2(620, 30)
 scale = Vector2(3.01822, 2.96835)
 texture = ExtResource("3_pppee")
 
-[node name="Atp" type="Sprite2D" parent="Bkgrnd1/Whatp" unique_id=933454148]
+[node name="Atp" type="Sprite2D" parent="Bkgrnd1/Whatp"]
 position = Vector2(-1.65661, -0.336886)
 scale = Vector2(0.55082, 0.549547)
 texture = ExtResource("4_ysvwi")
 
-[node name="Circle" type="Sprite2D" parent="Bkgrnd1/Whatp" unique_id=731949085]
+[node name="Circle" type="Sprite2D" parent="Bkgrnd1/Whatp"]
 position = Vector2(-393.609, 7.41151)
 texture = ExtResource("5_580sa")
 
-[node name="HIons" type="Sprite2D" parent="Bkgrnd1/Whatp" unique_id=1815360777]
+[node name="HIons" type="Sprite2D" parent="Bkgrnd1/Whatp"]
 position = Vector2(-393.94, 8.42217)
 scale = Vector2(0.414129, 0.416881)
 texture = ExtResource("6_ho7x0")
 
-[node name="Arrow" type="Sprite2D" parent="Bkgrnd1/Whatp" unique_id=1725053665]
+[node name="Arrow" type="Sprite2D" parent="Bkgrnd1/Whatp"]
 position = Vector2(-218.672, 84.8955)
 rotation = -0.010472
 scale = Vector2(0.944269, 0.388959)
 texture = ExtResource("7_aalga")
 
-[node name="Pause" type="Control" parent="." unique_id=121576661]
+[node name="Pause" type="Control" parent="."]
 process_mode = 3
 visible = false
 layout_mode = 3
@@ -116,12 +116,12 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("9_bx3jd")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Pause" unique_id=812433876]
+[node name="VBoxContainer" type="VBoxContainer" parent="Pause"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Button" type="Button" parent="Pause/VBoxContainer" unique_id=539127188]
+[node name="Button" type="Button" parent="Pause/VBoxContainer"]
 layout_mode = 2
 text = "Unpause"
 

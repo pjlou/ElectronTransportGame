@@ -1,19 +1,23 @@
-[gd_scene load_steps=25 format=3 uid="uid://des7js64dero"]
+[gd_scene format=4 uid="uid://des7js64dero"]
 
 [ext_resource type="Texture2D" uid="uid://3a2dl5nkqccg" path="res://assets/art/bkgrnd1.png" id="1_f4npc"]
 [ext_resource type="Texture2D" uid="uid://bislb0op82f72" path="res://assets/art/bkgrnd-Sheet.png" id="2_mw6kq"]
-[ext_resource type="Texture2D" uid="uid://blpaf2iqwfcgm" path="res://assets/art/complex3.png" id="3_l0swp"]
+[ext_resource type="Texture2D" uid="uid://cxm3nb6sldmd3" path="res://assets/art/lipid_tiles_big.png" id="3_1l0c4"]
 [ext_resource type="Texture2D" uid="uid://ck0re3q1oq06n" path="res://assets/art/HIons.png" id="4_4yk7g"]
+[ext_resource type="Texture2D" uid="uid://ddekkv0w4h8j8" path="res://assets/art/lipid_tiles_big_flipped.png" id="4_7jg33"]
 [ext_resource type="Texture2D" uid="uid://bal7ooctwkol" path="res://assets/art/cq.png" id="4_tqpfy"]
-[ext_resource type="Texture2D" uid="uid://dkes6pldv3d7l" path="res://assets/art/complex1.png" id="5_a4hqw"]
-[ext_resource type="Script" path="res://scripts/basicdragscript.gd" id="6_kpgqt"]
+[ext_resource type="Texture2D" uid="uid://t46isrdmi5dr" path="res://assets/art/complex1_text.png" id="5_1l0c4"]
+[ext_resource type="Script" uid="uid://emndyvmpaln7" path="res://scripts/basicdragscript.gd" id="6_kpgqt"]
 [ext_resource type="Texture2D" uid="uid://cfvqs7cfdoq5r" path="res://assets/art/electron.png" id="7_6os2y"]
-[ext_resource type="Texture2D" uid="uid://b7ff5st7n1b0w" path="res://assets/art/complex2.png" id="8_3pv60"]
-[ext_resource type="Script" path="res://scripts/basicgrouper.gd" id="9_513ml"]
-[ext_resource type="Texture2D" uid="uid://ru4liwfhg5fk" path="res://assets/art/Complex4.png" id="11_8lv3b"]
-[ext_resource type="Texture2D" uid="uid://idanu5gblvhn" path="res://assets/art/pfadp.png" id="12_aic1a"]
+[ext_resource type="Texture2D" uid="uid://dahbfqd7727ck" path="res://assets/art/complex2_text.png" id="7_7jg33"]
+[ext_resource type="Texture2D" uid="uid://dyi8kq72hyq1q" path="res://assets/art/cq_text.png" id="9_7jg33"]
+[ext_resource type="Script" uid="uid://c68nwr5gjau3t" path="res://scripts/basicgrouper.gd" id="9_513ml"]
+[ext_resource type="Texture2D" uid="uid://uicogmksxrqu" path="res://assets/art/complex3_text.png" id="12_sq6ot"]
+[ext_resource type="Texture2D" uid="uid://cjtt46jauj4ph" path="res://assets/art/Complex4_text.png" id="13_7jg33"]
 [ext_resource type="PackedScene" uid="uid://cymqlfh7j3n4b" path="res://scenes/textbox.tscn" id="13_kxpfy"]
-[ext_resource type="Script" path="res://scripts/textboxScripts/TextboxGuided3.gd" id="14_vyrto"]
+[ext_resource type="Texture2D" uid="uid://b6i4y12gaoo6r" path="res://assets/art/pfadp_text.png" id="14_7jg33"]
+[ext_resource type="Script" uid="uid://d387m07wiqngs" path="res://scripts/textboxScripts/TextboxGuided3.gd" id="14_vyrto"]
+[ext_resource type="Texture2D" uid="uid://cwa53vp2a3dr6" path="res://assets/art/CurvedArrow.png" id="15_aha6e"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7svfw"]
 atlas = ExtResource("2_mw6kq")
@@ -50,6 +54,40 @@ animations = [{
 "name": &"backgournd_animation",
 "speed": 5.0
 }]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sq6ot"]
+texture = ExtResource("3_1l0c4")
+texture_region_size = Vector2i(120, 60)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ntx0g"]
+texture = ExtResource("4_7jg33")
+texture_region_size = Vector2i(120, 60)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_lgj3b"]
+sources/0 = SubResource("TileSetAtlasSource_sq6ot")
+sources/2 = SubResource("TileSetAtlasSource_ntx0g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_twua5"]
 size = Vector2(337, 240)
@@ -540,165 +578,186 @@ tracks/19/keys = {
 "update": 0,
 "values": [Vector2(28.9674, 34.5573), Vector2(152.079, 18.6811), Vector2(260.707, 63.6542), Vector2(260.707, 63.6542)]
 }
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("../Arrow3:visible")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0, 0.06666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gkjlb"]
 _data = {
-"RESET": SubResource("Animation_67hpg"),
-"TophatMoved": SubResource("Animation_s5d8u")
+&"RESET": SubResource("Animation_67hpg"),
+&"TophatMoved": SubResource("Animation_s5d8u")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d87rb"]
 size = Vector2(327, 571)
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" unique_id=1210230854]
 
-[node name="Bkgrnd1" type="Sprite2D" parent="."]
+[node name="Bkgrnd1" type="Sprite2D" parent="." unique_id=1119350756]
 position = Vector2(961, 543)
 texture = ExtResource("1_f4npc")
 
-[node name="BackgroundAnimation" type="AnimatedSprite2D" parent="Bkgrnd1"]
+[node name="BackgroundAnimation" type="AnimatedSprite2D" parent="Bkgrnd1" unique_id=982773546]
 sprite_frames = SubResource("SpriteFrames_2y1c6")
 animation = &"backgournd_animation"
 autoplay = "backgournd_animation"
 
-[node name="Complex1" type="Sprite2D" parent="."]
+[node name="LipidTileLayer" type="TileMapLayer" parent="Bkgrnd1" unique_id=1195218094]
+position = Vector2(-961, -543)
+tile_map_data = PackedByteArray("AAADAB8AAAAAAAAAAAALAB8AAAAAAAAAAAATAB8AAAAAAAAAAAAaAB8AAAAAAAAAAAAiAB8AAAAAAAAAAAAqAB8AAAAAAAAAAAAxAB8AAAAAAAAAAAA5AB8AAAAAAAAAAABBAB8AAAAAAAAAAABJAB8AAAAAAAAAAABQAB8AAAAAAAAAAABYAB8AAAAAAAAAAAB0AB8AAAAAAAAAAABtAB8AAAAAAAAAAABnAB8AAAAAAAAAAABhAB8AAAAAAAAAAAADABsAAgAAAAAAAAALABsAAgAAAAAAAAATABsAAgAAAAAAAAAcABsAAgAAAAAAAAAlABoAAgAAAAAAAAAtABsAAgAAAAAAAAA0ABsAAgAAAAAAAAA9ABsAAgAAAAAAAABCABsAAgAAAAAAAABJABsAAgAAAAAAAABRABsAAgAAAAAAAABYABsAAgAAAAAAAABfABsAAgAAAAAAAABnABsAAgAAAAAAAABvABsAAgAAAAAAAAB0ABsAAgAAAAAAAAA=")
+tile_set = SubResource("TileSet_lgj3b")
+
+[node name="Complex1" type="Sprite2D" parent="." unique_id=1091614896]
 position = Vector2(67.1248, 435.375)
 scale = Vector2(1.66953, 1.30703)
-texture = ExtResource("5_a4hqw")
+texture = ExtResource("5_1l0c4")
 
-[node name="HIons" type="Sprite2D" parent="."]
+[node name="HIons" type="Sprite2D" parent="." unique_id=867227088]
 position = Vector2(208, 158.5)
 scale = Vector2(0.11875, 0.121875)
 texture = ExtResource("4_4yk7g")
 
-[node name="HIons2" type="Sprite2D" parent="."]
+[node name="HIons2" type="Sprite2D" parent="." unique_id=1737883894]
 position = Vector2(159, 160.5)
 scale = Vector2(0.120164, 0.12392)
 texture = ExtResource("4_4yk7g")
 
-[node name="HIons3" type="Sprite2D" parent="."]
+[node name="HIons3" type="Sprite2D" parent="." unique_id=677323862]
 position = Vector2(93.9998, 167.5)
 scale = Vector2(0.132249, 0.12389)
 texture = ExtResource("4_4yk7g")
 
-[node name="HIons4" type="Sprite2D" parent="."]
+[node name="HIons4" type="Sprite2D" parent="." unique_id=1389153525]
 position = Vector2(39.9999, 175.5)
 scale = Vector2(0.121851, 0.116616)
 texture = ExtResource("4_4yk7g")
 
-[node name="Complex2" type="Sprite2D" parent="."]
+[node name="Complex2" type="Sprite2D" parent="." unique_id=940244219]
 position = Vector2(487, 657.5)
-texture = ExtResource("8_3pv60")
+texture = ExtResource("7_7jg33")
 
-[node name="Tophat" type="RigidBody2D" parent="."]
+[node name="Tophat" type="RigidBody2D" parent="." unique_id=619329803]
 position = Vector2(488, 363.5)
 freeze = true
 script = ExtResource("6_kpgqt")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tophat"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tophat" unique_id=25427199]
 position = Vector2(3.5, -2)
 shape = SubResource("RectangleShape2D_twua5")
 
-[node name="Cq" type="Sprite2D" parent="Tophat"]
+[node name="Cq" type="Sprite2D" parent="Tophat" unique_id=1500766272]
 position = Vector2(5, -0.750414)
 scale = Vector2(1.10469, 1.44531)
-texture = ExtResource("4_tqpfy")
+texture = ExtResource("9_7jg33")
 
-[node name="Electron3" type="Sprite2D" parent="Tophat/Cq"]
+[node name="Electron3" type="Sprite2D" parent="Tophat/Cq" unique_id=625197463]
 position = Vector2(-35.3041, 31.1016)
 scale = Vector2(0.127298, 0.102592)
 texture = ExtResource("7_6os2y")
 
-[node name="Electron" type="Sprite2D" parent="Tophat/Cq"]
+[node name="Electron" type="Sprite2D" parent="Tophat/Cq" unique_id=646628643]
 position = Vector2(-47.9773, -11.0583)
 scale = Vector2(0.127298, 0.102592)
 texture = ExtResource("7_6os2y")
 
-[node name="Electron2" type="Sprite2D" parent="Tophat/Cq"]
+[node name="Electron2" type="Sprite2D" parent="Tophat/Cq" unique_id=1142216464]
 position = Vector2(40.7354, -16.5875)
 scale = Vector2(0.127298, 0.102592)
 texture = ExtResource("7_6os2y")
 
-[node name="Electron4" type="Sprite2D" parent="Tophat/Cq"]
+[node name="Electron4" type="Sprite2D" parent="Tophat/Cq" unique_id=1496960959]
 position = Vector2(28.9674, 34.5573)
 scale = Vector2(0.127298, 0.102592)
 texture = ExtResource("7_6os2y")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Tophat"]
-libraries = {
-"": SubResource("AnimationLibrary_gkjlb")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Tophat" unique_id=1371984481]
+libraries/ = SubResource("AnimationLibrary_gkjlb")
 
-[node name="COMPLEX3" type="RigidBody2D" parent="."]
+[node name="COMPLEX3" type="RigidBody2D" parent="." unique_id=462571082]
 position = Vector2(1015, 572.5)
 freeze = true
 script = ExtResource("9_513ml")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="COMPLEX3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="COMPLEX3" unique_id=30448160]
 position = Vector2(7.5, -24.5)
 shape = SubResource("RectangleShape2D_d87rb")
 
-[node name="Complex3" type="Sprite2D" parent="COMPLEX3"]
+[node name="Complex3" type="Sprite2D" parent="COMPLEX3" unique_id=1636877112]
 position = Vector2(-4, -35)
 scale = Vector2(1.37188, 1.83281)
-texture = ExtResource("3_l0swp")
+texture = ExtResource("12_sq6ot")
 
-[node name="Complex4" type="Sprite2D" parent="."]
+[node name="Complex4" type="Sprite2D" parent="." unique_id=1868804998]
 position = Vector2(2208, 513)
 scale = Vector2(1.53125, 1.8875)
-texture = ExtResource("11_8lv3b")
+texture = ExtResource("13_7jg33")
 
-[node name="Tophat2" type="Sprite2D" parent="."]
+[node name="Tophat2" type="Sprite2D" parent="." unique_id=2043928221]
 position = Vector2(1581, 376)
 scale = Vector2(1.18281, 1.42969)
-texture = ExtResource("12_aic1a")
+texture = ExtResource("14_7jg33")
 
-[node name="HIons5" type="Sprite2D" parent="."]
+[node name="HIons5" type="Sprite2D" parent="." unique_id=421011862]
 position = Vector2(984, 860.5)
 scale = Vector2(0.11875, 0.121875)
 texture = ExtResource("4_4yk7g")
 
-[node name="HIons6" type="Sprite2D" parent="."]
+[node name="HIons6" type="Sprite2D" parent="." unique_id=1693883011]
 position = Vector2(939, 894)
 scale = Vector2(0.120164, 0.12392)
 texture = ExtResource("4_4yk7g")
 
-[node name="HIons7" type="Sprite2D" parent="."]
+[node name="HIons7" type="Sprite2D" parent="." unique_id=231174623]
 position = Vector2(989, 929.5)
 scale = Vector2(0.120164, 0.12392)
 texture = ExtResource("4_4yk7g")
 
-[node name="HIons8" type="Sprite2D" parent="."]
+[node name="HIons8" type="Sprite2D" parent="." unique_id=1227845295]
 position = Vector2(942, 973.5)
 scale = Vector2(0.120164, 0.12392)
 texture = ExtResource("4_4yk7g")
 
-[node name="Cq" type="Sprite2D" parent="."]
+[node name="Cq" type="Sprite2D" parent="." unique_id=821522845]
 visible = false
 position = Vector2(493, 361)
 scale = Vector2(1.10469, 1.44531)
 texture = ExtResource("4_tqpfy")
 
-[node name="Electron3" type="Sprite2D" parent="Cq"]
+[node name="Electron3" type="Sprite2D" parent="Cq" unique_id=1922569740]
 position = Vector2(-35.3041, 31.1016)
 scale = Vector2(0.127298, 0.102592)
 texture = ExtResource("7_6os2y")
 
-[node name="Electron" type="Sprite2D" parent="Cq"]
+[node name="Electron" type="Sprite2D" parent="Cq" unique_id=128860950]
 position = Vector2(-47.9773, -11.0583)
 scale = Vector2(0.127298, 0.102592)
 texture = ExtResource("7_6os2y")
 
-[node name="Electron2" type="Sprite2D" parent="Cq"]
+[node name="Electron2" type="Sprite2D" parent="Cq" unique_id=1032774582]
 position = Vector2(40.7354, -16.5875)
 scale = Vector2(0.127298, 0.102592)
 texture = ExtResource("7_6os2y")
 
-[node name="Electron4" type="Sprite2D" parent="Cq"]
+[node name="Electron4" type="Sprite2D" parent="Cq" unique_id=166241159]
 position = Vector2(28.9674, 34.5573)
 scale = Vector2(0.127298, 0.102592)
 texture = ExtResource("7_6os2y")
 
-[node name="Textbox" parent="." instance=ExtResource("13_kxpfy")]
+[node name="Textbox" parent="." unique_id=1337309135 instance=ExtResource("13_kxpfy")]
 process_mode = 3
 script = ExtResource("14_vyrto")
+
+[node name="Arrow3" type="Sprite2D" parent="." unique_id=1216625698]
+position = Vector2(720, 498.99994)
+rotation = 0.9302605
+scale = Vector2(10.6, 10.6)
+texture = ExtResource("15_aha6e")
