@@ -1,7 +1,5 @@
 extends Area2D
 
-signal addATP()
-
 var electrons_inside := []
 var loaded := false
 var pickup_allowed := true
@@ -45,7 +43,6 @@ func _check_electron_load() -> void:
 		loaded = true
 		sprite_node.frame = 1
 		print("Cytochrome C is now loaded! Drag it to Complex IV.")
-		emit_signal("addATP", 10)
 
 func _deliver_to_complex(complex_node: Area2D) -> void:
 	# 1) Get the RectangleShape2D on Complex IV

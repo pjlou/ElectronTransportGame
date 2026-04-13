@@ -62,9 +62,9 @@ After protons are pumped into the intermembrane space, they flow back into the m
 
 ```
 High [H⁺] in intermembrane space
-		↓  (flows through ATP Synthase)
+        ↓  (flows through ATP Synthase)
 Low [H⁺] in matrix
-		↓
+        ↓
 ADP + Pᵢ → ATP
 ```
 

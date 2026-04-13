@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://byjpevd2lsa3q"]
+[gd_scene load_steps=10 format=3 uid="uid://byjpevd2lsa3q"]
 
-[ext_resource type="Script" uid="uid://c7yg8041nak5b" path="res://scripts/nadh.gd" id="1_03rw8"]
-[ext_resource type="Script" uid="uid://bw3n4fi2nfu76" path="res://scripts/unguidedDragScript.gd" id="2_l12ug"]
+[ext_resource type="Script" path="res://scripts/nadh.gd" id="1_03rw8"]
+[ext_resource type="Script" path="res://scripts/unguidedDragScript.gd" id="2_l12ug"]
 [ext_resource type="Texture2D" uid="uid://yy3c1rtc4m81" path="res://assets/art/nadh Copy-Sheet.png" id="2_pc4t5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0mc6n"]
@@ -43,17 +43,17 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Nadh" type="Node2D" unique_id=1903084311]
+[node name="Nadh" type="Node2D"]
 script = ExtResource("1_03rw8")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=883348163]
+[node name="Area2D" type="Area2D" parent="."]
 script = ExtResource("2_l12ug")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=293977524]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(8.5, 0)
 shape = SubResource("RectangleShape2D_0mc6n")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D" unique_id=478425648]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
 sprite_frames = SubResource("SpriteFrames_8we8a")
 animation = &"nadh_animation"
 autoplay = "nadh_animation"
