@@ -6,97 +6,108 @@ const CHAR_SHOW_RATE = 0.03
 @onready var startSymbol = $FullBoxSize/TextMargins/HBoxContainer/Start
 @onready var endSymbol = $FullBoxSize/TextMargins/HBoxContainer/End
 @onready var textLabel = $FullBoxSize/TextMargins/HBoxContainer/Text
+@onready var pauseMenu = $PauseMenu
 
 enum State {
 	READY,
 	PRINTING,
-	FINISHED
+	FINISHED,
+	PAUSED
 }
 
 var curState = State.READY
+var stateBeforePause = State.READY
 var tween: Tween
 var textQueue = []
 var textFilePath = "res://data/dialogueTest.txt"
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	hideText()
 	load_text_from_file()
-	pass # Replace with function body.
+	pauseMenu.hide()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("ui_cancel"):
+		togglePause()
+		return
 	match curState:
 		State.READY:
 			if !textQueue.is_empty():
 				addText()
 		State.PRINTING:
-			if (Input.is_action_just_pressed("ui_accept")):
+			if Input.is_action_just_pressed("ui_accept"):
 				textLabel.visible_ratio = 1.0
 				tween.kill()
 				endSymbol.text = ">"
 				changeState(State.FINISHED)
-				
 		State.FINISHED:
-			if(Input.is_action_just_pressed("ui_accept")):
+			if Input.is_action_just_pressed("ui_accept"):
 				changeState(State.READY)
-	pass
-	
-func load_text_from_file() -> void:
-	textQueue.clear() #I'm only putting this in cause im stupid and I've lost track of my own codebase. Ensuring its empty.
 
+func togglePause():
+	if curState == State.PAUSED:
+		pauseMenu.hide()
+		get_tree().paused = false
+		changeState(stateBeforePause)
+		if stateBeforePause == State.PRINTING and tween:
+			tween.play()
+	else:
+		stateBeforePause = curState
+		if tween:
+			tween.pause()
+		get_tree().paused = true
+		pauseMenu.show()
+		changeState(State.PAUSED)
+
+func _on_resume_pressed():
+	togglePause()
+
+func _on_main_menu_pressed():
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://scenes/modeSelection.tscn")
+
+func load_text_from_file() -> void:
+	textQueue.clear()
 	if textFilePath.is_empty():
 		printerr("Text file path is not set!")
 		return
-
 	if not FileAccess.file_exists(textFilePath):
 		print("Text file not found at path: ", textFilePath)
 		return
-
 	var file = FileAccess.open(textFilePath, FileAccess.READ)
 	if file == null:
 		print("Failed to open text file: ", FileAccess.get_open_error())
 		return
-
 	while not file.eof_reached():
-		var line = file.get_line().strip_edges() 
-		if not line.is_empty(): 
-			textQueue.push_back(line) 
-
+		var line = file.get_line().strip_edges()
+		if not line.is_empty():
+			textQueue.push_back(line)
 	file.close()
-
 	print("Loaded %d lines from %s" % [textQueue.size(), textFilePath])
-	
-#func queueText(nextText):
-#	textQueue.push_back(nextText)
-#
 
 func hideText():
 	startSymbol.text = ""
 	endSymbol.text = ""
 	textLabel.text = ""
 	fullBox.hide()
-	
+
 func showText():
 	startSymbol.text = "-"
 	fullBox.show()
-	
+
 func addText():
 	var nextText = textQueue.pop_front()
 	textLabel.text = nextText
 	changeState(State.PRINTING)
 	showText()
 	tween = get_tree().create_tween()
-	tween.tween_property(textLabel, "visible_ratio", 1.0, len(nextText) * CHAR_SHOW_RATE).from(0).finished
-	tween.connect("finished",_on_tween_completed)
-	pass
+	tween.tween_property(textLabel, "visible_ratio", 1.0, len(nextText) * CHAR_SHOW_RATE).from(0)
+	tween.connect("finished", _on_tween_completed)
 
 func _on_tween_completed():
 	endSymbol.text = ">"
 	changeState(State.FINISHED)
-	
+
 func changeState(nextState):
 	curState = nextState
 	match curState:
@@ -106,3 +117,5 @@ func changeState(nextState):
 			print('Changing to State.PRINTING')
 		State.FINISHED:
 			print('Changing to State.FINISHED')
+		State.PAUSED:
+			print('Changing to State.PAUSED')

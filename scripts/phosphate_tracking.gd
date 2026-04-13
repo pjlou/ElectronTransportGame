@@ -41,16 +41,15 @@ func spawn_atp() -> void:
 	get_tree().root.call_deferred("add_child", atp)
 	
 	var main = get_tree().root.get_node("UnguidedMode")
-	'''
+	
 	main.atp_made_count += 1
 	print("ATP count is now %d" % main.atp_made_count)
-	#  Switch to Victory when we’ve hit 10
-	if main.atp_made_count >= 10:
+	#  Switch to Victory when we’ve hit 3
+	if main.atp_made_count >= 3:
 	#if elapsed_time < 1:
 		var elapsed_time = main.elapsed_time
 		Globals.score = round(100*total_time-elapsed_time)
 		get_tree().change_scene_to_file("res://scenes/UnguidedVictory.tscn")
-	'''
 	
 	# 2. Schedule safe removal after 5 seconds
 	#    SceneTree.create_timer returns a one-shot Timer

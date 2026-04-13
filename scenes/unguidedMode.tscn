@@ -1,34 +1,33 @@
-[gd_scene format=3 uid="uid://bocxsb0hq60gu"]
+[gd_scene load_steps=41 format=3 uid="uid://bocxsb0hq60gu"]
 
 [ext_resource type="Texture2D" uid="uid://3a2dl5nkqccg" path="res://assets/art/bkgrnd1.png" id="1_4cvqq"]
-[ext_resource type="Script" uid="uid://dlxn2jcbib2ai" path="res://scripts/unguidedMode.gd" id="1_jltc1"]
+[ext_resource type="Script" path="res://scripts/unguidedMode.gd" id="1_jltc1"]
 [ext_resource type="Texture2D" uid="uid://bislb0op82f72" path="res://assets/art/bkgrnd-Sheet.png" id="2_0wk7v"]
 [ext_resource type="FontFile" uid="uid://be215ewpt8022" path="res://assets/fonts/PressStart2P-vaV7.ttf" id="4_4htyk"]
 [ext_resource type="Texture2D" uid="uid://drehngs86y2bp" path="res://assets/art/inmembranewallround.png" id="5_q87lr"]
 [ext_resource type="Texture2D" uid="uid://dck6d35s4c2sm" path="res://assets/art/miti.png" id="7_anx1e"]
-[ext_resource type="Script" uid="uid://bipgwfoiae42y" path="res://scripts/protein_complex_i.gd" id="8_5eevf"]
-[ext_resource type="Texture2D" uid="uid://t46isrdmi5dr" path="res://assets/art/complex1_text.png" id="8_g12j1"]
-[ext_resource type="Script" uid="uid://bqafjp1fvw5ee" path="res://scripts/protein_complex_ii.gd" id="9_cx4hv"]
-[ext_resource type="Texture2D" uid="uid://dahbfqd7727ck" path="res://assets/art/complex2_text.png" id="10_kwbdl"]
-[ext_resource type="Script" uid="uid://dvbpk2470w6ws" path="res://scripts/protein_complex_iii.gd" id="11_hx2s7"]
-[ext_resource type="Texture2D" uid="uid://uicogmksxrqu" path="res://assets/art/complex3_text.png" id="12_m8lxy"]
-[ext_resource type="Script" uid="uid://521ul5p8q2sr" path="res://scripts/cytochrome_c.gd" id="13_lwm3j"]
-[ext_resource type="Script" uid="uid://ci5ahiklgogmt" path="res://scripts/intermembrane_space.gd" id="15_cllvv"]
-[ext_resource type="Script" uid="uid://bs6fjn1yqfl3m" path="res://scripts/atp_syn.gd" id="15_w78pe"]
-[ext_resource type="Texture2D" uid="uid://b6i4y12gaoo6r" path="res://assets/art/pfadp_text.png" id="15_yo544"]
-[ext_resource type="Script" uid="uid://248k5lwrfwk8" path="res://scripts/protein_complex_iv.gd" id="16_y0aw8"]
-[ext_resource type="Texture2D" uid="uid://crcqmxguc8ytg" path="res://assets/art/atpSyn_text.png" id="17_qvqk5"]
-[ext_resource type="Script" uid="uid://00x46ny2qggr" path="res://scripts/co_q_10.gd" id="18_sl3fg"]
-[ext_resource type="Script" uid="uid://bw3n4fi2nfu76" path="res://scripts/unguidedDragScript.gd" id="19_1d7rx"]
-[ext_resource type="Texture2D" uid="uid://cjtt46jauj4ph" path="res://assets/art/Complex4_text.png" id="19_hkww1"]
+[ext_resource type="Script" path="res://scripts/protein_complex_i.gd" id="8_5eevf"]
+[ext_resource type="Texture2D" uid="uid://11n6iyl5jpru" path="res://assets/art/complex1-copy.png" id="9_c6qwy"]
+[ext_resource type="Script" path="res://scripts/protein_complex_ii.gd" id="9_cx4hv"]
+[ext_resource type="Texture2D" uid="uid://b7ff5st7n1b0w" path="res://assets/art/complex2.png" id="9_ul52o"]
+[ext_resource type="Script" path="res://scripts/protein_complex_iii.gd" id="11_hx2s7"]
+[ext_resource type="Texture2D" uid="uid://blpaf2iqwfcgm" path="res://assets/art/complex3.png" id="11_of3fh"]
+[ext_resource type="Texture2D" uid="uid://idanu5gblvhn" path="res://assets/art/pfadp.png" id="12_5gvyk"]
+[ext_resource type="Texture2D" uid="uid://parc1vr01wgk" path="res://assets/art/atpSyn.png" id="13_2voeu"]
+[ext_resource type="Script" path="res://scripts/cytochrome_c.gd" id="13_lwm3j"]
+[ext_resource type="Script" path="res://scripts/intermembrane_space.gd" id="15_cllvv"]
+[ext_resource type="Script" path="res://scripts/atp_syn.gd" id="15_w78pe"]
+[ext_resource type="Script" path="res://scripts/protein_complex_iv.gd" id="16_y0aw8"]
+[ext_resource type="Texture2D" uid="uid://ru4liwfhg5fk" path="res://assets/art/Complex4.png" id="17_01q60"]
+[ext_resource type="Texture2D" uid="uid://bal7ooctwkol" path="res://assets/art/cq.png" id="18_qi11u"]
+[ext_resource type="Script" path="res://scripts/co_q_10.gd" id="18_sl3fg"]
+[ext_resource type="Script" path="res://scripts/unguidedDragScript.gd" id="19_1d7rx"]
 [ext_resource type="PackedScene" uid="uid://byjpevd2lsa3q" path="res://scenes/nadh.tscn" id="20_8186m"]
-[ext_resource type="Texture2D" uid="uid://dyi8kq72hyq1q" path="res://assets/art/cq_text.png" id="21_0vjd4"]
 [ext_resource type="PackedScene" uid="uid://weux2naatqew" path="res://scenes/fadh2.tscn" id="21_q48iu"]
 [ext_resource type="PackedScene" uid="uid://daymmjbrc1fl3" path="res://scenes/unguidedHion.tscn" id="24_vniem"]
 [ext_resource type="StyleBox" uid="uid://dyqk1y387jthj" path="res://assets/art/hoverButton.tres" id="26_mn814"]
 [ext_resource type="StyleBox" uid="uid://ctcomgtmjcv4r" path="res://assets/art/pressedButton.tres" id="27_yrn2v"]
 [ext_resource type="StyleBox" uid="uid://c1itffj143mgb" path="res://assets/art/Button.tres" id="28_bhg2r"]
-[ext_resource type="StyleBox" uid="uid://cstq4423423bp" path="res://assets/art/stylizedBox.tres" id="29_g12j1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7svfw"]
 atlas = ExtResource("2_0wk7v")
@@ -90,35 +89,32 @@ size = Vector2(155, 170)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pbruv"]
 size = Vector2(1920, 296)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7lmhq"]
-bg_color = Color(0, 0.290196, 0.678431, 1)
-
-[node name="UnguidedMode" type="Node2D" unique_id=59339770]
+[node name="UnguidedMode" type="Node2D"]
 script = ExtResource("1_jltc1")
 
-[node name="Bkgrnd1" type="Sprite2D" parent="." unique_id=24519212]
+[node name="Bkgrnd1" type="Sprite2D" parent="."]
 position = Vector2(961, 543)
 texture = ExtResource("1_4cvqq")
 
-[node name="BackgroundAnimation" type="AnimatedSprite2D" parent="Bkgrnd1" unique_id=1011481198]
+[node name="BackgroundAnimation" type="AnimatedSprite2D" parent="Bkgrnd1"]
 sprite_frames = SubResource("SpriteFrames_uy2s8")
 animation = &"backgournd_animation"
 autoplay = "backgournd_animation"
 frame = 3
 frame_progress = 0.629593
 
-[node name="nadh_timer" type="Timer" parent="." unique_id=923798818]
+[node name="nadh_timer" type="Timer" parent="."]
 wait_time = 8.5
 autostart = true
 
-[node name="fadh2_timer" type="Timer" parent="." unique_id=1710538269]
+[node name="fadh2_timer" type="Timer" parent="."]
 wait_time = 8.5
 autostart = true
 
-[node name="Node2D" type="Node2D" parent="." unique_id=278759249]
+[node name="Node2D" type="Node2D" parent="."]
 position = Vector2(1435.32, 153.741)
 
-[node name="Control" type="Control" parent="Node2D" unique_id=1447085836]
+[node name="Control" type="Control" parent="Node2D"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = -154.0
@@ -126,7 +122,7 @@ offset_top = -76.0
 offset_right = 254.0
 offset_bottom = 182.0
 
-[node name="QuestionLabel" type="Label" parent="Node2D/Control" unique_id=530183005]
+[node name="QuestionLabel" type="Label" parent="Node2D/Control"]
 visible = false
 layout_mode = 0
 offset_left = -4.0
@@ -134,7 +130,7 @@ offset_top = 10.0
 offset_right = 600.0
 offset_bottom = 249.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Node2D/Control" unique_id=1850049449]
+[node name="VBoxContainer" type="VBoxContainer" parent="Node2D/Control"]
 visible = false
 layout_mode = 0
 offset_left = 154.0
@@ -142,23 +138,23 @@ offset_top = 74.0
 offset_right = 578.0
 offset_bottom = 120.0
 
-[node name="AnswerA" type="Button" parent="Node2D/Control/VBoxContainer" unique_id=365203279]
+[node name="AnswerA" type="Button" parent="Node2D/Control/VBoxContainer"]
 visible = false
 layout_mode = 2
 
-[node name="AnswerB" type="Button" parent="Node2D/Control/VBoxContainer" unique_id=778781233]
+[node name="AnswerB" type="Button" parent="Node2D/Control/VBoxContainer"]
 visible = false
 layout_mode = 2
 
-[node name="AnswerC" type="Button" parent="Node2D/Control/VBoxContainer" unique_id=1450866299]
+[node name="AnswerC" type="Button" parent="Node2D/Control/VBoxContainer"]
 visible = false
 layout_mode = 2
 
-[node name="AnswerD" type="Button" parent="Node2D/Control/VBoxContainer" unique_id=1050395977]
+[node name="AnswerD" type="Button" parent="Node2D/Control/VBoxContainer"]
 visible = false
 layout_mode = 2
 
-[node name="ScoreLabel" type="Label" parent="Node2D/Control" unique_id=89346581]
+[node name="ScoreLabel" type="Label" parent="Node2D/Control"]
 visible = false
 layout_mode = 0
 offset_left = -1070.0
@@ -166,7 +162,7 @@ offset_top = 34.0
 offset_right = -564.0
 offset_bottom = 127.0
 
-[node name="TimeLabel" type="Label" parent="Node2D" unique_id=702219150]
+[node name="TimeLabel" type="Label" parent="Node2D"]
 offset_left = -1294.32
 offset_top = 1.259
 offset_right = -927.32
@@ -174,169 +170,169 @@ offset_bottom = 89.259
 theme_override_fonts/font = ExtResource("4_4htyk")
 theme_override_font_sizes/font_size = 45
 
-[node name="IntermembraneSprite" type="Sprite2D" parent="." unique_id=1001862407]
+[node name="IntermembraneSprite" type="Sprite2D" parent="."]
 position = Vector2(957, 433)
 scale = Vector2(6.0625, 1.71875)
 texture = ExtResource("5_q87lr")
 
-[node name="MitochondrialMatrix" type="Sprite2D" parent="." unique_id=1129011334]
+[node name="MitochondrialMatrix" type="Sprite2D" parent="."]
 position = Vector2(963.127, 905.656)
 rotation = -3.14599
 scale = Vector2(6.09202, 1.31214)
 texture = ExtResource("7_anx1e")
 
-[node name="ProteinComplexI" type="Area2D" parent="." unique_id=1666324580]
+[node name="ProteinComplexI" type="Area2D" parent="."]
 position = Vector2(192, 696)
 script = ExtResource("8_5eevf")
 
-[node name="CollisionShape2DPCI" type="CollisionShape2D" parent="ProteinComplexI" unique_id=1379523374]
+[node name="CollisionShape2DPCI" type="CollisionShape2D" parent="ProteinComplexI"]
 position = Vector2(11.7499, 2.25012)
 shape = SubResource("CapsuleShape2D_126kl")
 
-[node name="Sprite2D" type="Sprite2D" parent="ProteinComplexI" unique_id=211631010]
+[node name="Sprite2D" type="Sprite2D" parent="ProteinComplexI"]
 position = Vector2(19.7499, 2.25006)
 scale = Vector2(0.523437, 0.514063)
-texture = ExtResource("8_g12j1")
+texture = ExtResource("9_c6qwy")
 
-[node name="ProteinComplexII" type="Area2D" parent="." unique_id=2094130344]
+[node name="ProteinComplexII" type="Area2D" parent="."]
 position = Vector2(472, 720)
 script = ExtResource("9_cx4hv")
 
-[node name="CollisionShape2DPCII" type="CollisionShape2D" parent="ProteinComplexII" unique_id=1677074429]
+[node name="CollisionShape2DPCII" type="CollisionShape2D" parent="ProteinComplexII"]
 position = Vector2(1.62494, -3)
 shape = SubResource("CapsuleShape2D_126kl")
 
-[node name="Sprite2D" type="Sprite2D" parent="ProteinComplexII" unique_id=1090907996]
+[node name="Sprite2D" type="Sprite2D" parent="ProteinComplexII"]
 position = Vector2(1.62494, -11)
 scale = Vector2(0.560156, 0.53125)
-texture = ExtResource("10_kwbdl")
+texture = ExtResource("9_ul52o")
 
-[node name="ProteinComplexIII" type="Area2D" parent="." unique_id=1431460626]
+[node name="ProteinComplexIII" type="Area2D" parent="."]
 position = Vector2(744, 696)
 script = ExtResource("11_hx2s7")
 
-[node name="CollisionShape2DPCIII" type="CollisionShape2D" parent="ProteinComplexIII" unique_id=1827897123]
+[node name="CollisionShape2DPCIII" type="CollisionShape2D" parent="ProteinComplexIII"]
 position = Vector2(5.5, -6.5)
 shape = SubResource("RectangleShape2D_cqh3a")
 
-[node name="Sprite2D" type="Sprite2D" parent="ProteinComplexIII" unique_id=458159957]
+[node name="Sprite2D" type="Sprite2D" parent="ProteinComplexIII"]
 position = Vector2(0.250122, -10.5001)
 scale = Vector2(0.551563, 0.484375)
-texture = ExtResource("12_m8lxy")
+texture = ExtResource("11_of3fh")
 
-[node name="CytochromeC" type="Area2D" parent="." unique_id=443727568]
+[node name="CytochromeC" type="Area2D" parent="."]
 position = Vector2(1000, 688)
 script = ExtResource("19_1d7rx")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CytochromeC" unique_id=881316630]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CytochromeC"]
 position = Vector2(6.5, -1)
 rotation = 1.59177
 shape = SubResource("CapsuleShape2D_ah78x")
 
-[node name="TrackingArea2D" type="Area2D" parent="CytochromeC" unique_id=370750413]
+[node name="TrackingArea2D" type="Area2D" parent="CytochromeC"]
 position = Vector2(192, 480)
 script = ExtResource("13_lwm3j")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CytochromeC/TrackingArea2D" unique_id=1878664706]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CytochromeC/TrackingArea2D"]
 position = Vector2(-192, -480)
 rotation = 1.57442
 shape = SubResource("CircleShape2D_ymtas")
 
-[node name="ReloadTimer" type="Timer" parent="CytochromeC/TrackingArea2D" unique_id=1399662454]
+[node name="ReloadTimer" type="Timer" parent="CytochromeC/TrackingArea2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="CytochromeC" unique_id=1499762778]
+[node name="Sprite2D" type="Sprite2D" parent="CytochromeC"]
 position = Vector2(6.5, -1)
 scale = Vector2(0.490625, 0.64375)
-texture = ExtResource("15_yo544")
+texture = ExtResource("12_5gvyk")
 
-[node name="ATPSyn" type="Area2D" parent="." unique_id=1853838470]
+[node name="ATPSyn" type="Area2D" parent="."]
 position = Vector2(1584, 704)
 script = ExtResource("15_w78pe")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ATPSyn" unique_id=1551759224]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ATPSyn"]
 position = Vector2(-8, -16)
 shape = SubResource("CapsuleShape2D_27mu5")
 
-[node name="Sprite2D" type="Sprite2D" parent="ATPSyn" unique_id=682835817]
+[node name="Sprite2D" type="Sprite2D" parent="ATPSyn"]
 position = Vector2(-7, -16.0001)
 scale = Vector2(0.70625, 0.7)
-texture = ExtResource("17_qvqk5")
+texture = ExtResource("13_2voeu")
 
-[node name="ProteinComplexIV" type="Area2D" parent="." unique_id=1644709805]
+[node name="ProteinComplexIV" type="Area2D" parent="."]
 position = Vector2(1272, 688)
 script = ExtResource("16_y0aw8")
 
-[node name="CollisionShape2DPCIV" type="CollisionShape2D" parent="ProteinComplexIV" unique_id=2002024875]
+[node name="CollisionShape2DPCIV" type="CollisionShape2D" parent="ProteinComplexIV"]
 position = Vector2(-3.5, -4)
 shape = SubResource("RectangleShape2D_yi87a")
 
-[node name="Sprite2D" type="Sprite2D" parent="ProteinComplexIV" unique_id=1736494362]
+[node name="Sprite2D" type="Sprite2D" parent="ProteinComplexIV"]
 position = Vector2(0, -4)
 scale = Vector2(0.5, 0.575)
-texture = ExtResource("19_hkww1")
+texture = ExtResource("17_01q60")
 
-[node name="CoQ10" type="Area2D" parent="." unique_id=2007387353]
+[node name="CoQ10" type="Area2D" parent="."]
 position = Vector2(432, 592)
 script = ExtResource("19_1d7rx")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CoQ10" unique_id=1239234326]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CoQ10"]
 rotation = 1.57442
 shape = SubResource("CircleShape2D_ymtas")
 
-[node name="TrackingArea2D" type="Area2D" parent="CoQ10" unique_id=1138701651]
+[node name="TrackingArea2D" type="Area2D" parent="CoQ10"]
 position = Vector2(192, 480)
 script = ExtResource("18_sl3fg")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CoQ10/TrackingArea2D" unique_id=843438601]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CoQ10/TrackingArea2D"]
 position = Vector2(-192, -480)
 rotation = 1.57442
 shape = SubResource("CircleShape2D_ymtas")
 
-[node name="ReloadTimer" type="Timer" parent="CoQ10/TrackingArea2D" unique_id=1529823988]
+[node name="ReloadTimer" type="Timer" parent="CoQ10/TrackingArea2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="CoQ10" unique_id=2035953647]
+[node name="Sprite2D" type="Sprite2D" parent="CoQ10"]
 scale = Vector2(0.375, 0.55)
-texture = ExtResource("21_0vjd4")
+texture = ExtResource("18_qi11u")
 
-[node name="Nadh" parent="." unique_id=1365938998 instance=ExtResource("20_8186m")]
+[node name="Nadh" parent="." instance=ExtResource("20_8186m")]
 position = Vector2(224, 880)
 
-[node name="Fadh2" parent="." unique_id=289301585 instance=ExtResource("21_q48iu")]
+[node name="Fadh2" parent="." instance=ExtResource("21_q48iu")]
 position = Vector2(488, 880)
 
-[node name="IntermembraneSpace" type="Area2D" parent="." unique_id=180795912]
+[node name="IntermembraneSpace" type="Area2D" parent="."]
 position = Vector2(760, 512)
 script = ExtResource("15_cllvv")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="IntermembraneSpace" unique_id=1160614834]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IntermembraneSpace"]
 position = Vector2(200, 36)
 shape = SubResource("RectangleShape2D_pbruv")
 
-[node name="UnguidedHion" parent="." unique_id=677328405 instance=ExtResource("24_vniem")]
+[node name="UnguidedHion" parent="." instance=ExtResource("24_vniem")]
 position = Vector2(696, 872)
 
-[node name="UnguidedHion2" parent="." unique_id=668826597 instance=ExtResource("24_vniem")]
+[node name="UnguidedHion2" parent="." instance=ExtResource("24_vniem")]
 position = Vector2(616, 800)
 
-[node name="UnguidedHion3" parent="." unique_id=1441751106 instance=ExtResource("24_vniem")]
+[node name="UnguidedHion3" parent="." instance=ExtResource("24_vniem")]
 position = Vector2(592, 896)
 
-[node name="UnguidedHion4" parent="." unique_id=896328148 instance=ExtResource("24_vniem")]
+[node name="UnguidedHion4" parent="." instance=ExtResource("24_vniem")]
 position = Vector2(560, 824)
 
-[node name="UnguidedHion5" parent="." unique_id=1118447812 instance=ExtResource("24_vniem")]
+[node name="UnguidedHion5" parent="." instance=ExtResource("24_vniem")]
 position = Vector2(40, 816)
 
-[node name="UnguidedHion6" parent="." unique_id=761283171 instance=ExtResource("24_vniem")]
+[node name="UnguidedHion6" parent="." instance=ExtResource("24_vniem")]
 position = Vector2(80, 736)
 
-[node name="UnguidedHion7" parent="." unique_id=337265066 instance=ExtResource("24_vniem")]
+[node name="UnguidedHion7" parent="." instance=ExtResource("24_vniem")]
 position = Vector2(136, 872)
 
-[node name="UnguidedHion8" parent="." unique_id=866949828 instance=ExtResource("24_vniem")]
+[node name="UnguidedHion8" parent="." instance=ExtResource("24_vniem")]
 position = Vector2(296, 800)
 
-[node name="YouLose" type="Control" parent="." unique_id=1104809810]
+[node name="YouLose" type="Control" parent="."]
 visible = false
 layout_mode = 3
 anchors_preset = 0
@@ -345,8 +341,8 @@ offset_top = 239.0
 offset_right = 1436.0
 offset_bottom = 676.0
 
-[node name="YouLoseMessage" type="Label" parent="YouLose" unique_id=387683766]
-layout_mode = 0
+[node name="YouLoseMessage" type="Label" parent="YouLose"]
+layout_mode = 2
 offset_left = 278.0
 offset_top = 139.0
 offset_right = 848.0
@@ -356,73 +352,21 @@ theme_override_fonts/font = ExtResource("4_4htyk")
 theme_override_font_sizes/font_size = 50
 text = "You Lose!"
 
-[node name="Button" type="Button" parent="YouLose" unique_id=544918791]
+[node name="Button" type="Button" parent="YouLose"]
 layout_mode = 0
 offset_left = 370.0
 offset_top = 210.0
 offset_right = 596.0
 offset_bottom = 280.0
-theme_override_colors/font_color = Color(0, 0.290196, 0.678431, 1)
 theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0.290196, 0.678431, 1)
 theme_override_fonts/font = ExtResource("4_4htyk")
 theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = ExtResource("28_bhg2r")
-theme_override_styles/pressed = ExtResource("27_yrn2v")
 theme_override_styles/hover = ExtResource("26_mn814")
+theme_override_styles/pressed = ExtResource("27_yrn2v")
+theme_override_styles/normal = ExtResource("28_bhg2r")
 text = "Main Menu"
-
-[node name="NADHButton" type="Button" parent="." unique_id=819605582]
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.505
-anchor_bottom = 0.5
-offset_left = 66.00003
-offset_top = 253.0
-offset_right = 480.5044
-offset_bottom = 419.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0.290196, 0.678431, 1)
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("4_4htyk")
-theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = ExtResource("29_g12j1")
-theme_override_styles/pressed = ExtResource("27_yrn2v")
-theme_override_styles/hover = SubResource("StyleBoxFlat_7lmhq")
-text = "NADH"
-autowrap_mode = 3
-
-[node name="FADH2Button" type="Button" parent="." unique_id=1928379270]
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.505
-anchor_bottom = 0.5
-offset_left = 499.0
-offset_top = 253.0
-offset_right = 913.5044
-offset_bottom = 419.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0.290196, 0.678431, 1)
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("4_4htyk")
-theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = ExtResource("29_g12j1")
-theme_override_styles/pressed = ExtResource("27_yrn2v")
-theme_override_styles/hover = SubResource("StyleBoxFlat_7lmhq")
-text = "FADH2"
-autowrap_mode = 3
-
-[node name="ATPProgressBar" type="ProgressBar" parent="." unique_id=1271264207]
-offset_left = 1099.0
-offset_top = 88.0
-offset_right = 1876.0
-offset_bottom = 179.0
 
 [connection signal="timeout" from="nadh_timer" to="." method="_on_nadh_timer_timeout"]
 [connection signal="timeout" from="fadh2_timer" to="." method="_on_fadh2_timer_timeout"]
 [connection signal="pressed" from="YouLose/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="NADHButton" to="." method="_on_nadh_button_pressed"]
-[connection signal="pressed" from="FADH2Button" to="." method="_on_fadh_2_button_pressed"]

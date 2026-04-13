@@ -1,3 +1,3 @@
-Coenzyme Q (ubiquinone) is a lipid-soluable carrier that collects the donated electrons from Complex I and II.
-Upon accepting four electrons, Coenzyme Q 'shuttles' them towards Complex III and binds to it.
-When Complex III accepts the electrons, it pumps protons into the innermembrane space.
+Those electrons from Complex I and II don't travel alone
+They hitch a ride on Coenzyme Q, a fat-soluble shuttle that picks them up and carries them over to Complex III. 
+Once complex III receives all four electrons, it pumps more protons into the intermembrane space. The gradient keeps building!
