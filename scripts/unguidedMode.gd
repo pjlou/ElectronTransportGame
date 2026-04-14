@@ -15,6 +15,8 @@ var elapsed_time=0
 
 var game_ended = false
 
+@onready var countdown_label = $Countdown
+
 func _ready():
 	Globals.score = 5
 	randomize() # seed the random number generator
@@ -24,6 +26,12 @@ func _ready():
 	$ProteinComplexIII.addATP.connect(_new_ATP)
 	$ProteinComplexIV.addATP.connect(_new_ATP)
 	$ATPSyn.addATP.connect(_new_ATP)
+	get_tree().paused = true
+	for i in range(3, 0, -1):
+		countdown_label.text = str(i)
+		await get_tree().create_timer(1.0).timeout
+	get_tree().paused = false
+	countdown_label.visible = false
 	
 func _process(delta: float) -> void:
 	if game_ended:

@@ -421,6 +421,16 @@ offset_top = 88.0
 offset_right = 1876.0
 offset_bottom = 179.0
 
+[node name="Countdown" type="Label" parent="." unique_id=824595128]
+offset_left = 926.0
+offset_top = 494.0
+offset_right = 1033.0
+offset_bottom = 597.0
+theme_override_fonts/font = ExtResource("4_4htyk")
+theme_override_font_sizes/font_size = 100
+text = "hi
+"
+
 [connection signal="timeout" from="nadh_timer" to="." method="_on_nadh_timer_timeout"]
 [connection signal="timeout" from="fadh2_timer" to="." method="_on_fadh2_timer_timeout"]
 [connection signal="pressed" from="YouLose/Button" to="." method="_on_button_pressed"]
