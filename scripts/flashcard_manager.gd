@@ -44,6 +44,7 @@ func _ready() -> void:
 	var loader = preload("res://scripts/flashcard_loader.gd").new()
 	loader.preLoad()
 	flashcards = loader.get_filtered_flashcards()
+	flashcards.shuffle()
 	defaultFlashcards = loader.get_default_flashcards()
 	customFlashcards = loader.get_custom_flashcards()
 	total_flash = flashcards.size()
@@ -212,6 +213,30 @@ func _on_answer_pressed(selected: String, correct: String, button: Button) -> vo
 
 	timer.wait_time = 1.0
 	timer.start()
+
+func _unhandled_input(event):
+	if event is InputEventKey and event.pressed and not event.echo:
+		match event.keycode:
+			KEY_1:
+				if answer_buttons[0].visible == false:
+					return
+				else:
+					_on_answer_pressed(flashcards[current_index]["choices"][0], flashcards[current_index]["answer"], answer_buttons[0])
+			KEY_2:
+				if answer_buttons[1].visible == false:
+					return
+				else:
+					_on_answer_pressed(flashcards[current_index]["choices"][1], flashcards[current_index]["answer"], answer_buttons[1])
+			KEY_3:
+				if answer_buttons[2].visible == false:
+					return
+				else:
+					_on_answer_pressed(flashcards[current_index]["choices"][2], flashcards[current_index]["answer"], answer_buttons[2])
+			KEY_4:
+				if answer_buttons[3].visible == false:
+					return
+				else:
+					_on_answer_pressed(flashcards[current_index]["choices"][3], flashcards[current_index]["answer"], answer_buttons[3])
 
 func _on_fill_answer_entry_text_submitted(answer: String) -> void:
 	var normal_font_color = fill_answer_button.get_theme_color("font_color")

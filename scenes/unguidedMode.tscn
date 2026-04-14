@@ -7,22 +7,22 @@
 [ext_resource type="Texture2D" uid="uid://drehngs86y2bp" path="res://assets/art/inmembranewallround.png" id="5_q87lr"]
 [ext_resource type="Texture2D" uid="uid://dck6d35s4c2sm" path="res://assets/art/miti.png" id="7_anx1e"]
 [ext_resource type="Script" uid="uid://bipgwfoiae42y" path="res://scripts/protein_complex_i.gd" id="8_5eevf"]
-[ext_resource type="Texture2D" uid="uid://11n6iyl5jpru" path="res://assets/art/complex1-copy.png" id="9_c6qwy"]
+[ext_resource type="Texture2D" uid="uid://t46isrdmi5dr" path="res://assets/art/complex1_text.png" id="8_g12j1"]
 [ext_resource type="Script" uid="uid://bqafjp1fvw5ee" path="res://scripts/protein_complex_ii.gd" id="9_cx4hv"]
-[ext_resource type="Texture2D" uid="uid://b7ff5st7n1b0w" path="res://assets/art/complex2.png" id="9_ul52o"]
+[ext_resource type="Texture2D" uid="uid://dahbfqd7727ck" path="res://assets/art/complex2_text.png" id="10_kwbdl"]
 [ext_resource type="Script" uid="uid://dvbpk2470w6ws" path="res://scripts/protein_complex_iii.gd" id="11_hx2s7"]
-[ext_resource type="Texture2D" uid="uid://blpaf2iqwfcgm" path="res://assets/art/complex3.png" id="11_of3fh"]
-[ext_resource type="Texture2D" uid="uid://idanu5gblvhn" path="res://assets/art/pfadp.png" id="12_5gvyk"]
-[ext_resource type="Texture2D" uid="uid://parc1vr01wgk" path="res://assets/art/atpSyn.png" id="13_2voeu"]
+[ext_resource type="Texture2D" uid="uid://uicogmksxrqu" path="res://assets/art/complex3_text.png" id="12_m8lxy"]
 [ext_resource type="Script" uid="uid://521ul5p8q2sr" path="res://scripts/cytochrome_c.gd" id="13_lwm3j"]
 [ext_resource type="Script" uid="uid://ci5ahiklgogmt" path="res://scripts/intermembrane_space.gd" id="15_cllvv"]
 [ext_resource type="Script" uid="uid://bs6fjn1yqfl3m" path="res://scripts/atp_syn.gd" id="15_w78pe"]
+[ext_resource type="Texture2D" uid="uid://b6i4y12gaoo6r" path="res://assets/art/pfadp_text.png" id="15_yo544"]
 [ext_resource type="Script" uid="uid://248k5lwrfwk8" path="res://scripts/protein_complex_iv.gd" id="16_y0aw8"]
-[ext_resource type="Texture2D" uid="uid://ru4liwfhg5fk" path="res://assets/art/Complex4.png" id="17_01q60"]
-[ext_resource type="Texture2D" uid="uid://bal7ooctwkol" path="res://assets/art/cq.png" id="18_qi11u"]
+[ext_resource type="Texture2D" uid="uid://crcqmxguc8ytg" path="res://assets/art/atpSyn_text.png" id="17_qvqk5"]
 [ext_resource type="Script" uid="uid://00x46ny2qggr" path="res://scripts/co_q_10.gd" id="18_sl3fg"]
 [ext_resource type="Script" uid="uid://bw3n4fi2nfu76" path="res://scripts/unguidedDragScript.gd" id="19_1d7rx"]
+[ext_resource type="Texture2D" uid="uid://cjtt46jauj4ph" path="res://assets/art/Complex4_text.png" id="19_hkww1"]
 [ext_resource type="PackedScene" uid="uid://byjpevd2lsa3q" path="res://scenes/nadh.tscn" id="20_8186m"]
+[ext_resource type="Texture2D" uid="uid://dyi8kq72hyq1q" path="res://assets/art/cq_text.png" id="21_0vjd4"]
 [ext_resource type="PackedScene" uid="uid://weux2naatqew" path="res://scenes/fadh2.tscn" id="21_q48iu"]
 [ext_resource type="PackedScene" uid="uid://daymmjbrc1fl3" path="res://scenes/unguidedHion.tscn" id="24_vniem"]
 [ext_resource type="StyleBox" uid="uid://dyqk1y387jthj" path="res://assets/art/hoverButton.tres" id="26_mn814"]
@@ -196,7 +196,7 @@ shape = SubResource("CapsuleShape2D_126kl")
 [node name="Sprite2D" type="Sprite2D" parent="ProteinComplexI" unique_id=211631010]
 position = Vector2(19.7499, 2.25006)
 scale = Vector2(0.523437, 0.514063)
-texture = ExtResource("9_c6qwy")
+texture = ExtResource("8_g12j1")
 
 [node name="ProteinComplexII" type="Area2D" parent="." unique_id=2094130344]
 position = Vector2(472, 720)
@@ -209,7 +209,7 @@ shape = SubResource("CapsuleShape2D_126kl")
 [node name="Sprite2D" type="Sprite2D" parent="ProteinComplexII" unique_id=1090907996]
 position = Vector2(1.62494, -11)
 scale = Vector2(0.560156, 0.53125)
-texture = ExtResource("9_ul52o")
+texture = ExtResource("10_kwbdl")
 
 [node name="ProteinComplexIII" type="Area2D" parent="." unique_id=1431460626]
 position = Vector2(744, 696)
@@ -222,7 +222,7 @@ shape = SubResource("RectangleShape2D_cqh3a")
 [node name="Sprite2D" type="Sprite2D" parent="ProteinComplexIII" unique_id=458159957]
 position = Vector2(0.250122, -10.5001)
 scale = Vector2(0.551563, 0.484375)
-texture = ExtResource("11_of3fh")
+texture = ExtResource("12_m8lxy")
 
 [node name="CytochromeC" type="Area2D" parent="." unique_id=443727568]
 position = Vector2(1000, 688)
@@ -247,7 +247,7 @@ shape = SubResource("CircleShape2D_ymtas")
 [node name="Sprite2D" type="Sprite2D" parent="CytochromeC" unique_id=1499762778]
 position = Vector2(6.5, -1)
 scale = Vector2(0.490625, 0.64375)
-texture = ExtResource("12_5gvyk")
+texture = ExtResource("15_yo544")
 
 [node name="ATPSyn" type="Area2D" parent="." unique_id=1853838470]
 position = Vector2(1584, 704)
@@ -260,7 +260,7 @@ shape = SubResource("CapsuleShape2D_27mu5")
 [node name="Sprite2D" type="Sprite2D" parent="ATPSyn" unique_id=682835817]
 position = Vector2(-7, -16.0001)
 scale = Vector2(0.70625, 0.7)
-texture = ExtResource("13_2voeu")
+texture = ExtResource("17_qvqk5")
 
 [node name="ProteinComplexIV" type="Area2D" parent="." unique_id=1644709805]
 position = Vector2(1272, 688)
@@ -273,7 +273,7 @@ shape = SubResource("RectangleShape2D_yi87a")
 [node name="Sprite2D" type="Sprite2D" parent="ProteinComplexIV" unique_id=1736494362]
 position = Vector2(0, -4)
 scale = Vector2(0.5, 0.575)
-texture = ExtResource("17_01q60")
+texture = ExtResource("19_hkww1")
 
 [node name="CoQ10" type="Area2D" parent="." unique_id=2007387353]
 position = Vector2(432, 592)
@@ -296,7 +296,7 @@ shape = SubResource("CircleShape2D_ymtas")
 
 [node name="Sprite2D" type="Sprite2D" parent="CoQ10" unique_id=2035953647]
 scale = Vector2(0.375, 0.55)
-texture = ExtResource("18_qi11u")
+texture = ExtResource("21_0vjd4")
 
 [node name="Nadh" parent="." unique_id=1365938998 instance=ExtResource("20_8186m")]
 position = Vector2(224, 880)

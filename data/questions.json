@@ -129,7 +129,7 @@
 	"id": 19,
 	"question": "Which two upstream metabolic processes supply NADH and FADH₂ to the ETC?",
 	"choices": ["fermentation and oxidative phosphorylation", "glycolysis and the citric acid cycle", "beta-oxidation and chemiosmosis", "glycolysis and gluconeogenesis"],
-	"answer": "Complex IV",
+	"answer": "glycolysis and the citric acid cycle",
 	"favorited": false
   },
 {
