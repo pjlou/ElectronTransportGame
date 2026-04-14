@@ -12,7 +12,7 @@ var settings: Dictionary = {}
 #var defaultQuestionsDir = exeDir.path_join("questions.json")
 #var customQuestionsDir = exeDir.path_join("customquestions.json")
 #var settingsDir = exeDir.path_join("flashcardsettings.json")
-var defaultQuestionsDir = "user://questions.json"
+var defaultQuestionsDir = "res://questions.json"
 var customQuestionsDir = "user://customquestions.json"
 var settingsDir = "user://flashcardsettings.json"
 
