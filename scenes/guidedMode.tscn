@@ -1,9 +1,11 @@
-[gd_scene format=3 uid="uid://db17epj06jksp"]
+[gd_scene format=4 uid="uid://db17epj06jksp"]
 
 [ext_resource type="Texture2D" uid="uid://3a2dl5nkqccg" path="res://assets/art/bkgrnd1.png" id="1_bb0mt"]
 [ext_resource type="Texture2D" uid="uid://bislb0op82f72" path="res://assets/art/bkgrnd-Sheet.png" id="2_uqkxw"]
 [ext_resource type="Texture2D" uid="uid://dkes6pldv3d7l" path="res://assets/art/complex1.png" id="3_jimh7"]
+[ext_resource type="Texture2D" uid="uid://cxm3nb6sldmd3" path="res://assets/art/lipid_tiles_big.png" id="3_svmmj"]
 [ext_resource type="Script" uid="uid://c68nwr5gjau3t" path="res://scripts/basicgrouper.gd" id="3_vc5lf"]
+[ext_resource type="Texture2D" uid="uid://ddekkv0w4h8j8" path="res://assets/art/lipid_tiles_big_flipped.png" id="4_uk4n4"]
 [ext_resource type="Texture2D" uid="uid://c8qkjvjkt63uj" path="res://assets/art/nadh Copy1.png" id="4_whmjv"]
 [ext_resource type="Script" uid="uid://emndyvmpaln7" path="res://scripts/basicdragscript.gd" id="5_vmbdb"]
 [ext_resource type="Texture2D" uid="uid://bal7ooctwkol" path="res://assets/art/cq.png" id="7_ef6i2"]
@@ -50,6 +52,40 @@ animations = [{
 "name": &"backgournd_animation",
 "speed": 5.0
 }]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_apnyo"]
+texture = ExtResource("3_svmmj")
+texture_region_size = Vector2i(120, 60)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_74tns"]
+texture = ExtResource("4_uk4n4")
+texture_region_size = Vector2i(120, 60)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_uhgh5"]
+sources/0 = SubResource("TileSetAtlasSource_apnyo")
+sources/2 = SubResource("TileSetAtlasSource_74tns")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bch0e"]
 size = Vector2(496.188, 372.375)
@@ -417,6 +453,11 @@ position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_jaxew")
 animation = &"backgournd_animation"
 autoplay = "backgournd_animation"
+
+[node name="LipidTileLayer" type="TileMapLayer" parent="Bkgrnd1" unique_id=343957747]
+position = Vector2(-961, -543)
+tile_map_data = PackedByteArray("AAADAB8AAAAAAAAAAAALAB8AAAAAAAAAAAATAB8AAAAAAAAAAAAaAB8AAAAAAAAAAAAiAB8AAAAAAAAAAAAqAB8AAAAAAAAAAAAxAB8AAAAAAAAAAAA5AB8AAAAAAAAAAABBAB8AAAAAAAAAAABJAB8AAAAAAAAAAABQAB8AAAAAAAAAAABYAB8AAAAAAAAAAAB0AB8AAAAAAAAAAABtAB8AAAAAAAAAAABnAB8AAAAAAAAAAABhAB8AAAAAAAAAAAADABsAAgAAAAAAAAALABsAAgAAAAAAAAATABsAAgAAAAAAAAAcABsAAgAAAAAAAAAlABoAAgAAAAAAAAAtABsAAgAAAAAAAAA0ABsAAgAAAAAAAAA9ABsAAgAAAAAAAABCABsAAgAAAAAAAABJABsAAgAAAAAAAABRABsAAgAAAAAAAABYABsAAgAAAAAAAABfABsAAgAAAAAAAABnABsAAgAAAAAAAABvABsAAgAAAAAAAAB0ABsAAgAAAAAAAAA=")
+tile_set = SubResource("TileSet_uhgh5")
 
 [node name="COMPLEX1" type="RigidBody2D" parent="." unique_id=1805051821]
 position = Vector2(491, 489)
