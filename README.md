@@ -8,6 +8,8 @@ Once this game is complete, a Windows executable will be made available in the m
 
 While care has been taken to include high quality flashcard questions, it is currently recommended to replace the default questions as these were not created with the oversight of a licensed professional educator.  For biology teachers, the default flashcard questions can be replaced by placing a questions.json file in the main directory.  The program also supports creating custom flashcards from within the program, and these can replace the default questions by renaming the customquestions.json file to questions.json in the main directory.
 
+This work was completed as part of a class at UAB, and it is a continuation of the work of another UAB class.  The previous group's work can be found here: https://github.com/Astrelle/UAB-Biology-ATP-Game 
+
 ## Features
 
 This game has three modes that students can learn from.
