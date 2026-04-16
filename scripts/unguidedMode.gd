@@ -49,23 +49,19 @@ func _process(delta: float) -> void:
 	#Winning occurs in phosphate_tracking.gd
 
 # spawn the nadh
+# Static spawn coordinates SHOULD make it always appear right below Complex 1
 func nadh_spawn():
-	var spawn_position = Vector2(
-		rng.randf_range(fadh2_nadh_spawn.position.x, fadh2_nadh_spawn.position.x + fadh2_nadh_spawn.size.x),
-		rng.randf_range(fadh2_nadh_spawn.position.y, fadh2_nadh_spawn.position.y + fadh2_nadh_spawn.size.y)
-	)  # create the coordinate
+	var spawn_position = Vector2(200, 900)  # create the coordinate
 	
-	var object_instance = nadh_scene.instantiate() # instantiate the instance of the HIon scene
+	var object_instance = nadh_scene.instantiate() # instantiate the instance of the nadh
 	object_instance.position = spawn_position          # set its position
 	get_tree().root.get_node("UnguidedMode").add_child(object_instance)       # add it to scene tree
 
+# Static spawn coordinates SHOULD make it always appear right below Complex 2
 func fadh2_spawn():
-	var spawn_position = Vector2(
-		rng.randf_range(fadh2_nadh_spawn.position.x, fadh2_nadh_spawn.position.x + fadh2_nadh_spawn.size.x),
-		rng.randf_range(fadh2_nadh_spawn.position.y, fadh2_nadh_spawn.position.y + fadh2_nadh_spawn.size.y)
-	)  # create the coordinate
+	var spawn_position = Vector2(500, 900)  # create the coordinate
 	
-	var object_instance = fadh2_scene.instantiate() # instantiate the instance of the HIon scene
+	var object_instance = fadh2_scene.instantiate() # instantiate the instance of the fadh2
 	object_instance.position = spawn_position          # set its position
 	get_tree().root.get_node("UnguidedMode").add_child(object_instance)   
 	

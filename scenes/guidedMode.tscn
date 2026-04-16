@@ -2,20 +2,20 @@
 
 [ext_resource type="Texture2D" uid="uid://3a2dl5nkqccg" path="res://assets/art/bkgrnd1.png" id="1_bb0mt"]
 [ext_resource type="Texture2D" uid="uid://bislb0op82f72" path="res://assets/art/bkgrnd-Sheet.png" id="2_uqkxw"]
+[ext_resource type="Texture2D" uid="uid://dkes6pldv3d7l" path="res://assets/art/complex1.png" id="3_jimh7"]
+[ext_resource type="Texture2D" uid="uid://cxm3nb6sldmd3" path="res://assets/art/lipid_tiles_big.png" id="3_svmmj"]
 [ext_resource type="Script" uid="uid://c68nwr5gjau3t" path="res://scripts/basicgrouper.gd" id="3_vc5lf"]
-[ext_resource type="Texture2D" uid="uid://ddekkv0w4h8j8" path="res://assets/art/lipid_tiles_big_flipped.png" id="4_svmmj"]
+[ext_resource type="Texture2D" uid="uid://ddekkv0w4h8j8" path="res://assets/art/lipid_tiles_big_flipped.png" id="4_uk4n4"]
+[ext_resource type="Texture2D" uid="uid://c8qkjvjkt63uj" path="res://assets/art/nadh Copy1.png" id="4_whmjv"]
 [ext_resource type="Script" uid="uid://emndyvmpaln7" path="res://scripts/basicdragscript.gd" id="5_vmbdb"]
-[ext_resource type="Texture2D" uid="uid://t46isrdmi5dr" path="res://assets/art/complex1_text.png" id="6_svmmj"]
-[ext_resource type="Texture2D" uid="uid://dahbfqd7727ck" path="res://assets/art/complex2_text.png" id="7_svmmj"]
+[ext_resource type="Texture2D" uid="uid://bal7ooctwkol" path="res://assets/art/cq.png" id="7_ef6i2"]
 [ext_resource type="Texture2D" uid="uid://cfvqs7cfdoq5r" path="res://assets/art/electron.png" id="7_xm4do"]
-[ext_resource type="Texture2D" uid="uid://uicogmksxrqu" path="res://assets/art/complex3_text.png" id="8_svmmj"]
-[ext_resource type="Texture2D" uid="uid://dyi8kq72hyq1q" path="res://assets/art/cq_text.png" id="9_svmmj"]
+[ext_resource type="Texture2D" uid="uid://b7ff5st7n1b0w" path="res://assets/art/complex2.png" id="8_n4h0m"]
+[ext_resource type="Texture2D" uid="uid://blpaf2iqwfcgm" path="res://assets/art/complex3.png" id="10_dtuol"]
 [ext_resource type="Texture2D" uid="uid://ck0re3q1oq06n" path="res://assets/art/HIons.png" id="11_bdvog"]
-[ext_resource type="Texture2D" uid="uid://b6gih2yxhtfjw" path="res://assets/art/nadh_remake2.png" id="11_uk4n4"]
 [ext_resource type="PackedScene" uid="uid://cymqlfh7j3n4b" path="res://scenes/textbox.tscn" id="12_xreus"]
 [ext_resource type="Script" uid="uid://wkbtrnabnwig" path="res://scripts/textboxScripts/TextboxGuided1.gd" id="13_0wwv2"]
 [ext_resource type="Texture2D" uid="uid://cwa53vp2a3dr6" path="res://assets/art/CurvedArrow.png" id="14_y1pua"]
-[ext_resource type="Texture2D" uid="uid://cxm3nb6sldmd3" path="res://assets/art/lipid_tiles_big.png" id="15_cgbr0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7svfw"]
 atlas = ExtResource("2_uqkxw")
@@ -53,13 +53,13 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_svmmj"]
-texture = ExtResource("15_cgbr0")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_apnyo"]
+texture = ExtResource("3_svmmj")
 texture_region_size = Vector2i(120, 60)
 0:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uk4n4"]
-texture = ExtResource("4_svmmj")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_74tns"]
+texture = ExtResource("4_uk4n4")
 texture_region_size = Vector2i(120, 60)
 0:0/0 = 0
 1:0/0 = 0
@@ -83,9 +83,9 @@ texture_region_size = Vector2i(120, 60)
 5:2/0 = 0
 6:2/0 = 0
 
-[sub_resource type="TileSet" id="TileSet_uk4n4"]
-sources/0 = SubResource("TileSetAtlasSource_svmmj")
-sources/2 = SubResource("TileSetAtlasSource_uk4n4")
+[sub_resource type="TileSet" id="TileSet_uhgh5"]
+sources/0 = SubResource("TileSetAtlasSource_apnyo")
+sources/2 = SubResource("TileSetAtlasSource_74tns")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bch0e"]
 size = Vector2(496.188, 372.375)
@@ -263,18 +263,6 @@ tracks/13/keys = {
 "update": 1,
 "values": [true]
 }
-tracks/14/type = "value"
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/path = NodePath("Sprite2D:texture")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("11_uk4n4")]
-}
 
 [sub_resource type="Animation" id="Animation_glp57"]
 resource_name = "donate_electrons"
@@ -447,18 +435,6 @@ tracks/13/keys = {
 "update": 1,
 "values": [false]
 }
-tracks/14/type = "value"
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/path = NodePath("Sprite2D:texture")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("11_uk4n4")]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tds0b"]
 _data = {
@@ -478,10 +454,10 @@ sprite_frames = SubResource("SpriteFrames_jaxew")
 animation = &"backgournd_animation"
 autoplay = "backgournd_animation"
 
-[node name="LipidTileLayer" type="TileMapLayer" parent="Bkgrnd1" unique_id=1070247839]
+[node name="LipidTileLayer" type="TileMapLayer" parent="Bkgrnd1" unique_id=343957747]
 position = Vector2(-961, -543)
 tile_map_data = PackedByteArray("AAADAB8AAAAAAAAAAAALAB8AAAAAAAAAAAATAB8AAAAAAAAAAAAaAB8AAAAAAAAAAAAiAB8AAAAAAAAAAAAqAB8AAAAAAAAAAAAxAB8AAAAAAAAAAAA5AB8AAAAAAAAAAABBAB8AAAAAAAAAAABJAB8AAAAAAAAAAABQAB8AAAAAAAAAAABYAB8AAAAAAAAAAAB0AB8AAAAAAAAAAABtAB8AAAAAAAAAAABnAB8AAAAAAAAAAABhAB8AAAAAAAAAAAADABsAAgAAAAAAAAALABsAAgAAAAAAAAATABsAAgAAAAAAAAAcABsAAgAAAAAAAAAlABoAAgAAAAAAAAAtABsAAgAAAAAAAAA0ABsAAgAAAAAAAAA9ABsAAgAAAAAAAABCABsAAgAAAAAAAABJABsAAgAAAAAAAABRABsAAgAAAAAAAABYABsAAgAAAAAAAABfABsAAgAAAAAAAABnABsAAgAAAAAAAABvABsAAgAAAAAAAAB0ABsAAgAAAAAAAAA=")
-tile_set = SubResource("TileSet_uk4n4")
+tile_set = SubResource("TileSet_uhgh5")
 
 [node name="COMPLEX1" type="RigidBody2D" parent="." unique_id=1805051821]
 position = Vector2(491, 489)
@@ -495,21 +471,21 @@ shape = SubResource("RectangleShape2D_bch0e")
 [node name="Sprite2D" type="Sprite2D" parent="COMPLEX1" unique_id=2101280013]
 position = Vector2(38.1249, -42.125)
 scale = Vector2(1.66953, 1.30703)
-texture = ExtResource("6_svmmj")
+texture = ExtResource("3_jimh7")
 
 [node name="Complex2" type="Sprite2D" parent="." unique_id=2002478742]
 position = Vector2(949, 669)
-texture = ExtResource("7_svmmj")
+texture = ExtResource("8_n4h0m")
 
 [node name="Complex3" type="Sprite2D" parent="." unique_id=1023629925]
 position = Vector2(1473, 549)
 scale = Vector2(1.37188, 1.83281)
-texture = ExtResource("8_svmmj")
+texture = ExtResource("10_dtuol")
 
 [node name="Cq" type="Sprite2D" parent="." unique_id=868654964]
 position = Vector2(955, 374)
 scale = Vector2(1.10469, 1.44687)
-texture = ExtResource("9_svmmj")
+texture = ExtResource("7_ef6i2")
 
 [node name="NADHCOMPLEX1" type="RigidBody2D" parent="." unique_id=812384433]
 position = Vector2(169, 937)
@@ -522,7 +498,7 @@ shape = SubResource("RectangleShape2D_sc5wr")
 
 [node name="Sprite2D" type="Sprite2D" parent="NADHCOMPLEX1" unique_id=877973216]
 position = Vector2(-1, -2)
-texture = ExtResource("11_uk4n4")
+texture = ExtResource("4_whmjv")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="NADHCOMPLEX1" unique_id=381347187]
 libraries/ = SubResource("AnimationLibrary_tds0b")
@@ -531,7 +507,7 @@ movie_quit_on_finish = true
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=2061436512]
 visible = false
 position = Vector2(169, 936)
-texture = ExtResource("11_uk4n4")
+texture = ExtResource("4_whmjv")
 
 [node name="Electron" type="Sprite2D" parent="." unique_id=609229433]
 visible = false
@@ -568,11 +544,50 @@ scale = Vector2(0.121851, 0.116616)
 texture = ExtResource("11_bdvog")
 
 [node name="Textbox" parent="." unique_id=402860463 instance=ExtResource("12_xreus")]
-process_mode = 3
 script = ExtResource("13_0wwv2")
+
+[node name="PauseMenu3" type="Control" parent="Textbox" unique_id=713560591]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PanelContainer" type="PanelContainer" parent="Textbox/PauseMenu3" unique_id=1748450908]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Textbox/PauseMenu3/PanelContainer" unique_id=595755876]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Textbox/PauseMenu3/PanelContainer/VBoxContainer" unique_id=1697895692]
+layout_mode = 2
+text = "Paused"
+
+[node name="ResumeButton" type="Button" parent="Textbox/PauseMenu3/PanelContainer/VBoxContainer" unique_id=1769682910]
+layout_mode = 2
+text = "Keep Playing"
+
+[node name="MainMenuButton" type="Button" parent="Textbox/PauseMenu3/PanelContainer/VBoxContainer" unique_id=307286740]
+layout_mode = 2
+text = "Main Menu"
 
 [node name="Arrow1" type="Sprite2D" parent="." unique_id=2123004144]
 position = Vector2(338.00003, 818)
 rotation = -0.02617994
 scale = Vector2(10, 10)
 texture = ExtResource("14_y1pua")
+
+[node name="PauseLayer" type="CanvasLayer" parent="." unique_id=679856338]
+process_mode = 3
+
+[node name="PauseButton" type="Button" parent="PauseLayer" unique_id=1623847172]
+process_mode = 3
+offset_right = 8.0
+offset_bottom = 8.0
+text = "⏸"
+
+[connection signal="pressed" from="Textbox/PauseMenu3/PanelContainer/VBoxContainer/ResumeButton" to="Textbox" method="_on_resume_pressed"]
+[connection signal="pressed" from="Textbox/PauseMenu3/PanelContainer/VBoxContainer/MainMenuButton" to="Textbox" method="_on_main_menu_pressed"]
+[connection signal="pressed" from="PauseLayer/PauseButton" to="Textbox" method="togglePause"]

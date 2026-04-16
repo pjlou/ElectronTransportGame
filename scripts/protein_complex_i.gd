@@ -21,7 +21,7 @@ func _process(delta):
 		if time_left <= 0:
 			on_cooldown = false
 			print("Protein Complex I cooldown finished")
-			$ProgressBar.value = ((cooldown_time - time_left) / cooldown_time) * 100
+
 
 func _on_area_entered(area: Area2D) -> void:
 	print(electrons_inside.size())
@@ -43,4 +43,10 @@ func _check_trigger() -> void:
 func _start_cooldown():
 	on_cooldown = true
 	time_left = cooldown_time
+	# Fade out to show cooldown
+	modulate = Color(1, 1, 1, 0.4)
 	print("Protein Complex I on cooldown for", cooldown_time, "seconds")
+	if time_left <= 0:
+		on_cooldown = false
+		modulate = Color(1, 1, 1, 1) # restore full opacity
+		print("Cooldown finished")
