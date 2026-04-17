@@ -847,7 +847,6 @@ scale = Vector2(0.2875, 0.29375)
 texture = ExtResource("9_yfdpy")
 
 [node name="Textbox" parent="." unique_id=902157218 instance=ExtResource("12_0gxai")]
-process_mode = 3
 script = ExtResource("13_e3pc0")
 
 [node name="Arrow3p6" type="Sprite2D" parent="." unique_id=1946814917]

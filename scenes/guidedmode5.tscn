@@ -18,6 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://cymqlfh7j3n4b" path="res://scenes/textbox.tscn" id="14_una17"]
 [ext_resource type="Script" uid="uid://dymxt2hig75ih" path="res://scripts/textboxScripts/TextboxGuided5.gd" id="15_r071d"]
 [ext_resource type="Texture2D" uid="uid://cwa53vp2a3dr6" path="res://assets/art/CurvedArrow.png" id="16_ry724"]
+[ext_resource type="PackedScene" uid="uid://ohcyytkoxn6p" path="res://scenes/pause_layer.tscn" id="19_mio3c"]
+[ext_resource type="Script" uid="uid://ckbcqfpku2850" path="res://scripts/GuidedMode.gd" id="20_mmw2s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7svfw"]
 atlas = ExtResource("2_bpvop")
@@ -1173,7 +1175,6 @@ scale = Vector2(0.671875, 0.64375)
 texture = ExtResource("13_w26l1")
 
 [node name="Textbox" parent="." unique_id=1058759211 instance=ExtResource("14_una17")]
-process_mode = 3
 script = ExtResource("15_r071d")
 
 [node name="Arrow5" type="Sprite2D" parent="." unique_id=1764026648]
@@ -1181,3 +1182,6 @@ position = Vector2(920.99994, 273)
 rotation = 2.5115287
 scale = Vector2(6.4, 6.4)
 texture = ExtResource("16_ry724")
+
+[node name="PauseLayer" parent="." unique_id=826727469 instance=ExtResource("19_mio3c")]
+script = ExtResource("20_mmw2s")

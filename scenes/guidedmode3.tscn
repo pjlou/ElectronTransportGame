@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://des7js64dero"]
 
 [ext_resource type="Texture2D" uid="uid://3a2dl5nkqccg" path="res://assets/art/bkgrnd1.png" id="1_f4npc"]
+[ext_resource type="Script" uid="uid://ckbcqfpku2850" path="res://scripts/GuidedMode.gd" id="1_ntx0g"]
 [ext_resource type="Texture2D" uid="uid://bislb0op82f72" path="res://assets/art/bkgrnd-Sheet.png" id="2_mw6kq"]
 [ext_resource type="Texture2D" uid="uid://cxm3nb6sldmd3" path="res://assets/art/lipid_tiles_big.png" id="3_1l0c4"]
 [ext_resource type="Texture2D" uid="uid://ck0re3q1oq06n" path="res://assets/art/HIons.png" id="4_4yk7g"]
@@ -18,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://b6i4y12gaoo6r" path="res://assets/art/pfadp_text.png" id="14_7jg33"]
 [ext_resource type="Script" uid="uid://d387m07wiqngs" path="res://scripts/textboxScripts/TextboxGuided3.gd" id="14_vyrto"]
 [ext_resource type="Texture2D" uid="uid://cwa53vp2a3dr6" path="res://assets/art/CurvedArrow.png" id="15_aha6e"]
+[ext_resource type="PackedScene" uid="uid://ohcyytkoxn6p" path="res://scenes/pause_layer.tscn" id="20_lgj3b"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7svfw"]
 atlas = ExtResource("2_mw6kq")
@@ -601,6 +603,8 @@ _data = {
 size = Vector2(327, 571)
 
 [node name="Node2D" type="Node2D" unique_id=1210230854]
+process_mode = 3
+script = ExtResource("1_ntx0g")
 
 [node name="Bkgrnd1" type="Sprite2D" parent="." unique_id=1119350756]
 position = Vector2(961, 543)
@@ -753,7 +757,6 @@ scale = Vector2(0.127298, 0.102592)
 texture = ExtResource("7_6os2y")
 
 [node name="Textbox" parent="." unique_id=1337309135 instance=ExtResource("13_kxpfy")]
-process_mode = 3
 script = ExtResource("14_vyrto")
 
 [node name="Arrow3" type="Sprite2D" parent="." unique_id=1216625698]
@@ -761,3 +764,7 @@ position = Vector2(720, 498.99994)
 rotation = 0.9302605
 scale = Vector2(10.6, 10.6)
 texture = ExtResource("15_aha6e")
+
+[node name="PauseLayer" parent="." unique_id=826727469 instance=ExtResource("20_lgj3b")]
+
+[node name="PauseLayer2" parent="." unique_id=1556624400 instance=ExtResource("20_lgj3b")]

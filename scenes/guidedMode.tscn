@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://db17epj06jksp"]
 
 [ext_resource type="Texture2D" uid="uid://3a2dl5nkqccg" path="res://assets/art/bkgrnd1.png" id="1_bb0mt"]
+[ext_resource type="Script" uid="uid://ckbcqfpku2850" path="res://scripts/GuidedMode.gd" id="1_uk4n4"]
 [ext_resource type="Texture2D" uid="uid://bislb0op82f72" path="res://assets/art/bkgrnd-Sheet.png" id="2_uqkxw"]
 [ext_resource type="Texture2D" uid="uid://cxm3nb6sldmd3" path="res://assets/art/lipid_tiles_big.png" id="3_svmmj"]
 [ext_resource type="Script" uid="uid://c68nwr5gjau3t" path="res://scripts/basicgrouper.gd" id="3_vc5lf"]
@@ -16,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://cymqlfh7j3n4b" path="res://scenes/textbox.tscn" id="12_xreus"]
 [ext_resource type="Script" uid="uid://wkbtrnabnwig" path="res://scripts/textboxScripts/TextboxGuided1.gd" id="13_0wwv2"]
 [ext_resource type="Texture2D" uid="uid://cwa53vp2a3dr6" path="res://assets/art/CurvedArrow.png" id="14_y1pua"]
+[ext_resource type="PackedScene" uid="uid://ohcyytkoxn6p" path="res://scenes/pause_layer.tscn" id="18_apnyo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7svfw"]
 atlas = ExtResource("2_uqkxw")
@@ -443,6 +445,8 @@ _data = {
 }
 
 [node name="GuidedMode" type="Node2D" unique_id=1514109808]
+process_mode = 3
+script = ExtResource("1_uk4n4")
 
 [node name="Bkgrnd1" type="Sprite2D" parent="." unique_id=173731914]
 position = Vector2(961, 543)
@@ -548,48 +552,10 @@ texture = ExtResource("11_bdvog")
 [node name="Textbox" parent="." unique_id=402860463 instance=ExtResource("12_xreus")]
 script = ExtResource("13_0wwv2")
 
-[node name="PauseMenu3" type="Control" parent="Textbox" unique_id=713560591]
-process_mode = 3
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="PanelContainer" type="PanelContainer" parent="Textbox/PauseMenu3" unique_id=1748450908]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Textbox/PauseMenu3/PanelContainer" unique_id=595755876]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Textbox/PauseMenu3/PanelContainer/VBoxContainer" unique_id=1697895692]
-layout_mode = 2
-text = "Paused"
-
-[node name="ResumeButton" type="Button" parent="Textbox/PauseMenu3/PanelContainer/VBoxContainer" unique_id=1769682910]
-layout_mode = 2
-text = "Keep Playing"
-
-[node name="MainMenuButton" type="Button" parent="Textbox/PauseMenu3/PanelContainer/VBoxContainer" unique_id=307286740]
-layout_mode = 2
-text = "Main Menu"
-
 [node name="Arrow1" type="Sprite2D" parent="." unique_id=2123004144]
 position = Vector2(338.00003, 818)
 rotation = -0.02617994
 scale = Vector2(10, 10)
 texture = ExtResource("14_y1pua")
 
-[node name="PauseLayer" type="CanvasLayer" parent="." unique_id=679856338]
-process_mode = 3
-
-[node name="PauseButton" type="Button" parent="PauseLayer" unique_id=1623847172]
-process_mode = 3
-offset_right = 8.0
-offset_bottom = 8.0
-text = "⏸"
-
-[connection signal="pressed" from="Textbox/PauseMenu3/PanelContainer/VBoxContainer/ResumeButton" to="Textbox" method="_on_resume_pressed"]
-[connection signal="pressed" from="Textbox/PauseMenu3/PanelContainer/VBoxContainer/MainMenuButton" to="Textbox" method="_on_main_menu_pressed"]
-[connection signal="pressed" from="PauseLayer/PauseButton" to="Textbox" method="togglePause"]
+[node name="PauseLayer" parent="." unique_id=826727469 instance=ExtResource("18_apnyo")]
