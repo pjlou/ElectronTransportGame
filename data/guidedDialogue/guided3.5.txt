@@ -1,1 +1,3 @@
-Cytochrome C will proceed to take the electrons from Complex III in preperation to shuttle them once more. 
+Now Cytochrome C steps in to grab the electrons from 
+Complex III and carry them to the next stop. Think of it 
+as a tiny courier making a very important delivery.
