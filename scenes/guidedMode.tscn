@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://cxm3nb6sldmd3" path="res://assets/art/lipid_tiles_big.png" id="3_svmmj"]
 [ext_resource type="Script" uid="uid://c68nwr5gjau3t" path="res://scripts/basicgrouper.gd" id="3_vc5lf"]
 [ext_resource type="Texture2D" uid="uid://ddekkv0w4h8j8" path="res://assets/art/lipid_tiles_big_flipped.png" id="4_uk4n4"]
-[ext_resource type="Texture2D" uid="uid://c8qkjvjkt63uj" path="res://assets/art/nadh Copy1.png" id="4_whmjv"]
 [ext_resource type="Script" uid="uid://emndyvmpaln7" path="res://scripts/basicdragscript.gd" id="5_vmbdb"]
 [ext_resource type="Texture2D" uid="uid://t46isrdmi5dr" path="res://assets/art/complex1_text.png" id="6_svmmj"]
 [ext_resource type="Texture2D" uid="uid://dahbfqd7727ck" path="res://assets/art/complex2_text.png" id="7_uk4n4"]
@@ -13,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://uicogmksxrqu" path="res://assets/art/complex3_text.png" id="8_apnyo"]
 [ext_resource type="Texture2D" uid="uid://dyi8kq72hyq1q" path="res://assets/art/cq_text.png" id="9_74tns"]
 [ext_resource type="Texture2D" uid="uid://ck0re3q1oq06n" path="res://assets/art/HIons.png" id="11_bdvog"]
+[ext_resource type="Texture2D" uid="uid://b6gih2yxhtfjw" path="res://assets/art/nadh_remake2.png" id="11_uk4n4"]
 [ext_resource type="PackedScene" uid="uid://cymqlfh7j3n4b" path="res://scenes/textbox.tscn" id="12_xreus"]
 [ext_resource type="Script" uid="uid://wkbtrnabnwig" path="res://scripts/textboxScripts/TextboxGuided1.gd" id="13_0wwv2"]
 [ext_resource type="Texture2D" uid="uid://cwa53vp2a3dr6" path="res://assets/art/CurvedArrow.png" id="14_y1pua"]
@@ -498,7 +498,8 @@ shape = SubResource("RectangleShape2D_sc5wr")
 
 [node name="Sprite2D" type="Sprite2D" parent="NADHCOMPLEX1" unique_id=877973216]
 position = Vector2(-1, -2)
-texture = ExtResource("4_whmjv")
+scale = Vector2(2, 2)
+texture = ExtResource("11_uk4n4")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="NADHCOMPLEX1" unique_id=381347187]
 libraries/ = SubResource("AnimationLibrary_tds0b")
@@ -507,7 +508,8 @@ movie_quit_on_finish = true
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=2061436512]
 visible = false
 position = Vector2(169, 936)
-texture = ExtResource("4_whmjv")
+scale = Vector2(2, 2)
+texture = ExtResource("11_uk4n4")
 
 [node name="Electron" type="Sprite2D" parent="." unique_id=609229433]
 visible = false

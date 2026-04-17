@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://bislb0op82f72" path="res://assets/art/bkgrnd-Sheet.png" id="2_u820j"]
 [ext_resource type="Script" uid="uid://c68nwr5gjau3t" path="res://scripts/basicgrouper.gd" id="3_i6h04"]
 [ext_resource type="Texture2D" uid="uid://cxm3nb6sldmd3" path="res://assets/art/lipid_tiles_big.png" id="3_mlo4t"]
-[ext_resource type="Texture2D" uid="uid://cviwvycs8ktj" path="res://assets/art/fadh2.png" id="4_oxwfg"]
 [ext_resource type="Texture2D" uid="uid://ddekkv0w4h8j8" path="res://assets/art/lipid_tiles_big_flipped.png" id="4_sgr02"]
 [ext_resource type="Texture2D" uid="uid://uicogmksxrqu" path="res://assets/art/complex3_text.png" id="5_mlo4t"]
 [ext_resource type="Texture2D" uid="uid://dyi8kq72hyq1q" path="res://assets/art/cq_text.png" id="6_sgr02"]
@@ -15,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://dahbfqd7727ck" path="res://assets/art/complex2_text.png" id="11_iusho"]
 [ext_resource type="PackedScene" uid="uid://cymqlfh7j3n4b" path="res://scenes/textbox.tscn" id="12_jum2j"]
 [ext_resource type="Script" uid="uid://cptadt1x0mp4b" path="res://scripts/textboxScripts/TextboxGuided2.gd" id="13_fo2qo"]
+[ext_resource type="Texture2D" uid="uid://6ckiprlq0lc7" path="res://assets/art/fadh2_remake.png" id="13_sgr02"]
 [ext_resource type="Texture2D" uid="uid://cwa53vp2a3dr6" path="res://assets/art/CurvedArrow.png" id="14_8re8a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7svfw"]
@@ -527,8 +527,8 @@ shape = SubResource("RectangleShape2D_h16qw")
 
 [node name="Sprite2D" type="Sprite2D" parent="FADH" unique_id=1916689951]
 position = Vector2(-12.25, -12.25)
-scale = Vector2(0.345312, 0.339062)
-texture = ExtResource("4_oxwfg")
+scale = Vector2(2, 2)
+texture = ExtResource("13_sgr02")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="FADH" unique_id=1035510930]
 libraries/ = SubResource("AnimationLibrary_qf1p2")
@@ -536,8 +536,8 @@ libraries/ = SubResource("AnimationLibrary_qf1p2")
 [node name="FADHB" type="Sprite2D" parent="." unique_id=1118911080]
 visible = false
 position = Vector2(407, 966)
-scale = Vector2(0.345312, 0.329687)
-texture = ExtResource("4_oxwfg")
+scale = Vector2(2, 2)
+texture = ExtResource("13_sgr02")
 
 [node name="HIons5" type="Sprite2D" parent="." unique_id=150334009]
 visible = false
@@ -574,7 +574,6 @@ scale = Vector2(0.120164, 0.12392)
 texture = ExtResource("9_c46p1")
 
 [node name="Textbox" parent="." unique_id=398871769 instance=ExtResource("12_jum2j")]
-process_mode = 3
 script = ExtResource("13_fo2qo")
 
 [node name="Arrow2" type="Sprite2D" parent="." unique_id=2029934331]
