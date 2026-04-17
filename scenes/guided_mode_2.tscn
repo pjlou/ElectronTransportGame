@@ -16,6 +16,8 @@
 [ext_resource type="Script" uid="uid://cptadt1x0mp4b" path="res://scripts/textboxScripts/TextboxGuided2.gd" id="13_fo2qo"]
 [ext_resource type="Texture2D" uid="uid://6ckiprlq0lc7" path="res://assets/art/fadh2_remake.png" id="13_sgr02"]
 [ext_resource type="Texture2D" uid="uid://cwa53vp2a3dr6" path="res://assets/art/CurvedArrow.png" id="14_8re8a"]
+[ext_resource type="PackedScene" uid="uid://ohcyytkoxn6p" path="res://scenes/pause_layer.tscn" id="17_iusho"]
+[ext_resource type="Script" uid="uid://ckbcqfpku2850" path="res://scripts/GuidedMode.gd" id="18_2ccwf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7svfw"]
 atlas = ExtResource("2_u820j")
@@ -443,6 +445,8 @@ _data = {
 }
 
 [node name="guidedMode2" type="Node2D" unique_id=2007759389]
+process_mode = 3
+script = ExtResource("18_2ccwf")
 
 [node name="Bkgrnd1" type="Sprite2D" parent="." unique_id=907443909]
 position = Vector2(961, 543)
@@ -581,3 +585,5 @@ position = Vector2(722.2208, 924.91516)
 rotation = 0.24783675
 scale = Vector2(17.408642, 8.808046)
 texture = ExtResource("14_8re8a")
+
+[node name="PauseLayer" parent="." unique_id=826727469 instance=ExtResource("17_iusho")]

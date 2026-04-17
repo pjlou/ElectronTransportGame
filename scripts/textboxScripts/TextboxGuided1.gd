@@ -6,27 +6,27 @@ const CHAR_SHOW_RATE = 0.03
 @onready var startSymbol = $FullBoxSize/TextMargins/HBoxContainer/Start
 @onready var endSymbol = $FullBoxSize/TextMargins/HBoxContainer/End
 @onready var textLabel = $FullBoxSize/TextMargins/HBoxContainer/Text
-@onready var pauseMenu = $PauseMenu3
 
 enum State {
 	READY,
 	PRINTING,
-	FINISHED,
-	PAUSED
+	FINISHED
 }
 
 var curState = State.READY
-var stateBeforePause = State.READY
 var tween: Tween
 var textQueue = []
 var textFilePath = "res://data/guidedDialogue/guided1.txt"
+var game_paused_by_menu = false
 
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	hideText()
 	load_text_from_file()
-	pauseMenu.hide()
 
 func _process(_delta: float) -> void:
+	if game_paused_by_menu:
+		return
 	match curState:
 		State.READY:
 			if !textQueue.is_empty():
@@ -44,25 +44,6 @@ func _process(_delta: float) -> void:
 					get_tree().paused = false
 					hide()
 				changeState(State.READY)
-
-func togglePause() -> void:
-	if curState == State.PAUSED:
-		pauseMenu.hide()
-		stateBeforePause = State.READY
-		changeState(stateBeforePause)
-	else:
-		stateBeforePause = curState
-		if tween:
-			tween.pause()
-		pauseMenu.show()
-		changeState(State.PAUSED)
-
-func _on_resume_pressed():
-	togglePause()
-
-func _on_main_menu_pressed():
-	get_tree().paused = false
-	get_tree().change_scene_to_file("res://scenes/modeSelection.tscn")
 
 func load_text_from_file() -> void:
 	textQueue.clear()
@@ -116,5 +97,3 @@ func changeState(nextState):
 			print('Changing to State.PRINTING')
 		State.FINISHED:
 			print('Changing to State.FINISHED')
-		State.PAUSED:
-			print('Changing to State.PAUSED')

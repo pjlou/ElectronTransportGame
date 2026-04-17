@@ -733,7 +733,6 @@ scale = Vector2(0.140625, 0.148278)
 texture = ExtResource("11_qk5ot")
 
 [node name="Textbox" parent="." unique_id=2009600158 instance=ExtResource("13_kqe58")]
-process_mode = 3
 script = ExtResource("14_aqqou")
 
 [node name="Arrow3p5" type="Sprite2D" parent="." unique_id=1102858323]
