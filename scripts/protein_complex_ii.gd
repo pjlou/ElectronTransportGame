@@ -20,6 +20,7 @@ func _process(delta):
 		time_left -= delta
 		if time_left <= 0:
 			on_cooldown = false
+			modulate = Color (1,1,1,1) #fade back in
 			print("Protein Complex II cooldown finished")
 
 func _on_area_entered(area: Area2D) -> void:
@@ -42,8 +43,4 @@ func _start_cooldown():
 	time_left = cooldown_time
 	# Fade out to show cooldown
 	modulate = Color(1, 1, 1, 0.4)
-	print("Protein Complex I on cooldown for", cooldown_time, "seconds")
-	if time_left <= 0:
-		on_cooldown = false
-		modulate = Color(1, 1, 1, 1) # restore full opacity
-		print("Cooldown finished")
+	print("Protein Complex II on cooldown for ", cooldown_time, " seconds")
