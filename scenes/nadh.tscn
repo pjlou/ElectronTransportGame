@@ -2,44 +2,30 @@
 
 [ext_resource type="Script" uid="uid://c7yg8041nak5b" path="res://scripts/nadh.gd" id="1_03rw8"]
 [ext_resource type="Script" uid="uid://bw3n4fi2nfu76" path="res://scripts/unguidedDragScript.gd" id="2_l12ug"]
-[ext_resource type="Texture2D" uid="uid://yy3c1rtc4m81" path="res://assets/art/nadh Copy-Sheet.png" id="2_pc4t5"]
+[ext_resource type="Texture2D" uid="uid://d3bs58gsoycsv" path="res://assets/art/nadh_remake2_anim.png" id="3_o2flx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0mc6n"]
 size = Vector2(77, 70)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lsixh"]
-atlas = ExtResource("2_pc4t5")
-region = Rect2(0, 0, 100, 100)
+[sub_resource type="AtlasTexture" id="AtlasTexture_hn4mp"]
+atlas = ExtResource("3_o2flx")
+region = Rect2(0, 0, 50, 50)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_07ow7"]
-atlas = ExtResource("2_pc4t5")
-region = Rect2(100, 0, 100, 100)
+[sub_resource type="AtlasTexture" id="AtlasTexture_8bfqq"]
+atlas = ExtResource("3_o2flx")
+region = Rect2(50, 0, 50, 50)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_r4su8"]
-atlas = ExtResource("2_pc4t5")
-region = Rect2(200, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nsg4k"]
-atlas = ExtResource("2_pc4t5")
-region = Rect2(300, 0, 100, 100)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_8we8a"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_u1a8u"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_lsixh")
+"texture": SubResource("AtlasTexture_hn4mp")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_07ow7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_r4su8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nsg4k")
+"texture": SubResource("AtlasTexture_8bfqq")
 }],
 "loop": true,
-"name": &"nadh_animation",
+"name": &"default",
 "speed": 5.0
 }]
 
@@ -54,7 +40,6 @@ position = Vector2(8.5, 0)
 shape = SubResource("RectangleShape2D_0mc6n")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D" unique_id=478425648]
-sprite_frames = SubResource("SpriteFrames_8we8a")
-animation = &"nadh_animation"
-autoplay = "nadh_animation"
-frame_progress = 0.0331208
+sprite_frames = SubResource("SpriteFrames_u1a8u")
+autoplay = "default"
+frame_progress = 0.7916659

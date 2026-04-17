@@ -1,46 +1,45 @@
-[gd_scene load_steps=8 format=3 uid="uid://weux2naatqew"]
+[gd_scene format=3 uid="uid://weux2naatqew"]
 
-[ext_resource type="Script" path="res://scripts/unguidedDragScript.gd" id="1_34t3e"]
-[ext_resource type="Script" path="res://scripts/fadh_2.gd" id="1_cwkr0"]
-[ext_resource type="Texture2D" uid="uid://dqep4q81vipq" path="res://assets/art/fadh2 -Sheet.png" id="2_3oesi"]
+[ext_resource type="Script" uid="uid://bw3n4fi2nfu76" path="res://scripts/unguidedDragScript.gd" id="1_34t3e"]
+[ext_resource type="Script" uid="uid://chyflgqrxumeb" path="res://scripts/fadh_2.gd" id="1_cwkr0"]
+[ext_resource type="Texture2D" uid="uid://4u2katb0i18t" path="res://assets/art/fadh2_remake_anim.png" id="3_cn64a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wcmmm"]
 size = Vector2(77, 70)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cfnn6"]
-atlas = ExtResource("2_3oesi")
-region = Rect2(0, 0, 100, 100)
+[sub_resource type="AtlasTexture" id="AtlasTexture_q61u5"]
+atlas = ExtResource("3_cn64a")
+region = Rect2(0, 0, 50, 50)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yywhq"]
-atlas = ExtResource("2_3oesi")
-region = Rect2(100, 0, 100, 100)
+[sub_resource type="AtlasTexture" id="AtlasTexture_xob86"]
+atlas = ExtResource("3_cn64a")
+region = Rect2(50, 0, 50, 50)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_06yhu"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_ltmad"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cfnn6")
+"texture": SubResource("AtlasTexture_q61u5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yywhq")
+"texture": SubResource("AtlasTexture_xob86")
 }],
 "loop": true,
-"name": &"fadh2_animation",
+"name": &"default",
 "speed": 5.0
 }]
 
-[node name="Fadh2" type="Node2D"]
+[node name="Fadh2" type="Node2D" unique_id=417390051]
 script = ExtResource("1_cwkr0")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=1148888923]
 script = ExtResource("1_34t3e")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=924544414]
 position = Vector2(8.5, 0)
 shape = SubResource("RectangleShape2D_wcmmm")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
-sprite_frames = SubResource("SpriteFrames_06yhu")
-animation = &"fadh2_animation"
-autoplay = "fadh2_animation"
-frame_progress = 0.985162
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D" unique_id=1911986372]
+sprite_frames = SubResource("SpriteFrames_ltmad")
+autoplay = "default"
+frame_progress = 0.13513492
