@@ -69,6 +69,9 @@ func _ready() -> void:
 		fill_answer_entry.keep_editing_on_text_submit = true
 
 func show_flashcard(index: int) -> void:
+	if dummy_card(index):
+		current_index += 1
+		index += 1
 	if index >= flashcards.size():
 		if settings['replayIncorrectlyAnsweredCards']==1 or missed.size()==0:
 			question_label.text = "Well done! You've completed all flashcards."
@@ -126,6 +129,18 @@ func refresh_flashcards() -> void:
 	if settings['answerType'] == 0:
 		for btn in answer_buttons:
 			btn.visible = true
+
+func dummy_card(index: int):
+	if index >= flashcards.size():
+		return false
+	elif flashcards[current_index]["question"] == "New Question" and \
+	flashcards[current_index]["choices"][0] == "Correct" and \
+	 flashcards[current_index]["choices"][1] == "Wrong1" and \
+	flashcards[current_index]["choices"][2] == "Wrong2" and \
+	flashcards[current_index]["choices"][3] == "Wrong3":
+		return true
+	else:
+		return false
 
 func calculate_next_review(isCorrect: bool):
 	var card = flashcards[current_index]
