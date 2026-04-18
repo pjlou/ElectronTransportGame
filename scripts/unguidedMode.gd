@@ -6,8 +6,10 @@ var hion_scene = load("res://scenes/unguidedHion.tscn")
 var electron_scene = load("res://scenes/electron.tscn")
 var hion_complexI_spawn = Rect2(Vector2(150, 820), Vector2(100, 100)) # location boxes for spawning hion
 var hion_complexII_spawn = Rect2(Vector2(570, 820), Vector2(100, 100))
-var drag_script = preload("res://scripts/unguidedDragScript.gd")
 var rng = RandomNumberGenerator.new() # used for random hion positions when they spawn
+
+var nadhButtonEnabled: bool = false
+var fadh2ButtonEnabled: bool = false
 
 var atp_made_count: int = 0
 
@@ -20,6 +22,7 @@ var elapsed_time=0
 var game_ended = false
 
 @onready var countdown_label = $Countdown
+@onready var button_timer: Timer = Timer.new()
 
 func _ready():
 	Globals.score = 5
@@ -33,12 +36,18 @@ func _ready():
 	# create initial nadh and fadh2 scenes via spawn to streamline functionality
 	nadh_spawn()
 	fadh2_spawn()
+	# start the game after 3 second countdown
 	get_tree().paused = true
 	for i in range(3, 0, -1):
 		countdown_label.text = str(i)
 		await get_tree().create_timer(1.0).timeout
 	get_tree().paused = false
 	countdown_label.visible = false
+	# add timer for buttons
+	add_child(button_timer)
+	button_timer.one_shot = true
+	button_timer.autostart = false
+	button_timer.timeout.connect(_on_button_timer_timeout)
 	
 func _process(delta: float) -> void:
 	if game_ended:
@@ -61,7 +70,7 @@ func nadh_spawn():
 	var spawn_position = Vector2(200, 900)  # create the coordinate
 	
 	var object_instance = nadh_scene.instantiate() # instantiate the instance of the nadh
-	object_instance.get_node("Area2D").nadh_in_complexI.connect(_complex_I_or_II_to_coQ10)
+	object_instance.get_node("Area2D").nadh_in_complexI.connect(_complex_I_to_coQ10) # connect drag script signal
 	object_instance.position = spawn_position          # set its position
 	get_tree().root.get_node("UnguidedMode").add_child(object_instance)       # add it to scene tree
 
@@ -70,7 +79,7 @@ func fadh2_spawn():
 	var spawn_position = Vector2(500, 900)  # create the coordinate
 	
 	var object_instance = fadh2_scene.instantiate() # instantiate the instance of the fadh2
-	object_instance.get_node("Area2D").fadh2_in_complexII.connect(_complex_I_or_II_to_coQ10)
+	object_instance.get_node("Area2D").fadh2_in_complexII.connect(_complex_II_to_coQ10) # connect drag script signal
 	object_instance.position = spawn_position          # set its position
 	get_tree().root.get_node("UnguidedMode").add_child(object_instance)   
 
@@ -103,12 +112,29 @@ func end_game():
 	$YouLose.visible = true
 	Globals.score=0
 
-
 func _on_nadh_button_pressed() -> void:
-	nadh_spawn()
+	if nadhButtonEnabled:
+		nadhButtonEnabled = false
+		nadh_spawn()
+	else:
+		$ButtonMessage.text = "You already have NADH"
+		$ButtonMessage.visible = true
+		button_timer.wait_time = 1.0
+		button_timer.start()
 
 func _on_fadh_2_button_pressed() -> void:
-	fadh2_spawn()
+	if fadh2ButtonEnabled:
+		fadh2ButtonEnabled = false
+		fadh2_spawn()
+	else:
+		$ButtonMessage.text = "You already have FADH2"
+		$ButtonMessage.visible = true
+		button_timer.wait_time = 1.0
+		button_timer.start()
+	
+func _on_button_timer_timeout() -> void:
+	$ButtonMessage.visible = false
+	$ButtonMessage.text = "You already have that" # reset to generic text to handle and test edge cases
 	
 func _new_ATP(amount):
 	$ATPProgressBar.value += amount
@@ -118,7 +144,15 @@ func _new_ATP(amount):
 		Globals.score = round(100*total_time-elapsed_time)
 		get_tree().change_scene_to_file("res://scenes/UnguidedVictory.tscn")
 
-func _complex_I_or_II_to_coQ10(current_instance):
+func _complex_I_to_coQ10(current_instance):
+	nadhButtonEnabled = true
+	complex_I_or_II_to_coQ10(current_instance)
+	
+func _complex_II_to_coQ10(current_instance):
+	fadh2ButtonEnabled = true
+	complex_I_or_II_to_coQ10(current_instance)
+
+func complex_I_or_II_to_coQ10(current_instance):
 	var collision_shape = current_instance.get_node("Area2D/CollisionShape2D")
 	var electron_1 = electron_spawn(collision_shape)
 	var electron_2 = electron_spawn(collision_shape)

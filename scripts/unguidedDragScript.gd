@@ -93,17 +93,24 @@ func inTargetAreaCheck() -> void:
 	var dragging_type = get_dragging_type()
 	var current_instance = $CollisionShape2D.get_parent().get_parent()
 	if dragging_type == "NADH":
-		for area in get_tree().get_nodes_in_group("proteinComplexI"):
+		var proteinComplexI = get_tree().get_nodes_in_group("proteinComplexI")
+		for area in proteinComplexI:
 			if area.overlaps_area(self): #Return XYZ when correct
-				print("correct match protein complexI")
-				emit_signal("nadh_in_complexI", current_instance)
-				current_instance.free()
-				return
+				if area.on_cooldown:
+					print("Complex I is on cooldown. NADH not accepted.")
+				else: 
+					print("correct match protein complexI")
+					emit_signal("nadh_in_complexI", current_instance)
+					current_instance.free()
+					return
 				
 	elif dragging_type == "FADH2":
 		for area in get_tree().get_nodes_in_group("proteinComplexII"):
 			if area.overlaps_area(self): #Return XYZ when correct
-				print("correct match protein complexII")
-				emit_signal("fadh2_in_complexII", current_instance)
-				current_instance.free()
-				return
+				if area.on_cooldown:
+					print("Complex II is on cooldown. FADH2 not accepted.")
+				else: 
+					print("correct match protein complexII")
+					emit_signal("fadh2_in_complexII", current_instance)
+					current_instance.free()
+					return

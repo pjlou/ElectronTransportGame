@@ -423,6 +423,16 @@ theme_override_font_sizes/font_size = 100
 text = "hi
 "
 
+[node name="ButtonMessage" type="Label" parent="." unique_id=201254294]
+visible = false
+offset_left = 61.0
+offset_top = 414.0
+offset_right = 898.0
+offset_bottom = 536.0
+theme_override_font_sizes/font_size = 60
+text = "You already have that"
+horizontal_alignment = 1
+
 [connection signal="timeout" from="nadh_timer" to="." method="_on_nadh_timer_timeout"]
 [connection signal="timeout" from="fadh2_timer" to="." method="_on_fadh2_timer_timeout"]
 [connection signal="pressed" from="YouLose/Button" to="." method="_on_button_pressed"]
