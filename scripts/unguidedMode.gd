@@ -165,6 +165,9 @@ func _on_button_timer_timeout() -> void:
 func _new_ATP(amount):
 	$ATPProgressBar.value += amount
 	if $ATPProgressBar.value >= 100:
+		# Checks to make sure the scene is loaded; Doesn't try to do mess with the root if it isn't
+		if not is_inside_tree():
+			return
 		var main = get_tree().root.get_node("UnguidedMode")
 		var elapsed_time = main.elapsed_time
 		Globals.score = round(100*total_time-elapsed_time)
