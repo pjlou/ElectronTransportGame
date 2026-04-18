@@ -21,9 +21,7 @@
 [ext_resource type="Script" uid="uid://00x46ny2qggr" path="res://scripts/co_q_10.gd" id="18_sl3fg"]
 [ext_resource type="Script" uid="uid://bw3n4fi2nfu76" path="res://scripts/unguidedDragScript.gd" id="19_1d7rx"]
 [ext_resource type="Texture2D" uid="uid://cjtt46jauj4ph" path="res://assets/art/Complex4_text.png" id="19_hkww1"]
-[ext_resource type="PackedScene" uid="uid://byjpevd2lsa3q" path="res://scenes/nadh.tscn" id="20_8186m"]
 [ext_resource type="Texture2D" uid="uid://dyi8kq72hyq1q" path="res://assets/art/cq_text.png" id="21_0vjd4"]
-[ext_resource type="PackedScene" uid="uid://weux2naatqew" path="res://scenes/fadh2.tscn" id="21_q48iu"]
 [ext_resource type="PackedScene" uid="uid://daymmjbrc1fl3" path="res://scenes/unguidedHion.tscn" id="24_vniem"]
 [ext_resource type="StyleBox" uid="uid://dyqk1y387jthj" path="res://assets/art/hoverButton.tres" id="26_mn814"]
 [ext_resource type="StyleBox" uid="uid://ctcomgtmjcv4r" path="res://assets/art/pressedButton.tres" id="27_yrn2v"]
@@ -297,12 +295,6 @@ shape = SubResource("CircleShape2D_ymtas")
 [node name="Sprite2D" type="Sprite2D" parent="CoQ10" unique_id=2035953647]
 scale = Vector2(0.375, 0.55)
 texture = ExtResource("21_0vjd4")
-
-[node name="Nadh" parent="." unique_id=1365938998 instance=ExtResource("20_8186m")]
-position = Vector2(224, 880)
-
-[node name="Fadh2" parent="." unique_id=289301585 instance=ExtResource("21_q48iu")]
-position = Vector2(488, 880)
 
 [node name="IntermembraneSpace" type="Area2D" parent="." unique_id=180795912]
 position = Vector2(760, 512)
