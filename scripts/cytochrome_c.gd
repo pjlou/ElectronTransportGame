@@ -1,6 +1,7 @@
 extends Area2D
 
 signal addATP()
+signal electrons_delivered_to_complexIV
 
 var electrons_inside := []
 var loaded := false
@@ -70,3 +71,4 @@ func _deliver_to_complex(complex_node: Area2D) -> void:
 	reload_timer.start()
 	sprite_node.frame = 0
 	print("Delivered 4 electrons to Complex IV; Cytochrome C empty, lockout 2 s.")
+	emit_signal("electrons_delivered_to_complexIV")

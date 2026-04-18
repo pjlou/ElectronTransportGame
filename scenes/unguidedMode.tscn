@@ -24,7 +24,6 @@
 [ext_resource type="Script" uid="uid://bw3n4fi2nfu76" path="res://scripts/unguidedDragScript.gd" id="19_1d7rx"]
 [ext_resource type="Texture2D" uid="uid://cjtt46jauj4ph" path="res://assets/art/Complex4_text.png" id="19_hkww1"]
 [ext_resource type="Texture2D" uid="uid://dyi8kq72hyq1q" path="res://assets/art/cq_text.png" id="21_0vjd4"]
-[ext_resource type="PackedScene" uid="uid://daymmjbrc1fl3" path="res://scenes/unguidedHion.tscn" id="24_vniem"]
 [ext_resource type="StyleBox" uid="uid://dyqk1y387jthj" path="res://assets/art/hoverButton.tres" id="26_mn814"]
 [ext_resource type="StyleBox" uid="uid://ctcomgtmjcv4r" path="res://assets/art/pressedButton.tres" id="27_yrn2v"]
 [ext_resource type="StyleBox" uid="uid://c1itffj143mgb" path="res://assets/art/Button.tres" id="28_bhg2r"]
@@ -345,30 +344,6 @@ script = ExtResource("15_cllvv")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="IntermembraneSpace" unique_id=1160614834]
 position = Vector2(200, 36)
 shape = SubResource("RectangleShape2D_pbruv")
-
-[node name="UnguidedHion" parent="." unique_id=677328405 instance=ExtResource("24_vniem")]
-position = Vector2(696, 872)
-
-[node name="UnguidedHion2" parent="." unique_id=668826597 instance=ExtResource("24_vniem")]
-position = Vector2(616, 800)
-
-[node name="UnguidedHion3" parent="." unique_id=1441751106 instance=ExtResource("24_vniem")]
-position = Vector2(592, 896)
-
-[node name="UnguidedHion4" parent="." unique_id=896328148 instance=ExtResource("24_vniem")]
-position = Vector2(560, 824)
-
-[node name="UnguidedHion5" parent="." unique_id=1118447812 instance=ExtResource("24_vniem")]
-position = Vector2(40, 816)
-
-[node name="UnguidedHion6" parent="." unique_id=761283171 instance=ExtResource("24_vniem")]
-position = Vector2(80, 736)
-
-[node name="UnguidedHion7" parent="." unique_id=337265066 instance=ExtResource("24_vniem")]
-position = Vector2(136, 872)
-
-[node name="UnguidedHion8" parent="." unique_id=866949828 instance=ExtResource("24_vniem")]
-position = Vector2(296, 800)
 
 [node name="YouLose" type="Control" parent="." unique_id=1104809810]
 visible = false
