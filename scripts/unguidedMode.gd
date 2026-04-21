@@ -42,7 +42,7 @@ func _ready():
 	$ProteinComplexII.addATP.connect(_new_ATP)
 	$CoQ10/TrackingArea2D.addATP.connect(_new_ATP)  # ATP generation for this is currently disabled.  Enable in co_q_10.gd
 	$ProteinComplexIII.addATP.connect(_new_ATP)
-	$ProteinComplexIV.addATP.connect(_new_ATP)
+	$ProteinComplexIV.addATP.connect(_on_pc4_ATP)
 	$ATPSyn.addATP.connect(_new_ATP)
 	# dynamically spawn initial hions to ensure consistency
 	complexI_hions = complex_hion_spawn(hion_complexI_spawn)
@@ -263,4 +263,6 @@ func get_nearest_instances(target_node: Node, scene_path: String, num: int, y_th
 		selected_instances.append(distances[i]["node"])
 	return selected_instances
 	
-	
+func _on_pc4_ATP(amount):
+	_new_ATP(amount)  # still add ATP normally
+	$ATPSyn/AnimationPlayer.play("activate")  # play the animation
