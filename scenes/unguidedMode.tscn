@@ -65,6 +65,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pbruv"]
+size = Vector2(1920, 296)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m8lxy"]
 texture = ExtResource("4_g12j1")
 texture_region_size = Vector2i(120, 60)
@@ -119,9 +122,6 @@ height = 208.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yi87a"]
 size = Vector2(155, 170)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pbruv"]
-size = Vector2(1920, 296)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7lmhq"]
 bg_color = Color(0, 0.290196, 0.678431, 1)
@@ -211,6 +211,14 @@ theme_override_font_sizes/font_size = 45
 position = Vector2(957, 433)
 scale = Vector2(6.0625, 1.71875)
 texture = ExtResource("5_q87lr")
+
+[node name="IntermembraneSpace" type="Area2D" parent="." unique_id=180795912]
+position = Vector2(760, 512)
+script = ExtResource("15_cllvv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IntermembraneSpace" unique_id=1160614834]
+position = Vector2(200, 36)
+shape = SubResource("RectangleShape2D_pbruv")
 
 [node name="MitochondrialMatrix" type="Sprite2D" parent="." unique_id=1129011334]
 position = Vector2(963.127, 905.656)
@@ -336,14 +344,6 @@ shape = SubResource("CircleShape2D_ymtas")
 [node name="Sprite2D" type="Sprite2D" parent="CoQ10" unique_id=2035953647]
 scale = Vector2(0.375, 0.55)
 texture = ExtResource("21_0vjd4")
-
-[node name="IntermembraneSpace" type="Area2D" parent="." unique_id=180795912]
-position = Vector2(760, 512)
-script = ExtResource("15_cllvv")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="IntermembraneSpace" unique_id=1160614834]
-position = Vector2(200, 36)
-shape = SubResource("RectangleShape2D_pbruv")
 
 [node name="YouLose" type="Control" parent="." unique_id=1104809810]
 visible = false
