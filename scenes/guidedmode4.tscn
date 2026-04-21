@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://isy6t0yg14bt"]
 
+[ext_resource type="Script" uid="uid://dx0oh665tlmtx" path="res://scripts/GuidedMode.gd" id="1_gto75"]
 [ext_resource type="Texture2D" uid="uid://3a2dl5nkqccg" path="res://assets/art/bkgrnd1.png" id="1_qjgus"]
 [ext_resource type="Texture2D" uid="uid://bislb0op82f72" path="res://assets/art/bkgrnd-Sheet.png" id="2_6q6t0"]
 [ext_resource type="Texture2D" uid="uid://cxm3nb6sldmd3" path="res://assets/art/lipid_tiles_big.png" id="3_6b8tk"]
@@ -878,6 +879,7 @@ _data = {
 }
 
 [node name="Node2D" type="Node2D" unique_id=901973590]
+script = ExtResource("1_gto75")
 
 [node name="Bkgrnd1" type="Sprite2D" parent="." unique_id=1300193011]
 position = Vector2(961, 543)
