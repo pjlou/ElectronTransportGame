@@ -35,6 +35,14 @@ func _on_pause_pressed():
 	print("PAUSE BUTTON CLICKED")
 	_pause_game()
 
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	if Input.is_action_just_pressed("esc"):
+		if get_tree().paused:
+			_resume_game()
+		else:
+			_pause_game()
+
 func _pause_game():
 	print("PAUSING GAME")
 	isPaused = true
