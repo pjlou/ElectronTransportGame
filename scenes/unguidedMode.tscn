@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://b6i4y12gaoo6r" path="res://assets/art/pfadp_text.png" id="15_yo544"]
 [ext_resource type="Script" uid="uid://248k5lwrfwk8" path="res://scripts/protein_complex_iv.gd" id="16_y0aw8"]
 [ext_resource type="Texture2D" uid="uid://crcqmxguc8ytg" path="res://assets/art/atpSyn_text.png" id="17_qvqk5"]
+[ext_resource type="Shader" uid="uid://cpjp0y8logc0g" path="res://scenes/unguided_carrier_active.gdshader" id="18_g12j1"]
 [ext_resource type="Script" uid="uid://00x46ny2qggr" path="res://scripts/co_q_10.gd" id="18_sl3fg"]
 [ext_resource type="Script" uid="uid://bw3n4fi2nfu76" path="res://scripts/unguidedDragScript.gd" id="19_1d7rx"]
 [ext_resource type="Texture2D" uid="uid://cjtt46jauj4ph" path="res://assets/art/Complex4_text.png" id="19_hkww1"]
@@ -113,6 +114,14 @@ size = Vector2(131, 145)
 radius = 66.0275
 height = 150.051
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kwbdl"]
+shader = ExtResource("18_g12j1")
+shader_parameter/enable = false
+shader_parameter/glow_color = Color(0, 0.6, 0.7, 1)
+shader_parameter/intensity = 2.0
+shader_parameter/spread = 3.0
+shader_parameter/pulse_speed = 5.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_ymtas"]
 radius = 64.4981
 
@@ -122,6 +131,14 @@ height = 208.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yi87a"]
 size = Vector2(155, 170)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m8lxy"]
+shader = ExtResource("18_g12j1")
+shader_parameter/enable = false
+shader_parameter/glow_color = Color(0, 0.6, 0.7, 1)
+shader_parameter/intensity = 1.0000000475
+shader_parameter/spread = 3.0
+shader_parameter/pulse_speed = 5.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7lmhq"]
 bg_color = Color(0, 0.290196, 0.678431, 1)
@@ -284,17 +301,18 @@ shape = SubResource("CapsuleShape2D_ah78x")
 position = Vector2(192, 480)
 script = ExtResource("13_lwm3j")
 
+[node name="Sprite2D" type="Sprite2D" parent="CytochromeC/TrackingArea2D" unique_id=1499762778]
+material = SubResource("ShaderMaterial_kwbdl")
+position = Vector2(-185.5, -481)
+scale = Vector2(0.490625, 0.64375)
+texture = ExtResource("15_yo544")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CytochromeC/TrackingArea2D" unique_id=1878664706]
 position = Vector2(-192, -480)
 rotation = 1.57442
 shape = SubResource("CircleShape2D_ymtas")
 
 [node name="ReloadTimer" type="Timer" parent="CytochromeC/TrackingArea2D" unique_id=1399662454]
-
-[node name="Sprite2D" type="Sprite2D" parent="CytochromeC" unique_id=1499762778]
-position = Vector2(6.5, -1)
-scale = Vector2(0.490625, 0.64375)
-texture = ExtResource("15_yo544")
 
 [node name="ATPSyn" type="Area2D" parent="." unique_id=1853838470]
 position = Vector2(1584, 704)
@@ -334,16 +352,18 @@ shape = SubResource("CircleShape2D_ymtas")
 position = Vector2(192, 480)
 script = ExtResource("18_sl3fg")
 
+[node name="Sprite2D" type="Sprite2D" parent="CoQ10/TrackingArea2D" unique_id=2035953647]
+material = SubResource("ShaderMaterial_m8lxy")
+position = Vector2(-192, -480)
+scale = Vector2(0.375, 0.55)
+texture = ExtResource("21_0vjd4")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CoQ10/TrackingArea2D" unique_id=843438601]
 position = Vector2(-192, -480)
 rotation = 1.57442
 shape = SubResource("CircleShape2D_ymtas")
 
 [node name="ReloadTimer" type="Timer" parent="CoQ10/TrackingArea2D" unique_id=1529823988]
-
-[node name="Sprite2D" type="Sprite2D" parent="CoQ10" unique_id=2035953647]
-scale = Vector2(0.375, 0.55)
-texture = ExtResource("21_0vjd4")
 
 [node name="YouLose" type="Control" parent="." unique_id=1104809810]
 visible = false
