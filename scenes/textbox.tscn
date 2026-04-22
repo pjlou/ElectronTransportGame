@@ -67,33 +67,3 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_eyv28")
 theme_override_font_sizes/font_size = 48
 text = ">"
-
-[node name="PauseMenu" type="Control" parent="." unique_id=886603499]
-process_mode = 3
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="PanelContainer" type="PanelContainer" parent="PauseMenu" unique_id=198261180]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/PanelContainer" unique_id=384169817]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="PauseMenu/PanelContainer/VBoxContainer" unique_id=1979948631]
-layout_mode = 2
-text = "Paused"
-
-[node name="ResumeButton" type="Button" parent="PauseMenu/PanelContainer/VBoxContainer" unique_id=902505044]
-layout_mode = 2
-text = "Keep Playing"
-
-[node name="MainMenuButton" type="Button" parent="PauseMenu/PanelContainer/VBoxContainer" unique_id=546023867]
-layout_mode = 2
-text = "Main Menu"
-
-[connection signal="pressed" from="PauseMenu/PanelContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="PauseMenu/PanelContainer/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_pressed"]

@@ -49,6 +49,7 @@ func _pause_game():
 	get_tree().paused = true
 	if textbox and "game_paused_by_menu" in textbox:
 		textbox.game_paused_by_menu = true
+		textbox.tween.pause()
 	if pauseMenu:
 		pauseMenu.show()
 	if pauseButton:
@@ -59,6 +60,7 @@ func _resume_game():
 	isPaused = false
 	if textbox and "game_paused_by_menu" in textbox:
 		textbox.game_paused_by_menu = false
+		textbox.tween.play()
 	if pauseMenu:
 		pauseMenu.hide()
 	if pauseButton:

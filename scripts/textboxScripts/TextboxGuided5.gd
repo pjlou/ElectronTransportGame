@@ -17,6 +17,8 @@ var curState = State.READY
 var tween: Tween
 var textQueue = []
 var textFilePath = "res://data/guidedDialogue/guided5.txt"
+var game_paused_by_menu = false
+var justClicked = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -25,27 +27,36 @@ func _ready() -> void:
 	load_text_from_file()
 	pass # Replace with function body.
 
+func _unhandled_input(event):
+	if game_paused_by_menu:
+		return
+	if event.is_action_pressed("ui_accept"):
+		justClicked = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if game_paused_by_menu:
+		return
 	match curState:
 		State.READY:
 			if !textQueue.is_empty():
 				get_tree().paused = true
 				addText()
 		State.PRINTING:
-			if (Input.is_action_just_pressed("ui_accept")):
+			if justClicked:
 				textLabel.visible_ratio = 1.0
 				tween.kill()
 				endSymbol.text = ">"
 				changeState(State.FINISHED)
+				justClicked = false
 				
 		State.FINISHED:
-			if(Input.is_action_just_pressed("ui_accept")):
+			if justClicked:
 				if textQueue.is_empty():
 					get_tree().paused = false
 					hide()
 				changeState(State.READY)
+				justClicked = false
 	pass
 	
 func load_text_from_file() -> void:

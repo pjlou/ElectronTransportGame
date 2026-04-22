@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://cymqlfh7j3n4b" path="res://scenes/textbox.tscn" id="12_0gxai"]
 [ext_resource type="Script" uid="uid://cfdj3dc0ataip" path="res://scripts/textboxScripts/TextboxGuided3.5.5.gd" id="13_e3pc0"]
 [ext_resource type="Texture2D" uid="uid://cwa53vp2a3dr6" path="res://assets/art/CurvedArrow.png" id="14_qgi5k"]
+[ext_resource type="PackedScene" uid="uid://ohcyytkoxn6p" path="res://scenes/pause_layer.tscn" id="19_neonr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7svfw"]
 atlas = ExtResource("2_4q8f2")
@@ -856,3 +857,5 @@ position = Vector2(836.5176, 498.43427)
 rotation = 1.0088003
 scale = Vector2(10.815264, 10.815264)
 texture = ExtResource("14_qgi5k")
+
+[node name="PauseLayer" parent="." unique_id=826727469 instance=ExtResource("19_neonr")]

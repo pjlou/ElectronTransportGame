@@ -18,11 +18,18 @@ var tween: Tween
 var textQueue = []
 var textFilePath = "res://data/guidedDialogue/guided1.txt"
 var game_paused_by_menu = false
+var justClicked = false
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	hideText()
 	load_text_from_file()
+
+func _unhandled_input(event):
+	if game_paused_by_menu:
+		return
+	if event.is_action_pressed("ui_accept"):
+		justClicked = true
 
 func _process(_delta: float) -> void:
 	if game_paused_by_menu:
@@ -33,17 +40,19 @@ func _process(_delta: float) -> void:
 				get_tree().paused = true
 				addText()
 		State.PRINTING:
-			if Input.is_action_just_pressed("ui_accept"):
+			if justClicked:
 				textLabel.visible_ratio = 1.0
 				tween.kill()
 				endSymbol.text = ">"
 				changeState(State.FINISHED)
+				justClicked = false
 		State.FINISHED:
-			if Input.is_action_just_pressed("ui_accept"):
+			if justClicked:
 				if textQueue.is_empty():
 					get_tree().paused = false
 					hide()
 				changeState(State.READY)
+				justClicked = false
 
 func load_text_from_file() -> void:
 	textQueue.clear()
