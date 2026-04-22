@@ -40,7 +40,7 @@ func _ready():
 	# add ATP signals
 	$ProteinComplexI.addATP.connect(_new_ATP)
 	$ProteinComplexII.addATP.connect(_new_ATP)
-	#$CoQ10/TrackingArea2D.addATP.connect(_new_ATP)  # ATP generation for this is currently disabled.  Enable in co_q_10.gd
+	$CoQ10/TrackingArea2D.addATP.connect(_new_ATP)  # ATP generation for this is currently disabled.  Enable in co_q_10.gd
 	$ProteinComplexIII.addATP.connect(_new_ATP)
 	$ProteinComplexIV.addATP.connect(_on_pc4_ATP)
 	$ATPSyn.addATP.connect(_new_ATP)

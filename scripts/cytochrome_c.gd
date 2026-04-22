@@ -1,8 +1,3 @@
-# Note: Sprite2D is a child of this, instead of both being children under CoQ10,
-# because of the *global* Unguided Mode Dragscript being attached to CoQ10.
-# As a result, the unique logic for this scene is all in TrackingArea2D, and subsequently
-# anything that needs to have conditionals attached to it has to be children of Tracking2D.
-
 extends Area2D
 
 signal addATP()
@@ -49,12 +44,9 @@ func _check_electron_load() -> void:
 		electrons_inside.clear()
 
 		loaded = true
-		_control_shader(loaded)
-		#sprite_node.frame = 1
+		sprite_node.frame = 1
 		print("Cytochrome C is now loaded! Drag it to Complex IV.")
 		emit_signal("addATP", 10)
-
-
 
 func _deliver_to_complex(complex_node: Area2D) -> void:
 	# 1) Get the RectangleShape2D on Complex IV
@@ -75,13 +67,8 @@ func _deliver_to_complex(complex_node: Area2D) -> void:
 
 	# 3) Reset state + lockout
 	loaded = false
-	_control_shader(loaded)
 	pickup_allowed = false
 	reload_timer.start()
 	sprite_node.frame = 0
 	print("Delivered 4 electrons to Complex IV; Cytochrome C empty, lockout 2 s.")
 	emit_signal("electrons_delivered_to_complexIV")
-
-func _control_shader(switch: bool):
-	# Sets "enable" in shader to be on/true or off/false
-	$Sprite2D.material.set("shader_parameter/enable", switch)
