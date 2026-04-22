@@ -12,10 +12,10 @@ uniform vec4 glow_color : source_color = vec4(0.0, 0.6, 0.7, 1);
 
 // For these-- Hint_Range is the range between which the variables can be
 // And the value after the = is the base set value between the ranges
-uniform float intensity : hint_range(0.0, 5) = 2;
+uniform float intensity : hint_range(0.0, 5) = 0.5;
 
 // Ironically, the bigger the spread value, the more concentrated the glow will be
-uniform float spread : hint_range(0.1, 5) = 3; 
+uniform float spread : hint_range(0.1, 5) = 1.5; 
 uniform float pulse_speed : hint_range(0.0, 10) = 5;
 
 void fragment() {
