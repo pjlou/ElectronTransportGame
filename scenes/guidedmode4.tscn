@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://isy6t0yg14bt"]
 
+[ext_resource type="Script" uid="uid://dx0oh665tlmtx" path="res://scripts/GuidedMode.gd" id="1_gto75"]
 [ext_resource type="Texture2D" uid="uid://3a2dl5nkqccg" path="res://assets/art/bkgrnd1.png" id="1_qjgus"]
 [ext_resource type="Texture2D" uid="uid://bislb0op82f72" path="res://assets/art/bkgrnd-Sheet.png" id="2_6q6t0"]
 [ext_resource type="Texture2D" uid="uid://cxm3nb6sldmd3" path="res://assets/art/lipid_tiles_big.png" id="3_6b8tk"]
@@ -19,7 +20,6 @@
 [ext_resource type="Script" uid="uid://bjylwncje3rhr" path="res://scripts/textboxScripts/TextboxGuided4.gd" id="15_6xkt7"]
 [ext_resource type="Texture2D" uid="uid://cwa53vp2a3dr6" path="res://assets/art/CurvedArrow.png" id="16_f21yk"]
 [ext_resource type="PackedScene" uid="uid://ohcyytkoxn6p" path="res://scenes/pause_layer.tscn" id="19_gto75"]
-[ext_resource type="Script" uid="uid://ckbcqfpku2850" path="res://scripts/GuidedMode.gd" id="20_2amso"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7svfw"]
 atlas = ExtResource("2_6q6t0")
@@ -879,6 +879,7 @@ _data = {
 }
 
 [node name="Node2D" type="Node2D" unique_id=901973590]
+script = ExtResource("1_gto75")
 
 [node name="Bkgrnd1" type="Sprite2D" parent="." unique_id=1300193011]
 position = Vector2(961, 543)
@@ -1080,4 +1081,3 @@ scale = Vector2(8.042216, 7.1990056)
 texture = ExtResource("16_f21yk")
 
 [node name="PauseLayer" parent="." unique_id=826727469 instance=ExtResource("19_gto75")]
-script = ExtResource("20_2amso")

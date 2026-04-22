@@ -1,6 +1,7 @@
 extends Area2D
 
 signal addATP()
+signal electrons_delivered_to_complexIII
 
 @export var required_electron_count := 4
 var electrons_inside := []
@@ -71,3 +72,4 @@ func _deliver_to_complex(complex_node: Area2D) -> void:
 	reload_timer.start()
 	print("Delivered 4 electrons … CoQ10 empty, lockout 2s.")
 	print("Delivered 4 electrons to Complex III; CoQ10 is empty again.")
+	emit_signal("electrons_delivered_to_complexIII")

@@ -7,8 +7,8 @@ var locked: bool = false #Corner Pressure from Belial
 var hion_scene = load("res://scenes/unguidedHion.tscn")
 var electron_scene = load("res://scenes/electron.tscn")
 var rng = RandomNumberGenerator.new() # used for random hion positions when they spawn
-var hion_complexI_spawn = Rect2(Vector2(150, 820), Vector2(100, 100)) # location boxes for spawning hion
-var hion_complexII_spawn = Rect2(Vector2(570, 820), Vector2(100, 100))
+signal nadh_in_complexI
+signal fadh2_in_complexII
 
 func _ready():
 	add_to_group("draggable")
@@ -93,43 +93,24 @@ func inTargetAreaCheck() -> void:
 	var dragging_type = get_dragging_type()
 	var current_instance = $CollisionShape2D.get_parent().get_parent()
 	if dragging_type == "NADH":
-		for area in get_tree().get_nodes_in_group("proteinComplexI"):
+		var proteinComplexI = get_tree().get_nodes_in_group("proteinComplexI")
+		for area in proteinComplexI:
 			if area.overlaps_area(self): #Return XYZ when correct
-				print("correct match protein complexI")
-				for i in range(2):
-					electron_spawn($CollisionShape2D)
-				hion_spawn(hion_complexI_spawn)
-				
-				current_instance.free()
-				return
+				if area.on_cooldown:
+					print("Complex I is on cooldown. NADH not accepted.")
+				else: 
+					print("correct match protein complexI")
+					emit_signal("nadh_in_complexI", current_instance)
+					current_instance.free()
+					return
 				
 	elif dragging_type == "FADH2":
 		for area in get_tree().get_nodes_in_group("proteinComplexII"):
 			if area.overlaps_area(self): #Return XYZ when correct
-				print("correct match protein complexII")
-				for i in range(2):
-					electron_spawn($CollisionShape2D)
-				hion_spawn(hion_complexII_spawn)
-				
-				current_instance.free()
-				return
-
- #Function to spawn an object within the spawn box
-@warning_ignore("shadowed_variable")
-func hion_spawn(hion_sbox: Rect2) -> void:
-	print('hion spawned')
-	var spawn_position = Vector2(
-		rng.randf_range(hion_sbox.position.x, hion_sbox.position.x + hion_sbox.size.x),
-		rng.randf_range(hion_sbox.position.y, hion_sbox.position.y + hion_sbox.size.y)
-	)
-	# Instantiate your object and set its position
-	var object_instance = hion_scene.instantiate()
-	object_instance.position = spawn_position
-	get_tree().root.add_child(object_instance)
-
-func electron_spawn(protein_complex: CollisionShape2D) -> void:
-	var parent_node = protein_complex.get_parent()
-	var spawn_position = parent_node.get_global_position()
-	var object_instance = electron_scene.instantiate()
-	object_instance.position = spawn_position
-	get_tree().root.add_child(object_instance)
+				if area.on_cooldown:
+					print("Complex II is on cooldown. FADH2 not accepted.")
+				else: 
+					print("correct match protein complexII")
+					emit_signal("fadh2_in_complexII", current_instance)
+					current_instance.free()
+					return

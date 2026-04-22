@@ -1,9 +1,11 @@
-[gd_scene format=3 uid="uid://bocxsb0hq60gu"]
+[gd_scene format=4 uid="uid://bocxsb0hq60gu"]
 
 [ext_resource type="Texture2D" uid="uid://3a2dl5nkqccg" path="res://assets/art/bkgrnd1.png" id="1_4cvqq"]
 [ext_resource type="Script" uid="uid://dlxn2jcbib2ai" path="res://scripts/unguidedMode.gd" id="1_jltc1"]
 [ext_resource type="Texture2D" uid="uid://bislb0op82f72" path="res://assets/art/bkgrnd-Sheet.png" id="2_0wk7v"]
 [ext_resource type="FontFile" uid="uid://be215ewpt8022" path="res://assets/fonts/PressStart2P-vaV7.ttf" id="4_4htyk"]
+[ext_resource type="Texture2D" uid="uid://cxm3nb6sldmd3" path="res://assets/art/lipid_tiles_big.png" id="4_g12j1"]
+[ext_resource type="Texture2D" uid="uid://ddekkv0w4h8j8" path="res://assets/art/lipid_tiles_big_flipped.png" id="5_kwbdl"]
 [ext_resource type="Texture2D" uid="uid://drehngs86y2bp" path="res://assets/art/inmembranewallround.png" id="5_q87lr"]
 [ext_resource type="Texture2D" uid="uid://dck6d35s4c2sm" path="res://assets/art/miti.png" id="7_anx1e"]
 [ext_resource type="Script" uid="uid://bipgwfoiae42y" path="res://scripts/protein_complex_i.gd" id="8_5eevf"]
@@ -21,10 +23,7 @@
 [ext_resource type="Script" uid="uid://00x46ny2qggr" path="res://scripts/co_q_10.gd" id="18_sl3fg"]
 [ext_resource type="Script" uid="uid://bw3n4fi2nfu76" path="res://scripts/unguidedDragScript.gd" id="19_1d7rx"]
 [ext_resource type="Texture2D" uid="uid://cjtt46jauj4ph" path="res://assets/art/Complex4_text.png" id="19_hkww1"]
-[ext_resource type="PackedScene" uid="uid://byjpevd2lsa3q" path="res://scenes/nadh.tscn" id="20_8186m"]
 [ext_resource type="Texture2D" uid="uid://dyi8kq72hyq1q" path="res://assets/art/cq_text.png" id="21_0vjd4"]
-[ext_resource type="PackedScene" uid="uid://weux2naatqew" path="res://scenes/fadh2.tscn" id="21_q48iu"]
-[ext_resource type="PackedScene" uid="uid://daymmjbrc1fl3" path="res://scenes/unguidedHion.tscn" id="24_vniem"]
 [ext_resource type="StyleBox" uid="uid://dyqk1y387jthj" path="res://assets/art/hoverButton.tres" id="26_mn814"]
 [ext_resource type="StyleBox" uid="uid://ctcomgtmjcv4r" path="res://assets/art/pressedButton.tres" id="27_yrn2v"]
 [ext_resource type="StyleBox" uid="uid://c1itffj143mgb" path="res://assets/art/Button.tres" id="28_bhg2r"]
@@ -66,6 +65,43 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pbruv"]
+size = Vector2(1920, 296)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m8lxy"]
+texture = ExtResource("4_g12j1")
+texture_region_size = Vector2i(120, 60)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yo544"]
+texture = ExtResource("5_kwbdl")
+texture_region_size = Vector2i(120, 60)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_qvqk5"]
+sources/0 = SubResource("TileSetAtlasSource_m8lxy")
+sources/2 = SubResource("TileSetAtlasSource_yo544")
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_126kl"]
 radius = 86.0
 height = 186.0
@@ -86,9 +122,6 @@ height = 208.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yi87a"]
 size = Vector2(155, 170)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pbruv"]
-size = Vector2(1920, 296)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7lmhq"]
 bg_color = Color(0, 0.290196, 0.678431, 1)
@@ -179,11 +212,25 @@ position = Vector2(957, 433)
 scale = Vector2(6.0625, 1.71875)
 texture = ExtResource("5_q87lr")
 
+[node name="IntermembraneSpace" type="Area2D" parent="." unique_id=180795912]
+position = Vector2(760, 512)
+script = ExtResource("15_cllvv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IntermembraneSpace" unique_id=1160614834]
+position = Vector2(200, 36)
+shape = SubResource("RectangleShape2D_pbruv")
+
 [node name="MitochondrialMatrix" type="Sprite2D" parent="." unique_id=1129011334]
 position = Vector2(963.127, 905.656)
 rotation = -3.14599
 scale = Vector2(6.09202, 1.31214)
 texture = ExtResource("7_anx1e")
+
+[node name="SmallLipidTileLayer" type="TileMapLayer" parent="." unique_id=354261070]
+position = Vector2(0, 466)
+scale = Vector2(0.5, 0.5)
+tile_map_data = PackedByteArray("AAADAB8AAAAAAAAAAAALAB8AAAAAAAAAAAATAB8AAAAAAAAAAAAaAB8AAAAAAAAAAAAiAB8AAAAAAAAAAAAqAB8AAAAAAAAAAAAxAB8AAAAAAAAAAAA5AB8AAAAAAAAAAABBAB8AAAAAAAAAAABJAB8AAAAAAAAAAABQAB8AAAAAAAAAAABYAB8AAAAAAAAAAAB0AB8AAAAAAAAAAABtAB8AAAAAAAAAAABnAB8AAAAAAAAAAABhAB8AAAAAAAAAAAADABsAAgAAAAAAAAALABsAAgAAAAAAAAATABsAAgAAAAAAAAAcABsAAgAAAAAAAAAtABsAAgAAAAAAAAA0ABsAAgAAAAAAAAA9ABsAAgAAAAAAAABCABsAAgAAAAAAAABJABsAAgAAAAAAAABRABsAAgAAAAAAAABYABsAAgAAAAAAAABfABsAAgAAAAAAAABnABsAAgAAAAAAAABvABsAAgAAAAAAAAB0ABsAAgAAAAAAAAB7ABsAAgAAAAAAAACCABsAAgAAAAAAAACJABsAAgAAAAAAAACQABsAAgAAAAAAAACXABsAAgAAAAAAAACeABsAAgAAAAAAAAClABsAAgAAAAAAAACsABsAAgAAAAAAAACzABsAAgAAAAAAAAC6ABsAAgAAAAAAAADBABsAAgAAAAAAAADIABsAAgAAAAAAAADPABsAAgAAAAAAAADWABsAAgAAAAAAAADdABsAAgAAAAAAAADkABsAAgAAAAAAAADrABsAAgAAAAAAAADyABsAAgAAAAAAAAD8/xsAAgAAAAAAAAAlABsAAgAAAAAAAAB7AB8AAAAAAAAAAACCAB8AAAAAAAAAAACJAB8AAAAAAAAAAACQAB8AAAAAAAAAAACXAB8AAAAAAAAAAACeAB8AAAAAAAAAAAClAB8AAAAAAAAAAACsAB8AAAAAAAAAAACzAB8AAAAAAAAAAAC6AB8AAAAAAAAAAADCAB8AAAAAAAAAAADJAB8AAAAAAAAAAADQAB8AAAAAAAAAAADYAB8AAAAAAAAAAADfAB8AAAAAAAAAAADmAB8AAAAAAAAAAADtAB8AAAAAAAAAAAD8/x8AAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_qvqk5")
 
 [node name="ProteinComplexI" type="Area2D" parent="." unique_id=1666324580]
 position = Vector2(192, 696)
@@ -298,44 +345,6 @@ shape = SubResource("CircleShape2D_ymtas")
 scale = Vector2(0.375, 0.55)
 texture = ExtResource("21_0vjd4")
 
-[node name="Nadh" parent="." unique_id=1365938998 instance=ExtResource("20_8186m")]
-position = Vector2(224, 880)
-
-[node name="Fadh2" parent="." unique_id=289301585 instance=ExtResource("21_q48iu")]
-position = Vector2(488, 880)
-
-[node name="IntermembraneSpace" type="Area2D" parent="." unique_id=180795912]
-position = Vector2(760, 512)
-script = ExtResource("15_cllvv")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="IntermembraneSpace" unique_id=1160614834]
-position = Vector2(200, 36)
-shape = SubResource("RectangleShape2D_pbruv")
-
-[node name="UnguidedHion" parent="." unique_id=677328405 instance=ExtResource("24_vniem")]
-position = Vector2(696, 872)
-
-[node name="UnguidedHion2" parent="." unique_id=668826597 instance=ExtResource("24_vniem")]
-position = Vector2(616, 800)
-
-[node name="UnguidedHion3" parent="." unique_id=1441751106 instance=ExtResource("24_vniem")]
-position = Vector2(592, 896)
-
-[node name="UnguidedHion4" parent="." unique_id=896328148 instance=ExtResource("24_vniem")]
-position = Vector2(560, 824)
-
-[node name="UnguidedHion5" parent="." unique_id=1118447812 instance=ExtResource("24_vniem")]
-position = Vector2(40, 816)
-
-[node name="UnguidedHion6" parent="." unique_id=761283171 instance=ExtResource("24_vniem")]
-position = Vector2(80, 736)
-
-[node name="UnguidedHion7" parent="." unique_id=337265066 instance=ExtResource("24_vniem")]
-position = Vector2(136, 872)
-
-[node name="UnguidedHion8" parent="." unique_id=866949828 instance=ExtResource("24_vniem")]
-position = Vector2(296, 800)
-
 [node name="YouLose" type="Control" parent="." unique_id=1104809810]
 visible = false
 layout_mode = 3
@@ -430,6 +439,16 @@ theme_override_fonts/font = ExtResource("4_4htyk")
 theme_override_font_sizes/font_size = 100
 text = "hi
 "
+
+[node name="ButtonMessage" type="Label" parent="." unique_id=201254294]
+visible = false
+offset_left = 61.0
+offset_top = 414.0
+offset_right = 898.0
+offset_bottom = 536.0
+theme_override_font_sizes/font_size = 60
+text = "You already have that"
+horizontal_alignment = 1
 
 [connection signal="timeout" from="nadh_timer" to="." method="_on_nadh_timer_timeout"]
 [connection signal="timeout" from="fadh2_timer" to="." method="_on_fadh2_timer_timeout"]

@@ -16,10 +16,11 @@ func _ready() -> void:
 	connect("area_exited", Callable(self, "_on_area_exited"))
 
 func _process(delta):
-	if on_cooldown:
-		time_left -= delta
-		if time_left <= 0:
+	if on_cooldown: # If the protein is currently on cooldown, update the timer
+		time_left -= delta  # Reduce the remaining cooldown time
+		if time_left <= 0:  # When cooldown reaches zero or below, end the cooldown
 			on_cooldown = false
+			modulate = Color (1,1,1,1) # Fade back in
 			print("Protein Complex I cooldown finished")
 
 
@@ -41,12 +42,8 @@ func _check_trigger() -> void:
 		_start_cooldown()
 
 func _start_cooldown():
-	on_cooldown = true
-	time_left = cooldown_time
+	on_cooldown = true  # Mark that the protein is now on cooldown
+	time_left = cooldown_time # Reset the cooldown timer to the full cooldown durationn
 	# Fade out to show cooldown
 	modulate = Color(1, 1, 1, 0.4)
-	print("Protein Complex I on cooldown for", cooldown_time, "seconds")
-	if time_left <= 0:
-		on_cooldown = false
-		modulate = Color(1, 1, 1, 1) # restore full opacity
-		print("Cooldown finished")
+	print("Protein Complex I on cooldown for ", cooldown_time, " seconds")

@@ -2,8 +2,24 @@ extends Node2D
 
 var nadh_scene = preload("res://scenes/nadh.tscn") # preload the scene
 var fadh2_scene = preload("res://scenes/fadh2.tscn")
+var hion_scene = load("res://scenes/unguidedHion.tscn")
+var electron_scene = load("res://scenes/electron.tscn")
+var hion_complexI_spawn = Rect2(Vector2(50, 800), Vector2(300, 100)) # location boxes for spawning hion
+var hion_complexII_spawn = Rect2(Vector2(300, 820), Vector2(300, 100))
+# previous positions of initial hions
+'''
+var initial_hion_spawn_locations = [
+	Vector2(40,816), Vector2(80,736), Vector2(136,872), Vector2(296,800),
+	Vector2(696,872), Vector2(616,800), Vector2(592,896), Vector2(560,824)
+	]
+'''
 var rng = RandomNumberGenerator.new() # used for random hion positions when they spawn
-var fadh2_nadh_spawn = Rect2(Vector2(50, 828), Vector2(900, 70)) # location boxes for spawning hion
+
+var nadhButtonEnabled: bool = false
+var fadh2ButtonEnabled: bool = false
+
+var complexI_hions: Array
+var complexII_hions: Array
 
 var atp_made_count: int = 0
 
@@ -16,22 +32,40 @@ var elapsed_time=0
 var game_ended = false
 
 @onready var countdown_label = $Countdown
+@onready var button_timer: Timer = Timer.new()
 
 func _ready():
 	Globals.score = 5
 	randomize() # seed the random number generator
+	# add ATP signals
 	$ProteinComplexI.addATP.connect(_new_ATP)
 	$ProteinComplexII.addATP.connect(_new_ATP)
 	$CoQ10/TrackingArea2D.addATP.connect(_new_ATP)  # ATP generation for this is currently disabled.  Enable in co_q_10.gd
 	$ProteinComplexIII.addATP.connect(_new_ATP)
-	$ProteinComplexIV.addATP.connect(_new_ATP)
+	$ProteinComplexIV.addATP.connect(_on_pc4_ATP)
 	$ATPSyn.addATP.connect(_new_ATP)
+	# dynamically spawn initial hions to ensure consistency
+	complexI_hions = complex_hion_spawn(hion_complexI_spawn)
+	complexII_hions = complex_hion_spawn(hion_complexII_spawn)
+	# create initial nadh and fadh2 scenes via spawn to streamline functionality
+	# electron/hion movement signals are attached at each spawn
+	nadh_spawn() 
+	fadh2_spawn()
+	# attach electron/hion movement signals to the rest of the processes
+	$CoQ10/TrackingArea2D.electrons_delivered_to_complexIII.connect(_coQ10_to_complexIII)
+	$CytochromeC/TrackingArea2D.electrons_delivered_to_complexIV.connect(_cytochrome_c_to_complexIV)
+	# start the game after 3 second countdown
 	get_tree().paused = true
 	for i in range(3, 0, -1):
 		countdown_label.text = str(i)
 		await get_tree().create_timer(1.0).timeout
 	get_tree().paused = false
 	countdown_label.visible = false
+	# add timer for buttons
+	add_child(button_timer)
+	button_timer.one_shot = true
+	button_timer.autostart = false
+	button_timer.timeout.connect(_on_button_timer_timeout)
 	
 func _process(delta: float) -> void:
 	if game_ended:
@@ -54,6 +88,7 @@ func nadh_spawn():
 	var spawn_position = Vector2(200, 900)  # create the coordinate
 	
 	var object_instance = nadh_scene.instantiate() # instantiate the instance of the nadh
+	object_instance.get_node("Area2D").nadh_in_complexI.connect(_complex_I_to_coQ10) # connect drag script signal
 	object_instance.position = spawn_position          # set its position
 	get_tree().root.get_node("UnguidedMode").add_child(object_instance)       # add it to scene tree
 
@@ -62,14 +97,38 @@ func fadh2_spawn():
 	var spawn_position = Vector2(500, 900)  # create the coordinate
 	
 	var object_instance = fadh2_scene.instantiate() # instantiate the instance of the fadh2
+	object_instance.get_node("Area2D").fadh2_in_complexII.connect(_complex_II_to_coQ10) # connect drag script signal
 	object_instance.position = spawn_position          # set its position
 	get_tree().root.get_node("UnguidedMode").add_child(object_instance)   
-	
-func _on_nadh_timer_timeout() -> void:
-	pass
 
-func _on_fadh2_timer_timeout() -> void:
-	pass
+func electron_spawn(protein_complex: CollisionShape2D):
+	var parent_node = protein_complex.get_parent()
+	var spawn_position = parent_node.get_global_position()
+	var object_instance = electron_scene.instantiate()
+	object_instance.position = spawn_position
+	add_child(object_instance)
+	return object_instance
+
+ #Function to spawn an object within the spawn box
+@warning_ignore("shadowed_variable")
+func hion_spawn(hion_sbox: Rect2):
+	print('hion spawned')
+	var spawn_position = Vector2(
+		rng.randf_range(hion_sbox.position.x, hion_sbox.position.x + hion_sbox.size.x),
+		rng.randf_range(hion_sbox.position.y, hion_sbox.position.y + hion_sbox.size.y)
+	)
+	# Instantiate your object and set its position
+	var object_instance = hion_scene.instantiate()
+	object_instance.name = "UnguidedHion"
+	object_instance.position = spawn_position
+	get_tree().root.get_node("UnguidedMode").add_child(object_instance) 
+	return object_instance
+
+func complex_hion_spawn(spawn_box):
+	var hions: Array
+	for i in range(4):
+		hions.append(hion_spawn(spawn_box))
+	return hions
 	
 func _on_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/modeSelection.tscn")
@@ -79,17 +138,131 @@ func end_game():
 	$YouLose.visible = true
 	Globals.score=0
 
-
 func _on_nadh_button_pressed() -> void:
-	nadh_spawn()
+	if nadhButtonEnabled:
+		nadhButtonEnabled = false
+		nadh_spawn()
+	else:
+		$ButtonMessage.text = "You already have NADH"
+		$ButtonMessage.visible = true
+		button_timer.wait_time = 1.0
+		button_timer.start()
 
 func _on_fadh_2_button_pressed() -> void:
-	fadh2_spawn()
+	if fadh2ButtonEnabled:
+		fadh2ButtonEnabled = false
+		fadh2_spawn()
+	else:
+		$ButtonMessage.text = "You already have FADH2"
+		$ButtonMessage.visible = true
+		button_timer.wait_time = 1.0
+		button_timer.start()
+	
+func _on_button_timer_timeout() -> void:
+	$ButtonMessage.visible = false
+	$ButtonMessage.text = "You already have that" # reset to generic text to handle and test edge cases
 	
 func _new_ATP(amount):
 	$ATPProgressBar.value += amount
 	if $ATPProgressBar.value >= 100:
+		# Checks to make sure the scene is loaded; Doesn't try to do mess with the root if it isn't
+		if not is_inside_tree():
+			return
 		var main = get_tree().root.get_node("UnguidedMode")
 		var elapsed_time = main.elapsed_time
 		Globals.score = round(100*total_time-elapsed_time)
 		get_tree().change_scene_to_file("res://scenes/UnguidedVictory.tscn")
+
+func _complex_I_to_coQ10(current_instance):
+	nadhButtonEnabled = true
+	complex_I_or_II_to_coQ10(current_instance, $ProteinComplexI)
+	
+func _complex_II_to_coQ10(current_instance):
+	fadh2ButtonEnabled = true
+	complex_I_or_II_to_coQ10(current_instance, $ProteinComplexII)
+
+func complex_I_or_II_to_coQ10(current_instance, complex):
+	var collision_shape = current_instance.get_node("Area2D/CollisionShape2D")
+	var electron_1 = electron_spawn(collision_shape)
+	var electron_2 = electron_spawn(collision_shape)
+	var e_tween = create_tween()
+	e_tween.tween_property(electron_1, "position", $CoQ10.get_global_position(), 1)
+	e_tween.tween_property(electron_2, "position", $CoQ10.get_global_position(), 1)
+	var hions: Array
+	if complex == $ProteinComplexI:
+		hions = complex_hion_spawn(hion_complexI_spawn)
+	elif complex == $ProteinComplexII:
+		hions = complex_hion_spawn(hion_complexII_spawn)
+	var tweens: Array
+	for i in range(4):
+		tweens.append(create_tween())
+	var complex_pos
+	if complex == $ProteinComplexI:
+		complex_pos = complex.get_global_position()
+		for i in range(4):
+			var x_pos_1 = complex_pos.x + ((randi() % 20) - 10)
+			var y_pos_1 = complex_pos.y + ((randi() % 20) - 10)
+			tweens[i].tween_property(hions[i], "position", Vector2(x_pos_1, y_pos_1), 0.8)
+			var x_pos_2 = x_pos_1 + ((randi() % 60) - 30)
+			var y_pos_2 = y_pos_1 + ((randi() % 60) - 30) - 150
+			tweens[i].tween_property(hions[i], "position", Vector2(x_pos_2, y_pos_2), 0.8)
+	elif complex == $ProteinComplexII:
+		complex_pos = $ProteinComplexIII.get_global_position()
+		for i in range(4):
+			var x_pos = complex_pos.x + ((randi() % 60) - 30)
+			var y_pos = complex_pos.y + ((randi() % 60) - 30) + 150
+			tweens[i].tween_property(hions[i], "position", Vector2(x_pos, y_pos), 1.2)
+
+func _coQ10_to_complexIII():
+	coQ10_or_cytochrome_c_to_complex($ProteinComplexIII, 4)
+		
+func _cytochrome_c_to_complexIV():
+	coQ10_or_cytochrome_c_to_complex($ProteinComplexIV, 2)
+
+func coQ10_or_cytochrome_c_to_complex(complex, num):
+	var complex_pos = complex.get_global_position()
+	var lipid_threshold = 696
+	var hions = get_nearest_instances(complex, "res://scenes/unguidedHion.tscn", num, lipid_threshold)
+	var tweens: Array
+	for i in range(hions.size()):
+		tweens.append(create_tween())
+		var x_pos_1 = complex_pos.x
+		var y_pos_1 = complex_pos.y + 100
+		tweens[i].tween_property(hions[i], "position", Vector2(x_pos_1, y_pos_1), 0.5)
+		var x_pos_2 = complex_pos.x + ((randi() % 60) - 30)
+		var y_pos_2 = complex_pos.y + ((randi() % 60) - 30) - 150
+		tweens[i].tween_property(hions[i], "position", Vector2(x_pos_2, y_pos_2), 1)
+
+func find_scene_instances(node: Node, scene_path: String, result: Array, y_threshold: float) -> void:
+	# Check if this node is an instance of the target scene
+	if node.scene_file_path == scene_path:
+		# Only add if below the lipid layer
+		if node.global_position.y > y_threshold:
+			result.append(node)
+	
+	# Recursively check children
+	for child in node.get_children():
+		find_scene_instances(child, scene_path, result, y_threshold)
+
+func get_nearest_instances(target_node: Node, scene_path: String, num: int, y_threshold: float):
+	var instances: Array
+	var root = get_tree().root
+	find_scene_instances(root, scene_path, instances, y_threshold)
+	var distances: Array
+	for instance in instances:
+		var distance = target_node.global_position.distance_to(instance.global_position)
+		distances.append({"node": instance, "distance": distance})
+	distances.sort_custom(func(a,b): return a["distance"] < b["distance"])
+	var selected_instances: Array
+	var return_array_size: int
+	if distances.size() < num:
+		return_array_size = distances.size()
+	else:
+		return_array_size = num
+	for i in range(return_array_size):
+		selected_instances.append(distances[i]["node"])
+	return selected_instances
+	
+func _on_pc4_ATP(amount):
+	_new_ATP(amount)  # still add ATP normally
+	$ATPSyn/AnimationPlayer.play("activate")  # play the animation

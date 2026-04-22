@@ -40,4 +40,9 @@ func oxygen_spawn(oxygen_sbox: Rect2) -> void:
 	# Instantiate your object and set its position
 	var object_instance = oxygen_scene.instantiate()
 	object_instance.position = spawn_position
-	get_tree().root.call_deferred("add_child", object_instance)
+
+	# Additional safety check to make sure the scene isn't trying to spawn oxygen after scene changes
+	if not is_inside_tree():
+		return
+	
+	call_deferred("add_child", object_instance)

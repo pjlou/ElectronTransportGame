@@ -270,6 +270,15 @@ func change_correct_answer(index):
 			btn.add_theme_stylebox_override("hover", hover_style)
 			btn.add_theme_color_override("font_hover_color", default_hover_font_color)
 
+func new_card_changed():
+	if flashcards[current_index]["question"] == "New Question" and \
+	flashcards[current_index]["choices"][0] == "Correct" and \
+	 flashcards[current_index]["choices"][1] == "Wrong1" and \
+	flashcards[current_index]["choices"][2] == "Wrong2" and \
+	flashcards[current_index]["choices"][3] == "Wrong3":
+		return false
+	return true
+
 func add_new_card():
 	var new_flashcard =  {
 	"id": flashcards.size() + 1,
@@ -286,11 +295,7 @@ func add_new_card():
 	show_flashcard(current_index)
 	
 func _on_new_pressed() -> void:
-	if flashcards[current_index]["question"] == "New Question" and \
-	flashcards[current_index]["choices"][0] == "Correct" and \
-	 flashcards[current_index]["choices"][1] == "Wrong1" and \
-	flashcards[current_index]["choices"][2] == "Wrong2" and \
-	flashcards[current_index]["choices"][3] == "Wrong3":
+	if not new_card_changed():
 		print("Last new card was not changed.  No new card added.")
 		return
 	else:
