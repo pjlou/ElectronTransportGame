@@ -30,6 +30,7 @@ func _check_trigger() -> void:
 		oxygen_spawn(oxygen_sbox)
 		print("Event triggered! Enough items are inside protein complex IV.")
 		emit_signal("addATP", 5)
+		
 
 @warning_ignore("shadowed_variable")
 func oxygen_spawn(oxygen_sbox: Rect2) -> void:

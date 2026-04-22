@@ -12,6 +12,7 @@ var rng = RandomNumberGenerator.new()
 func _ready() -> void:
 	connect("area_entered", Callable(self, "_on_area_entered"))
 	connect("area_exited", Callable(self, "_on_area_exited"))
+	$Sprite2D2.visible = false
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("unguidedHion") or area.get_parent().is_in_group("unguidedHion") and area not in hions_inside:

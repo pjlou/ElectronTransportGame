@@ -23,6 +23,7 @@
 [ext_resource type="Script" uid="uid://00x46ny2qggr" path="res://scripts/co_q_10.gd" id="18_sl3fg"]
 [ext_resource type="Script" uid="uid://bw3n4fi2nfu76" path="res://scripts/unguidedDragScript.gd" id="19_1d7rx"]
 [ext_resource type="Texture2D" uid="uid://cjtt46jauj4ph" path="res://assets/art/Complex4_text.png" id="19_hkww1"]
+[ext_resource type="Texture2D" uid="uid://wrhj7mp8n5ge" path="res://assets/art/atp.png" id="20_g12j1"]
 [ext_resource type="Texture2D" uid="uid://dyi8kq72hyq1q" path="res://assets/art/cq_text.png" id="21_0vjd4"]
 [ext_resource type="StyleBox" uid="uid://dyqk1y387jthj" path="res://assets/art/hoverButton.tres" id="26_mn814"]
 [ext_resource type="StyleBox" uid="uid://ctcomgtmjcv4r" path="res://assets/art/pressedButton.tres" id="27_yrn2v"]
@@ -300,6 +301,9 @@ shape = SubResource("CapsuleShape2D_27mu5")
 position = Vector2(-7, -16.0001)
 scale = Vector2(0.70625, 0.7)
 texture = ExtResource("17_qvqk5")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ATPSyn" unique_id=1085205969]
+texture = ExtResource("20_g12j1")
 
 [node name="ProteinComplexIV" type="Area2D" parent="." unique_id=1644709805]
 position = Vector2(1272, 688)

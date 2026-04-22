@@ -42,7 +42,7 @@ func _ready():
 	$ProteinComplexII.addATP.connect(_new_ATP)
 	$CoQ10/TrackingArea2D.addATP.connect(_new_ATP)  # ATP generation for this is currently disabled.  Enable in co_q_10.gd
 	$ProteinComplexIII.addATP.connect(_new_ATP)
-	$ProteinComplexIV.addATP.connect(_on_pc4_ATP)
+	$ProteinComplexIV.addATP.connect(_new_ATP)
 	$ATPSyn.addATP.connect(_new_ATP)
 	# dynamically spawn initial hions to ensure consistency
 	complexI_hions = complex_hion_spawn(hion_complexI_spawn)
@@ -166,12 +166,23 @@ func _new_ATP(amount):
 	$ATPProgressBar.value += amount
 	if $ATPProgressBar.value >= 100:
 		# Checks to make sure the scene is loaded; Doesn't try to do mess with the root if it isn't
-		if not is_inside_tree():
+		if not is_inside_tree() or get_tree() == null:
 			return
+		# Show ATP PNG on ATPSyn
+		$ATPSyn/Sprite2D2.visible = true
+		# Make it pop in
+		var tween = create_tween()
+		$ATPSyn/Sprite2D2.scale = Vector2(0, 0)
+		tween.tween_property($ATPSyn/Sprite2D2, "scale", Vector2(1, 1), 0.3).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+		# Calculate score
 		var main = get_tree().root.get_node("UnguidedMode")
 		var elapsed_time = main.elapsed_time
 		Globals.score = round(100*total_time-elapsed_time)
-		get_tree().change_scene_to_file("res://scenes/UnguidedVictory.tscn")
+		# Wait before switching scenes
+		await get_tree().create_timer(5.0).timeout
+		# Switch to Victory Scene
+		if get_tree() != null:
+			get_tree().change_scene_to_file("res://scenes/UnguidedVictory.tscn")
 
 func _complex_I_to_coQ10(current_instance):
 	nadhButtonEnabled = true
@@ -263,6 +274,3 @@ func get_nearest_instances(target_node: Node, scene_path: String, num: int, y_th
 		selected_instances.append(distances[i]["node"])
 	return selected_instances
 	
-func _on_pc4_ATP(amount):
-	_new_ATP(amount)  # still add ATP normally
-	$ATPSyn/AnimationPlayer.play("activate")  # play the animation
