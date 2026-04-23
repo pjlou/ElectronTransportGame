@@ -309,5 +309,8 @@ func _on_delete_pressed() -> void:
 		flashcards[i]["id"] -= 1
 	if current_index >= flashcards.size():
 		current_index -= 1
+	# check for empty set
+	if flashcards.size() == 0:
+		add_new_card()
 	save_card_data(flashcards[current_index])
 	show_flashcard(current_index)

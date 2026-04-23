@@ -16,6 +16,18 @@ var defaultQuestionsDir = "user://questions.json"
 var customQuestionsDir = "user://customquestions.json"
 var settingsDir = "user://flashcardsettings.json"
 
+func _ready():
+	# allow user to replace default questions and related files
+	var userDefinedDefaultQuestions = "res://questions.json"
+	var userDefinedCustomQuestions = "res://customquestions.json"
+	var userDefinedSettings = "res://flashcardsettings.json"
+	if FileAccess.file_exists(userDefinedDefaultQuestions):
+		defaultQuestionsDir = userDefinedDefaultQuestions
+	if FileAccess.file_exists(userDefinedCustomQuestions):
+		customQuestionsDir = userDefinedCustomQuestions
+	if FileAccess.file_exists(userDefinedSettings):
+		settingsDir = userDefinedSettings
+
 func preLoad():
 	if FileAccess.file_exists(settingsDir):
 		load_settings(settingsDir)
@@ -110,12 +122,12 @@ func filter_flashcards() -> void:
 		printerr("Flashcard settings error")
 	if not settings.has("isReview"):
 		settings["isReview"] = 0
-	print(settings["isReview"])
 	if settings["isReview"] == 1:
 		var reviewFlashcards: Array = []
 		for card in flashcards:
-			if (Time.get_unix_time_from_datetime_dict(card["nextReview"]) - Time.get_unix_time_from_system()) <= 0:
-				reviewFlashcards.append(card)
+			if not card["isNew"]:
+				if (Time.get_unix_time_from_datetime_dict(card["nextReview"]) - Time.get_unix_time_from_system()) <= 0:
+					reviewFlashcards.append(card)
 		flashcards = reviewFlashcards
 	
 

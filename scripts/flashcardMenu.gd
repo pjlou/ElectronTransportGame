@@ -3,15 +3,12 @@ extends Node2D
 var buttons := []
 var selected_button = null
 var flashcards: Array = []
-var loader = preload("res://scripts/flashcard_loader.gd").new()
-var settingsScript = preload("res://scripts/flashcardSettings.gd").new()
-var settings
+var settingsManager = preload("res://scripts/flashcardSettings.gd").new()
 
 func _ready() -> void:
-	loader.preLoad()
-	settings = loader.get_settings()
-	settings["isReview"] = 1
-	flashcards = loader.get_filtered_flashcards()
+	settingsManager.load_settings()
+	settingsManager.settings["isReview"] = 1
+	flashcards = settingsManager.loader.get_filtered_flashcards()
 	if flashcards.size() == 0:
 		showReviewOption(false)
 		return
@@ -61,10 +58,10 @@ func _on_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/leaderboard.tscn")
 
 func _on_start_button_pressed() -> void:
-	settings["isReview"] = 0
-	var save_file = FileAccess.open(loader.settingsDir, FileAccess.WRITE)
+	settingsManager.settings["isReview"] = 0
+	var save_file = FileAccess.open(settingsManager.loader.settingsDir, FileAccess.WRITE)
 	# JSON provides a static method to serialized JSON string.
-	var json_string = JSON.stringify(settings)
+	var json_string = JSON.stringify(settingsManager.settings)
 	# Store the save dictionary as a new line in the save file.
 	save_file.store_line(json_string)
 	get_tree().change_scene_to_file("res://scenes/flashcardMode.tscn")
@@ -80,10 +77,10 @@ func _on_edit_button_pressed() -> void:
 
 
 func _on_review_button_pressed() -> void:
-	settings["isReview"] = 1
-	var save_file = FileAccess.open(loader.settingsDir, FileAccess.WRITE)
+	settingsManager.settings["isReview"] = 1
+	var save_file = FileAccess.open(settingsManager.loader.settingsDir, FileAccess.WRITE)
 	# JSON provides a static method to serialized JSON string.
-	var json_string = JSON.stringify(settings)
+	var json_string = JSON.stringify(settingsManager.settings)
 	# Store the save dictionary as a new line in the save file.
 	save_file.store_line(json_string)
 	get_tree().change_scene_to_file("res://scenes/flashcardMode.tscn")
