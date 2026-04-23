@@ -78,3 +78,8 @@ func _deliver_to_complex(complex_node: Area2D) -> void:
 	#sprite_node.frame = 0
 	print("Delivered 4 electrons to Complex IV; Cytochrome C empty, lockout 2 s.")
 	emit_signal("electrons_delivered_to_complexIV")
+
+# Resets list of electrons, to call when the game ends.
+# Makes sure that no lingering electrons will carry over when the scene is replayed
+func reset_electrons_list():
+	electrons_inside.clear()

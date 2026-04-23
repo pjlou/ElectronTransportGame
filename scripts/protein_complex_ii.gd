@@ -14,6 +14,9 @@ func _ready() -> void:
 	add_to_group("proteinComplexII")
 	connect("area_entered", Callable(self, "_on_area_entered"))
 	connect("area_exited", Callable(self, "_on_area_exited"))
+	
+	# This is here at ready to make sure nothing is leftover when replaying the gamemode
+	reset_electrons_list()
 
 func _process(delta):
 	if on_cooldown: # If the protein is currently on cooldown, update the timer
@@ -44,3 +47,8 @@ func _start_cooldown():
 	# Fade out to show cooldown
 	modulate = Color(1, 1, 1, 0.4)
 	print("Protein Complex II on cooldown for ", cooldown_time, " seconds")
+
+# Resets list of electrons, to call when the game ends.
+# Makes sure that no lingering electrons will carry over when the scene is replayed
+func reset_electrons_list():
+	electrons_inside.clear()

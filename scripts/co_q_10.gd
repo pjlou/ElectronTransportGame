@@ -1,6 +1,6 @@
 extends Area2D
 
-signal addATP()
+#signal addATP()
 signal electrons_delivered_to_complexIII
 
 @export var required_electron_count := 4
@@ -79,3 +79,8 @@ func _deliver_to_complex(complex_node: Area2D) -> void:
 	print("Delivered 4 electrons … CoQ10 empty, lockout 2s.")
 	print("Delivered 4 electrons to Complex III; CoQ10 is empty again.")
 	emit_signal("electrons_delivered_to_complexIII")
+
+# Resets list of electrons, to call when the game ends.
+# Makes sure that no lingering electrons will carry over when the scene is replayed
+func reset_electrons_list():
+	electrons_inside.clear()

@@ -25,8 +25,11 @@ var atp_made_count: int = 0
 
 var scoreTime=0
 var score=0
-#Change total_time as required
-var total_time=500
+# Change total_time as required
+# ==============================================================================================================
+#						TOTAL TIME
+# ==============================================================================================================
+var total_time=30
 var elapsed_time=0
 
 var game_ended = false
@@ -40,7 +43,7 @@ func _ready():
 	# add ATP signals
 	$ProteinComplexI.addATP.connect(_new_ATP)
 	$ProteinComplexII.addATP.connect(_new_ATP)
-	$CoQ10/TrackingArea2D.addATP.connect(_new_ATP)  # ATP generation for this is currently disabled.  Enable in co_q_10.gd
+	#$CoQ10/TrackingArea2D.addATP.connect(_new_ATP)  # ATP generation for this is currently disabled.  Enable in co_q_10.gd
 	$ProteinComplexIII.addATP.connect(_new_ATP)
 	$ProteinComplexIV.addATP.connect(_new_ATP)
 	$ATPSyn.addATP.connect(_new_ATP)
@@ -70,14 +73,17 @@ func _ready():
 func _process(delta: float) -> void:
 	if game_ended:
 		return
-
+	
+	reset_electron_lists()
+	
 	elapsed_time += delta
 	#Globals.time += delta
 	$Node2D/TimeLabel.text="Time = " + str(round(total_time - elapsed_time))
-
+	
 	#You lose when time runs out
 	if (total_time - elapsed_time) <= 0:
 		$Node2D/TimeLabel.text="Time = 0" 
+		reset_electron_lists()
 		end_game()
 	
 	#Winning occurs in phosphate_tracking.gd
@@ -161,7 +167,10 @@ func _on_fadh_2_button_pressed() -> void:
 func _on_button_timer_timeout() -> void:
 	$ButtonMessage.visible = false
 	$ButtonMessage.text = "You already have that" # reset to generic text to handle and test edge cases
-	
+
+# ================================================================================================================
+#												ATP PROGRESS BAR
+# +++++++++++++++++++++=================================================================================
 func _new_ATP(amount):
 	$ATPProgressBar.value += amount
 	if $ATPProgressBar.value >= 100:
@@ -273,4 +282,11 @@ func get_nearest_instances(target_node: Node, scene_path: String, num: int, y_th
 	for i in range(return_array_size):
 		selected_instances.append(distances[i]["node"])
 	return selected_instances
-	
+	 
+# Helper function to reset the lists of electrons in all the objects that have one
+# ... I don't think this function is working right now, though I can't tell if it's because
+# I got the syntax wrong or it's because I put it in an unfunctional part of the code.
+func reset_electron_lists():
+	for child in get_children():
+		if child.has_method("reset_electrons_list"):
+			child.reset_electrons_list()
