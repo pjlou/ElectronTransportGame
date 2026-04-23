@@ -26,7 +26,7 @@ var atp_made_count: int = 0
 var scoreTime=0
 var score=0
 #Change total_time as required
-var total_time=500
+var total_time=60
 var elapsed_time=0
 
 var game_ended = false
@@ -70,6 +70,9 @@ func _ready():
 func _process(delta: float) -> void:
 	if game_ended:
 		return
+	# go to main menu upon escape key press
+	if Input.is_action_just_pressed("esc"):
+		get_tree().change_scene_to_file("res://scenes/modeSelection.tscn")
 
 	elapsed_time += delta
 	#Globals.time += delta
