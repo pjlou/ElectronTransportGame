@@ -189,7 +189,7 @@ func _new_ATP(amount):
 		var elapsed_time = main.elapsed_time
 		Globals.score = round(100*total_time-elapsed_time)
 		# Wait before switching scenes
-		await get_tree().create_timer(5.0).timeout
+		await get_tree().create_timer(3.0).timeout
 		$CytochromeC/TrackingArea2D.reset_electrons_list()
 		# Switch to Victory Scene
 		if get_tree() != null:
