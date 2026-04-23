@@ -137,6 +137,7 @@ func complex_hion_spawn(spawn_box):
 	return hions
 	
 func _on_button_pressed() -> void:
+	$CytochromeC/TrackingArea2D.reset_electrons_list()
 	get_tree().change_scene_to_file("res://scenes/modeSelection.tscn")
 
 func end_game():
@@ -189,6 +190,7 @@ func _new_ATP(amount):
 		Globals.score = round(100*total_time-elapsed_time)
 		# Wait before switching scenes
 		await get_tree().create_timer(5.0).timeout
+		$CytochromeC/TrackingArea2D.reset_electrons_list()
 		# Switch to Victory Scene
 		if get_tree() != null:
 			get_tree().change_scene_to_file("res://scenes/UnguidedVictory.tscn")
