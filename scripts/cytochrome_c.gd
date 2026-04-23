@@ -4,6 +4,7 @@ signal addATP()
 signal electrons_delivered_to_complexIV
 
 var electrons_inside := []
+var sent_electrons := []
 var loaded := false
 var pickup_allowed := true
 @export var required_electron_count = 4
@@ -69,6 +70,7 @@ func _deliver_to_complex(complex_node: Area2D) -> void:
 		e.position = complex_node.global_position + offset
 		# deferred add so you don’t invalidate the loop
 		get_tree().root.call_deferred("add_child", e)
+		sent_electrons.append(e)
 
 	# 3) Reset state + lockout
 	loaded = false
@@ -78,3 +80,10 @@ func _deliver_to_complex(complex_node: Area2D) -> void:
 	#sprite_node.frame = 0
 	print("Delivered 4 electrons to Complex IV; Cytochrome C empty, lockout 2 s.")
 	emit_signal("electrons_delivered_to_complexIV")
+
+# Resets list of electrons, to call when the game ends.
+# Makes sure that no lingering electrons will carry over when the scene is replayed
+func reset_electrons_list():
+	electrons_inside.clear()
+	for e in sent_electrons:
+		e.queue_free()

@@ -1,9 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://djwraco4dxbp1"]
+[gd_scene format=3 uid="uid://djwraco4dxbp1"]
 
-[ext_resource type="Script" path="res://scripts/oxygen.gd" id="1_k4dgb"]
-[ext_resource type="Script" path="res://scripts/unguidedDragScript.gd" id="2_k5jmp"]
+[ext_resource type="Script" uid="uid://daajgsh4yeieh" path="res://scripts/oxygen.gd" id="1_k4dgb"]
 [ext_resource type="Texture2D" uid="uid://cda1ctqrl0q7f" path="res://assets/art/oxygen-copy-Sheet.png" id="3_elduy"]
-[ext_resource type="Script" path="res://scripts/oxygen_tracking.gd" id="4_j1gqi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_eemw4"]
 radius = 24.0
@@ -37,23 +35,21 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Oxygen" type="Node2D"]
+[node name="Oxygen" type="Node2D" unique_id=1616722348]
 script = ExtResource("1_k4dgb")
 
-[node name="DraggingArea2D" type="Area2D" parent="."]
-script = ExtResource("2_k5jmp")
+[node name="DraggingArea2D" type="Area2D" parent="." unique_id=1436044041]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DraggingArea2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DraggingArea2D" unique_id=235187257]
 shape = SubResource("CircleShape2D_eemw4")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DraggingArea2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DraggingArea2D" unique_id=2041892042]
 sprite_frames = SubResource("SpriteFrames_bppk8")
 animation = &"oxygen_idle"
 autoplay = "oxygen_idle"
 frame_progress = 0.335744
 
-[node name="TrackingArea2D" type="Area2D" parent="DraggingArea2D"]
-script = ExtResource("4_j1gqi")
+[node name="TrackingArea2D" type="Area2D" parent="DraggingArea2D" unique_id=862675296]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DraggingArea2D/TrackingArea2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DraggingArea2D/TrackingArea2D" unique_id=1084697307]
 shape = SubResource("CircleShape2D_eemw4")

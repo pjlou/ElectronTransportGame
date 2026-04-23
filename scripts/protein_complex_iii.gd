@@ -9,6 +9,9 @@ func _ready() -> void:
 	connect("area_entered", Callable(self, "_on_area_entered"))
 	connect("area_exited", Callable(self, "_on_area_exited"))
 	add_to_group("ComplexIII")
+	
+	# This is here at ready to make sure nothing is leftover when replaying the gamemode
+	reset_electrons_list()
 
 func _on_area_entered(area: Area2D) -> void:
 	print(electrons_inside.size())
@@ -23,4 +26,10 @@ func _on_area_exited(area: Area2D) -> void:
 func _check_trigger() -> void:
 	if electrons_inside.size() >= required_electron_count:
 		print("Event triggered! Enough items are inside protein complex III.")
-		emit_signal("addATP", 5)
+		emit_signal("addATP", 4)
+		reset_electrons_list()
+
+# Resets list of electrons, to call when the game ends.
+# Makes sure that no lingering electrons will carry over when the scene is replayed
+func reset_electrons_list():
+	electrons_inside.clear()

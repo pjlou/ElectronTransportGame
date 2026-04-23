@@ -371,6 +371,7 @@ shape = SubResource("CircleShape2D_ymtas")
 
 [node name="YouLose" type="Control" parent="." unique_id=1104809810]
 visible = false
+top_level = true
 layout_mode = 3
 anchors_preset = 0
 offset_left = 420.0
