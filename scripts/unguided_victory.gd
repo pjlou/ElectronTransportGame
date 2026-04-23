@@ -16,7 +16,10 @@ func _on_button_pressed() -> void:
 	if initials.length() > 5:
 		initials = initials.substr(0, 5)  # Cut at 5 characters
 	# Create/open the file for writing
-	var file = FileAccess.open("res://scores/scores.txt", FileAccess.READ_WRITE)
+	var lbpath = "user://scores.txt"
+	if not FileAccess.file_exists(lbpath):
+		FileAccess.open(lbpath,FileAccess.WRITE)
+	var file = FileAccess.open("user://scores.txt", FileAccess.READ_WRITE)
 	if file:
 		file.seek_end()  # Move to end of the file to append
 		var score = Globals.score

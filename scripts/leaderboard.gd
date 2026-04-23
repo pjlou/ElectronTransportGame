@@ -20,14 +20,14 @@ func _on_menu_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/startScreen.tscn")
 
 func output_score():
-	var file = FileAccess.open("res://scores/scores.txt", FileAccess.READ)
+	var file = FileAccess.open("user://scores.txt", FileAccess.READ)
 	var lines: Array = []
 	var user_score = Globals.score
 	yourScore.text=str(round(user_score))
 	 
 func top_scores():
 	#func top_scores():
-	var file = FileAccess.open("res://scores/scores.txt", FileAccess.READ)
+	var file = FileAccess.open("user://scores.txt", FileAccess.READ)
 	var score_entries: Array = []
 
 	if file:
